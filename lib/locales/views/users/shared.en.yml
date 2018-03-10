@@ -1,0 +1,11 @@
+en:
+  views:
+    users:
+      shared:
+        forgot_password: Forgot your password?
+        sign_up_full: Sign up for Twitter
+        sign_up: Sign up
+        sign_in: Sign in
+        sign_in_full: Sign in to Twitter
+        sign_out: Sign out
+        sign_out_full: Sign out

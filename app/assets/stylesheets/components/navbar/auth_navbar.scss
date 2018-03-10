@@ -1,0 +1,18 @@
+.auth-navbar {
+  background-image: $auth-navbar-bg;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: $auth-navbar-padding-y $auth-navbar-padding-x;
+  border-bottom: $auth-navbar-border-width $auth-navbar-border-style
+    $auth-navbar-border-color;
+
+  a {
+    margin: auto;
+
+    i {
+      color: $auth-navbar-icon-color;
+      font-size: $auth-navbar-icon-font-size;
+    }
+  }
+}

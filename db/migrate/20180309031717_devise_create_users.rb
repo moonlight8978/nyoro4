@@ -33,12 +33,14 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       # t.datetime :locked_at
 
       # Information
-      t.string :username
-      t.string :profilename
-      t.date :birthday
-      t.integer :hide_birthday
-      t.string :country
-      t.string :language, default: :en
+      t.string  :username
+      t.string  :profilename
+      t.date    :birthday
+      t.integer :birthday_visibility, default: 0
+      t.string  :country
+      t.string  :language,            default: :en
+      t.string  :theme,               default: :blue
+      t.text    :introduction
 
       t.boolean :banned, default: false
 

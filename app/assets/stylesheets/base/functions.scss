@@ -1,0 +1,3 @@
+@function asset_path($resource) {
+  @return url('/assets/#{$resource}');
+}

@@ -1,0 +1,94 @@
+// Palette
+$gray: #e6ecf0;
+$white: #fff;
+$blue: #1da1f2;
+$red: #c33;
+
+
+// font-weight
+$text-bold: 600;
+
+
+// font-size
+$text-normal: 1rem;
+$text-small: .85rem;
+$text-big: 1.5rem;
+
+// Grid breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+
+// Body
+$body-bg-color: $gray;
+
+
+// Border
+$border-width-primary: 1px;
+$border-color-primary: rgba(0,0,0,0.1);
+$border-style-primary: solid;
+
+$border-color-dark: rgba(0,0,0,0.25);
+
+
+// Auth navbar
+$auth-navbar-padding-y: .75rem;
+$auth-navbar-padding-x: 1rem;
+$auth-navbar-bg: asset_path('nav_gradient_bg.png');
+$auth-navbar-border-width: $border-width-primary;
+$auth-navbar-border-style: $border-style-primary;
+$auth-navbar-border-color: $border-color-dark;
+
+$auth-navbar-icon-color: $white;
+$auth-navbar-icon-font-size: 1.33rem;
+
+
+// Auth page (sign in, sign up, reset password)
+$auth-container-bg-color: $white;
+$widescreen-auth-container-width: 80%;
+
+$auth-form-padding-y: 2rem;
+$auth-form-padding-x: 1rem;
+$widescreen-auth-form-width: 500px;
+
+$auth-header-padding-bottom: 1rem;
+
+
+// Form element
+
+  // label
+$label-font-weight: $text-bold;
+$label-font-size: $text-small;
+
+$label-focus-color: $blue;
+
+  // input
+$input-border-width: 1px;
+$input-border-color: $border-color-primary;
+$input-border-style: $border-style-primary;
+$input-bg-color: $white;
+$input-padding-x: 0;
+$input-padding-y: .5rem;
+$input-border-radius: 0;
+
+$input-border-focus-color: $blue;
+
+  // links
+$form-link-font-size: $text-small;
+$form-link-margin-x: 5px;
+
+  // errors
+$form-errors-color: $red;
+$form-errors-bg: asset_path('error.png');
+$form-errors-padding-left: 16px;
+
+// Button
+$button-edge-border-radius: 100px;
+$button-large-font-size: 1.15rem;
+$button-large-font-weight: $text-bold;
+$button-large-padding-y: .5rem;

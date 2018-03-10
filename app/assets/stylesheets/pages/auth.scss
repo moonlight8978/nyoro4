@@ -1,0 +1,28 @@
+.auth-container {
+  @extend %with-border;
+
+  background-color: $auth-container-bg-color;
+  margin: auto;
+
+  @include responsive(lg) {
+    width: $widescreen-auth-container-width;
+  }
+
+  .auth-header {
+    text-align: center;
+    padding-bottom: $auth-header-padding-bottom;
+
+    @include responsive(md) {
+      text-align: left;
+    }
+  }
+
+  form {
+    padding: $auth-form-padding-y $auth-form-padding-x;
+
+    @include responsive(md) {
+      width: $widescreen-auth-form-width;
+      margin: auto;
+    }
+  }
+}

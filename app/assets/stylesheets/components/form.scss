@@ -1,0 +1,49 @@
+.input-field {
+  position: relative;
+  padding-top: $label-font-size * 1.5;
+
+  label {
+    font-size: $label-font-size;
+    font-weight: $label-font-weight;
+    position: absolute;
+    top: 0;
+
+    @include transition-short(color);
+  }
+
+  .form-control {
+    box-shadow: none;
+    border: 0;
+    border-bottom: $input-border-width $input-border-style $input-border-color;
+    background-color: $input-bg-color;
+    padding: $input-padding-y $input-padding-x;
+    border-radius: $input-border-radius;
+
+    &:focus {
+      border-color: $input-border-focus-color;
+      box-shadow: 0 1px 0 0 $input-border-focus-color;
+    }
+
+    &:focus ~ label {
+      color: $label-focus-color;
+    }
+  }
+}
+
+.form-links {
+  display: flex;
+  justify-content: center;
+
+  a {
+    margin: 0 $form-link-margin-x;
+    font-size: $form-link-font-size;
+  }
+}
+
+.form-errors {
+  background-image: $form-errors-bg;
+  color: $form-errors-color;
+  padding-left: $form-errors-padding-left;
+  background-repeat: no-repeat;
+  background-position: left center;
+}

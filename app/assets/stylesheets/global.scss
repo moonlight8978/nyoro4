@@ -1,0 +1,16 @@
+body {
+  background-color: $body-bg-color;
+}
+
+.page-wrapper {
+  margin-top: 65px;
+  padding: 0;
+
+  @include responsive(sm) {
+    padding: 0 15px;
+  };
+}
+
+// * {
+//   border-radius: 0 !important;
+// }

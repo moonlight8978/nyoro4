@@ -1,0 +1,29 @@
+@mixin responsive($media) {
+  @media (min-width: map-get($grid-breakpoints, $media)) {
+    @content;
+  }
+}
+
+@mixin responsive-px($min-width) {
+  @media (min-width: $min-width) {
+    @content;
+  }
+}
+
+@mixin transition-short($properties) {
+  transition-property: $properties;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
+}
+
+@mixin transition-standard($properties) {
+  transition-property: $properties;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+}
+
+@mixin transition-long($properties) {
+  transition-property: $properties;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+}

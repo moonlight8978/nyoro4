@@ -1,0 +1,10 @@
+en:
+  helpers:
+    label:
+      user:
+        email: Email
+        password: Password
+        remember_me: Remember me
+    submit:
+      user:
+        create: "Create %{model}"

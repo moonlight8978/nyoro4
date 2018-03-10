@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180309031717) do
+ActiveRecord::Schema.define(version: 20180310012004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "user_following_statuses", force: :cascade do |t|
+    t.bigint "following_id"
+    t.bigint "follower_id"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["follower_id", "status"], name: "following_statuses_follower_id_status"
+    t.index ["follower_id"], name: "index_user_following_statuses_on_follower_id"
+    t.index ["following_id", "follower_id"], name: "following_statuses_following_id_follower_id", unique: true
+    t.index ["following_id", "status"], name: "following_statuses_following_id_status"
+    t.index ["following_id"], name: "index_user_following_statuses_on_following_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,9 +42,11 @@ ActiveRecord::Schema.define(version: 20180309031717) do
     t.string "username"
     t.string "profilename"
     t.date "birthday"
-    t.integer "hide_birthday"
+    t.integer "birthday_visibility", default: 0
     t.string "country"
     t.string "language", default: "en"
+    t.string "theme", default: "blue"
+    t.text "introduction"
     t.boolean "banned", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

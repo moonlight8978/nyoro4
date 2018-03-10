@@ -1,0 +1,21 @@
+en:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: Please enter a valid email.
+              taken: This email is already registered.
+              not_found: Email not found
+
+            password:
+              blank: Please enter your password.
+              too_short: Your password must be at least 6 characters.
+
+            password_confirmation:
+              blank: Please confirm your password.
+              confirmation: "Password confirmation and Password must match."
+
+            accept_tos:
+              inclusion: Please accept our TOS.

@@ -12,5 +12,21 @@
  *
  *= require lib
  *= require_self
- * require_tree .
  */
+
+@import "base/functions";
+@import "base/variables";
+@import "base/mixins";
+
+@import "base/extend/border";
+
+@import "components/navbar/auth_navbar";
+@import "components/form";
+@import "components/button";
+
+@import "utils/align";
+@import "utils/text";
+
+@import "pages/auth";
+
+@import "global";
