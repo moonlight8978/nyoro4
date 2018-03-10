@@ -1,0 +1,25 @@
+.navbar {
+  .container {
+    position: relative;
+  }
+
+  .language-dropdown {
+    position: absolute;
+    right: $container-padding-x;
+
+    .dropdown-toggle {
+      @extend %role-button;
+
+      color: $language-dropdown-toggle-color;
+      font-size: $language-dropdown-toggle-font-size;
+
+      &:hover {
+        color: $language-dropdown-toggle-color;
+      }
+    }
+
+    .dropdown-menu {
+      min-width: auto;
+    }
+  }
+}

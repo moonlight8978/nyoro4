@@ -1,3 +1,19 @@
 nav class="navbar auth-navbar fixed-top"
-  a
-    i class="fab fa-twitter"
+  div.container
+    = link_to root_path, class: "logo-link" do
+      i class="fab fa-twitter"
+
+    div class="dropdown language-dropdown"
+      a [id="dropdownMenuButton" data-toggle="dropdown" class="dropdown-toggle"
+         aria-haspopup="true" aria-expanded="false"]
+
+        span> #{t(:language, scope: 'defaults')}:
+        b = current_language
+
+      div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
+        = link_to 'English', request.parameters.merge(locale: :en),
+          class: "dropdown-item"
+        = link_to '日本語', request.parameters.merge(locale: :ja),
+          class: "dropdown-item"
+        = link_to 'Tiếng Việt', request.parameters.merge(locale: :vi),
+          class: "dropdown-item"

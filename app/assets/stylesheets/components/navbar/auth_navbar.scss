@@ -3,11 +3,11 @@
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  padding: $auth-navbar-padding-y $auth-navbar-padding-x;
+  padding: $auth-navbar-padding-y 0;
   border-bottom: $auth-navbar-border-width $auth-navbar-border-style
     $auth-navbar-border-color;
 
-  a {
+  .logo-link {
     margin: auto;
 
     i {

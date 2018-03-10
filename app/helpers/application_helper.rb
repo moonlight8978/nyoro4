@@ -6,9 +6,25 @@ module ApplicationHelper
   end
 
   def flash_errors
-    if flash.any?
-      messages = flash.map { |_name, message| message }
-      content_tag :div, messages.join(". "), class: "form-errors mt-1"
+    if alert
+      content_tag :div, alert, class: "form-errors mt-1"
+    end
+  end
+
+  def flash_info 
+    if notice
+      content_tag :div, notice, class: "alert alert-info", role: "alert"
+    end
+  end
+
+  def current_language
+    case I18n.locale
+    when :en
+      "English"
+    when :ja
+      "日本語"
+    when :vi
+      "Tiếng Việt"
     end
   end
 end

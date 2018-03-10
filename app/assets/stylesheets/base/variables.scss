@@ -26,6 +26,12 @@ $grid-breakpoints: (
 
 // Body
 $body-bg-color: $gray;
+$container-padding-x: 15px;
+
+
+// Page wrapper
+$page-wrapper-margin-top: 68px;
+$page-wrapper-sm-padding-x: 15px;
 
 
 // Border
@@ -38,14 +44,17 @@ $border-color-dark: rgba(0,0,0,0.25);
 
 // Auth navbar
 $auth-navbar-padding-y: .75rem;
-$auth-navbar-padding-x: 1rem;
+// $auth-navbar-padding-x: 1rem;
 $auth-navbar-bg: asset_path('nav_gradient_bg.png');
 $auth-navbar-border-width: $border-width-primary;
 $auth-navbar-border-style: $border-style-primary;
 $auth-navbar-border-color: $border-color-dark;
 
 $auth-navbar-icon-color: $white;
-$auth-navbar-icon-font-size: 1.33rem;
+$auth-navbar-icon-font-size: 1.5rem;
+
+$language-dropdown-toggle-color: $white;
+$language-dropdown-toggle-font-size: $text-small;
 
 
 // Auth page (sign in, sign up, reset password)

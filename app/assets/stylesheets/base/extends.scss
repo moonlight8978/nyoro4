@@ -1,3 +1,7 @@
 %with-border {
   border: $border-width-primary $border-style-primary $border-color-primary;
 }
+
+%role-button {
+  cursor: pointer;
+}

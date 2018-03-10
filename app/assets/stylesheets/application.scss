@@ -18,8 +18,9 @@
 @import "base/variables";
 @import "base/mixins";
 
-@import "base/extend/border";
+@import "base/extends";
 
+@import "components/navbar/default";
 @import "components/navbar/auth_navbar";
 @import "components/form";
 @import "components/button";

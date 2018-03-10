@@ -1,6 +1,8 @@
 = content_for :title
   title = t(:sign_in_full, scope: 'views.users.shared')
 
+= flash_info
+
 div class="auth-wrapper"
   div class="auth-container"
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|

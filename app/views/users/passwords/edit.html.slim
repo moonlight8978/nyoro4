@@ -1,0 +1,31 @@
+= content_for :title
+  title = t(:header, scope: 'views.users.passwords.edit')
+
+div class="auth-wrapper"
+  div class="auth-container"
+
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+      = f.hidden_field :reset_password_token
+
+      h4 = t(:header, scope: 'views.users.passwords.edit')
+
+      div class="form-group input-field"
+        = f.password_field :password, autofocus: true, autocomplete: "off",
+          class: "form-control"
+        = f.label :password, t(:password, scope: 'views.users.passwords.edit.label')
+        small class="form-text text-muted"
+          | #{@minimum_password_length} characters minimum
+
+        = show_errors(resource, :password)
+
+      div class="form-group input-field"
+        = f.password_field :password_confirmation, autocomplete: "off",
+          class: "form-control"
+        = f.label :password_confirmation,
+          t(:password_confirmation, scope: 'views.users.passwords.edit.label')
+
+        = show_errors(resource, :password_confirmation)
+
+      div class="actions"
+      = f.submit t(:submit, scope: 'views.users.passwords.edit'),
+        class: 'btn btn-primary btn-fw btn-edge btn-edge--large'

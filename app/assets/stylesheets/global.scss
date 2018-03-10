@@ -3,11 +3,11 @@ body {
 }
 
 .page-wrapper {
-  margin-top: 65px;
+  margin-top: $page-wrapper-margin-top;
   padding: 0;
 
   @include responsive(sm) {
-    padding: 0 15px;
+    padding: 0 $page-wrapper-sm-padding-x;
   };
 }
 
