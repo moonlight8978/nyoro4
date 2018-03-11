@@ -4,5 +4,17 @@ html
     = render 'layouts/head'
 
   body
-    div.page-wrapper
-      = yield
+    = render 'layouts/application/navbar'
+
+    = yield :header
+
+    div class="page-wrapper container"
+      div.row
+        div class="d-none d-lg-block col-3"
+          = yield :left_panel
+
+        div class="col-md-8 col-lg-6"
+          = yield
+
+        div class="col-md-4 col-lg-3"
+          = yield :right_panel

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  get 'api/index'
+
   get 'home/index'
 
-  get '/:locale', locale: /en|ja/, to: 'home#index'
+  get '/:locale', locale: /en|ja|vi/, to: 'home#index'
   root to: 'home#index'
 
   scope '(:locale)', locale: /en|ja|vi/ do

@@ -1,0 +1,33 @@
+.img-placeholder {
+  position: relative;
+  height: 0;
+
+  &:after {
+    content: '';
+    display: block;
+  }
+}
+
+.img-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  object-fit: contain;
+
+  &.avatar-thumb {
+    border-radius: 50%;
+  }
+}
+
+// ratio
+.ratio-1_1:after { padding-bottom: 100%; }
+
+// sizing
+.avatar-small {
+  width: 32px;
+}
+
+.avatar-medium {
+  width: 48px;
+}

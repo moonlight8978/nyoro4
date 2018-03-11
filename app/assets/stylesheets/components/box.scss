@@ -1,0 +1,32 @@
+.box-fix {
+  margin-bottom: -$box-margin-bottom;
+
+  .box {
+    margin-bottom: $box-margin-bottom;
+    border: $box-border-width $box-border-style $box-border-color;
+  }
+}
+
+.box-item {
+  background-color: $box-item-bg-color;
+  padding: $box-item-padding;
+
+  &:not(:last-child) {
+    border-bottom: $box-item-border-width $box-item-border-style $box-item-border-color;
+  }
+
+  .box-item-header {
+    margin-bottom: $box-item-header-margin-bottom;
+  }
+}
+
+.box-row {
+  &:not(:first-child) {
+    padding-top: $box-row-padding-y;
+  }
+
+  &:not(:last-child) {
+    border-bottom: $box-row-border-width $box-row-border-style $box-row-border-color;
+    padding-bottom: $box-row-padding-y;
+  }
+}

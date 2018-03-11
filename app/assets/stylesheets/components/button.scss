@@ -4,10 +4,11 @@
 
 .btn-edge {
   border-radius: $button-edge-border-radius;
+  padding: $button-edge-padding-y $button-edge-padding-x;
 }
 
 .btn-edge--large {
-  padding: $button-large-padding-y 0;
+  padding: $button-large-padding-y $button-edge-padding-x;
   font-weight: $button-large-font-weight;
   font-size: $button-large-font-size;
 }

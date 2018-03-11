@@ -1,0 +1,84 @@
+.navbar-app {
+  padding: 0;
+  background-color: $white;
+  min-height: 49px;
+  border-bottom: $auth-navbar-border-width $auth-navbar-border-style
+    $auth-navbar-border-color;
+
+  .logo-link {
+    position: absolute;
+    left: 50%;
+    margin-left: -12px;
+
+    i {
+      color: $blue;
+      font-size: $auth-navbar-icon-font-size;
+    }
+  }
+
+  .navbar-collapse {
+    .nav-link {
+      padding: .75rem 1rem;
+    }
+  }
+
+  .nav-form {
+    @extend %middle-vertical;
+  }
+
+  form {
+    position: relative;
+    margin-right: 1rem;
+
+    input {
+      border-radius: 100px;
+      padding: .25rem 40px .25rem 1rem;
+      background-color: #f5f8fa;
+      border-color: $gray;
+      @include transition-standard(all);
+
+      &:focus {
+        box-shadow: 0 0 0 1px $blue;
+      }
+    }
+
+    button {
+      position: absolute;
+      border: 0;
+      padding: .25rem 0;
+      width: 32px;
+      background-color: transparent;
+      right: .5rem;
+    }
+  }
+
+  .nav-avatar {
+    min-width: 32px;
+    padding-top: 1px;
+  }
+
+  .dropdown-menu {
+    border: 0;
+  }
+}
+
+.global-actions {
+  .nav-link {
+    font-weight: 600;
+    color: $black--light;
+    border-bottom: 2px solid transparent;
+    @include transition-standard(all);
+
+    &.active, &:hover {
+      color: $blue !important;
+      border-color: $blue;
+    }
+
+    span, i { vertical-align: middle; }
+
+    i {
+      font-size: 1.25rem;
+      margin-right: 3px;
+    }
+  }
+}

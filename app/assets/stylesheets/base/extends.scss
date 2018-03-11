@@ -5,3 +5,9 @@
 %role-button {
   cursor: pointer;
 }
+
+%middle-vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

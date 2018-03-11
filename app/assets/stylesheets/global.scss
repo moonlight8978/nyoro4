@@ -11,6 +11,10 @@ body {
   };
 }
 
+.btn:focus, .btn.focus {
+  box-shadow: none;
+}
+
 // * {
 //   border-radius: 0 !important;
 // }

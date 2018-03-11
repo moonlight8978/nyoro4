@@ -1,0 +1,49 @@
+.nav-box {
+  background-color: $nav-box-bg-color;
+  border: $nav-box-border-width $nav-box-border-style $nav-box-border-color;
+
+  &.nav-box-fix {
+    margin-bottom: -$nav-box-border-width;
+  }
+
+  .nav-item {
+    margin-bottom: 0;
+  }
+
+  .nav-link {
+    border: 0;
+    border-radius: 0;
+    font-size: $nav-box-link-font-size;
+    font-weight: $nav-box-link-font-weight;
+    line-height: $nav-box-link-line-height;
+    padding: $nav-box-link-padding;
+    color: $nav-box-link-color;
+    @include transition-standard(all);
+
+    &.active, &:hover {
+      color: $nav-box-link-active-color;
+    }
+
+    &:not(.active):hover {
+      text-decoration: $nav-box-link-hover-decoration;
+    }
+  }
+}
+
+.nav-box.nav-box-hover {
+  .nav-link {
+    border-bottom: $nav-box-hover-link-border-width
+      $nav-box-hover-link-border-style $nav-box-hover-link-border-color;
+
+    &.active {
+      color: $nav-box-hover-link-active-color;
+      border-color: $nav-box-hover-link-active-border-color;
+    }
+
+    &:not(.active):hover {
+      color: $nav-box-hover-link-active-color;
+      text-decoration: $nav-box-hover-link-active-decoration;
+      border-color: $nav-box-hover-link-active-border-color;
+    }
+  }
+}

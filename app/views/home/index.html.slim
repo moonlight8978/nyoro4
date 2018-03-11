@@ -1,0 +1,52 @@
+= content_for :left_panel
+  div.box-fix
+    div.box
+      div.box-item
+        h5.box-item-header
+          | Box item header
+        div.box-items
+          - (1..4).each do
+            div.box-row
+              | Box row content
+      div.box-item
+        | Box item content
+
+    div.box
+      - (1..4).each do
+        div.box-item
+          | Box item content
+
+= content_for :right_panel
+  div.box-fix
+    div.box
+      div.box-item
+        h5.box-item-header
+          | Box item header
+        div.box-rows
+          - (1..4).each do
+            div.box-row
+              | Box row content
+      div.box-item
+        | Box item content
+
+    div.box
+      - (1..4).each do
+        div class="box-item"
+          | Box item content
+
+ul class="nav nav-tabs nav-box nav-box-fix"
+  li class="nav-item"
+    a class="nav-link active" href="/ja"
+      | Home
+  li class="nav-item"
+    a class="nav-link" href="/vi"
+      | Home
+  li class="nav-item"
+    a class="nav-link" href="/en"
+      | Home
+
+div.box-fix
+  div.box
+    - (1..20).each do
+      div class="box-item" style="height: 400px"
+        | Box item content
