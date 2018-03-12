@@ -2,6 +2,18 @@
   <div class="row">
     <div class="col-5">
       <pre><code class="language-markup">
+
+      </code></pre>
+    </div>
+
+    <div class="col-7 mt-2">
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-5">
+      <pre><code class="language-markup">
 &lt;div class="box-fix">
   &lt;div class="box">
     &lt;div class="box-item">
@@ -11,9 +23,11 @@
 
   &lt;div class="box">
     &lt;div class="box-item">
-      &lt;h5 class="box-item-header">
-        Box item header
-      &lt;/h5>
+      &lt;div class="box-item-header">
+        &lt;h5>Header&lt;/h5>
+        &lt;span class="px-1">&middot;&lt;/span>
+        &lt;a href="#">Link&lt;/a>
+      &lt;/div>
       &lt;div class="box-rows">
         &lt;div class="box-row">
           Box row 1
@@ -45,9 +59,12 @@
         </div>
         <div class="box">
           <div class="box-item">
-            <h5 class="box-item-header">
-              Box item header
-            </h5>
+            <div class="box-item-header">
+              <h5>Header</h5>
+              <span class="px-1">&middot;</span>
+              <a href="#">Link</a>
+            </div>
+
             <div class="box-rows">
               <div class="box-row">
                 Box row 1
@@ -172,7 +189,7 @@ use ul."nav-box-hover" for hover effect
       </code></pre>
     </div>
 
-    <div class="col-7">
+    <div class="col-7 mt-2">
       <button type="button" class="btn btn-primary btn-edge">
         Button
       </button>
@@ -184,6 +201,394 @@ use ul."nav-box-hover" for hover effect
       <button type="button" class="btn btn-primary btn-fw btn-edge btn-edge--large">
         Full-width Button
       </button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-5">
+      <pre><code class="language-markup">
+&lt;div class="avatar-small">
+  &lt;div class="img-placeholder ratio-1_1">
+    &lt;img src="/assets/default_profile_normal.png" class="img-thumb avatar-thumb">
+  &lt;/div>
+&lt;/div>
+
+&lt;div class="avatar-medium">
+  Content
+&lt;/div>
+
+&lt;div class="w-25">
+  &lt;div class="img-placeholder ratio-1_1">
+    &lt;img class="img-thumb" src="/assets/default_profile_normal.png">
+  &lt;/div>
+&lt;/div>
+
+&lt;div class="w-25">
+  &lt;div class="img-placeholder ratio-1_1">
+    &lt;img class="img-thumb avatar-thumb" src="/assets/default_profile_normal.png">
+  &lt;/div>
+&lt;/div>
+      </code></pre>
+    </div>
+
+    <div class="col-7 mt-2 d-flex">
+      <div class="avatar-small img-wrapper mr-3">
+        <div class="img-placeholder ratio-1_1">
+          <img src="/assets/default_profile_normal.png" class="img-thumb avatar-thumb">
+        </div>
+      </div>
+
+      <div class="avatar-medium img-wrapper mr-3">
+        <div class="img-placeholder ratio-1_1">
+          <img src="/assets/default_profile_normal.png" class="img-thumb avatar-thumb">
+        </div>
+      </div>
+
+      <div class="w-25 mr-3">
+        <div class="img-placeholder ratio-1_1">
+          <img class="img-thumb" src="/assets/default_profile_normal.png">
+        </div>
+      </div>
+
+      <div class="w-25 mr-3">
+        <div class="img-placeholder ratio-1_1">
+          <img class="img-thumb avatar-thumb" src="/assets/default_profile_normal.png">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-5">
+      <pre><code class="language-markup">
+&lt;!-- Use .ellipsis for truncating -->
+
+&lt;span class="account-info">
+  &lt;a class="account-link" href="#">
+    &lt;strong>泉水茜&lt;/strong>
+    &lt;span>&nbsp;&lt;/span>
+    &lt;span>@izumi_akn&lt;/span>
+  &lt;/a>
+&lt;/span>
+
+&lt;div class="account-info ellipsis">
+  &lt;!-- Content -->
+&lt;/div>
+      </code></pre>
+    </div>
+
+    <div class="col-7 mt-2">
+      <span class="account-info">
+        <a class="account-link" href="#">
+          <strong>泉水茜</strong>
+          <span>&nbsp;</span>
+          <span>@izumi_akn</span>
+        </a>
+      </span>
+
+      <div class="account-info ellipsis" style="width: 200px;">
+        <a class="account-link" href="#">
+          <strong>泉水茜aaaaaaaaa</strong>
+          <span>&nbsp;</span>
+          <span>@izumi_akn</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-5">
+      <pre><code class="language-markup">
+&lt;div class="box-fix">
+  &lt;div class="box">
+    &lt;div class="box-item">
+      &lt;h5 class="box-item-header">
+        Who to follow
+      &lt;/h5>
+      &lt;div class="box-rows">
+        &lt;div class="box-row">
+          &lt;div class="account-summary">
+            &lt;div class="account-avatar">
+              &lt;div class="avatar-medium">
+                &lt;div class="img-placeholder ratio-1_1">
+                  &lt;img class="img-thumb avatar-thumb" src="/assets/avatar_example.jpg" />
+                &lt;/div>
+              &lt;/div>
+            &lt;/div>
+            &lt;div class="account-actions">
+              &lt;div class="account-info ellipsis">
+                &lt;a class="account-link" href="#">
+                  &lt;strong>泉水茜&lt;/strong>
+                  &lt;span>&nbsp;&lt;/span>
+                  &lt;span>@izumi_akn&lt;/span>
+                &lt;/a>
+              &lt;/div>&lt;button class="btn btn-edge--small btn-edge btn-primary">Following&lt;/button>
+            &lt;/div>
+          &lt;/div>
+        &lt;/div>
+        &lt;div class="box-row">
+          &lt;div class="account-summary">
+            &lt;div class="account-avatar">
+              &lt;div class="avatar-medium">
+                &lt;div class="img-placeholder ratio-1_1">
+                  &lt;img class="img-thumb avatar-thumb" src="/assets/avatar_example.jpg" />
+                &lt;/div>
+              &lt;/div>
+            &lt;/div>
+            &lt;div class="account-actions">
+              &lt;div class="account-info ellipsis">
+                &lt;a class="account-link" href="#">
+                  &lt;strong>泉水茜&lt;/strong>
+                  &lt;span>&nbsp;&lt;/span>
+                  &lt;span>@izumi_akn&lt;/span>
+                &lt;/a>
+              &lt;/div>&lt;button class="btn btn-edge--small btn-edge btn-primary">Following&lt;/button>
+            &lt;/div>
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+  &lt;/div>
+&lt;/div>
+      </code></pre>
+    </div>
+
+    <div class="col-7 mt-2">
+      <div class="box-fix">
+        <div class="box">
+          <div class="box-item">
+            <h5 class="box-item-header">
+              Who to follow
+            </h5>
+            <div class="box-rows">
+              <div class="box-row">
+                <div class="account-summary">
+                  <div class="account-avatar">
+                    <div class="avatar-medium">
+                      <div class="img-placeholder ratio-1_1">
+                        <img class="img-thumb avatar-thumb" src="/assets/avatar_example.jpg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="account-actions">
+                    <div class="account-info ellipsis">
+                      <a class="account-link" href="#">
+                        <strong>泉水茜</strong>
+                        <span>&nbsp;</span>
+                        <span>@izumi_akn</span>
+                      </a>
+                    </div><button class="btn btn-edge--small btn-edge btn-secondary">Follow</button>
+                  </div>
+                </div>
+              </div>
+              <div class="box-row">
+                <div class="account-summary">
+                  <div class="account-avatar">
+                    <div class="avatar-medium">
+                      <div class="img-placeholder ratio-1_1">
+                        <img class="img-thumb avatar-thumb" src="/assets/avatar_example.jpg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="account-actions">
+                    <div class="account-info ellipsis">
+                      <a class="account-link" href="#">
+                        <strong>泉水茜</strong>
+                        <span>&nbsp;</span>
+                        <span>@izumi_akn</span>
+                      </a>
+                    </div><button class="btn btn-edge--small btn-edge btn-primary">Following</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-5">
+      <pre><code class="language-markup">
+&lt;!-- Remove .thread from .tweet-container,
+and .tweet-extras if not thread -->
+
+&lt;div class="box-fix">
+  &lt;div class="box">
+    &lt;div class="box-item">
+      &lt;div class="tweet-container thread">
+        &lt;div class="tweet-context">
+          &lt;div class="tweet-left">
+            &lt;i class="fas fa-retweet">&lt;/i>
+          &lt;/div>
+          &lt;div class="tweet-right">
+            &lt;a href="#">TwinBox@コミ1-あ33a&lt;/a>&lt;span>&nbsp;&lt;/span>&lt;span>Retweet&lt;/span>
+          &lt;/div>
+        &lt;/div>
+        &lt;div class="original-tweet">
+          &lt;div class="tweet-left">
+            &lt;div class="avatar-medium">
+              &lt;div class="img-placeholder ratio-1_1">
+                &lt;img class="img-thumb avatar-thumb" src="/assets/avatar_example.jpg" />
+              &lt;/div>
+            &lt;/div>
+          &lt;/div>
+          &lt;div class="tweet-right">
+            &lt;div class="tweet-info">
+              &lt;span class="account-info">&lt;a class="account-link" href="#">&lt;strong>泉水茜&lt;/strong>&lt;span>&nbsp;&lt;/span>&lt;span>@izumi_akn&lt;/span>&lt;/a>&lt;/span>&lt;span class="px-1">&middot;&lt;/span>&lt;span class="time">15h&lt;/span>
+            &lt;/div>
+            &lt;p>
+              エレちゃんバニーです！ #FGO #FateGO
+            &lt;/p>
+            &lt;div class="tweet-medias">
+              &lt;div class="img-placeholder ratio-2_3">
+                &lt;img class="img-thumb" src="/assets/example.jpg" />
+              &lt;/div>
+            &lt;/div>
+            &lt;div class="tweet-actions">
+              &lt;div data-placement="top" data-toggle="tooltip" title="Reply">
+                &lt;button class="tweet-action-button">&lt;i class="far fa-comment">&lt;/i>&lt;span>29&lt;/span>&lt;/button>
+              &lt;/div>
+              &lt;div data-placement="top" data-toggle="tooltip" title="Retweet">
+                &lt;button class="tweet-action-button">&lt;i class="fas fa-retweet">&lt;/i>&lt;span>1.2K&lt;/span>&lt;/button>
+              &lt;/div>
+              &lt;div data-placement="top" data-toggle="tooltip" title="Favorite">
+                &lt;button class="tweet-action-button">&lt;i class="far fa-heart">&lt;/i>&lt;span>3.6K&lt;/span>&lt;/button>
+              &lt;/div>
+            &lt;/div>
+          &lt;/div>
+        &lt;/div>
+        &lt;div class="tweet-extras">
+          &lt;div class="tweet-left">
+            &lt;div class="avatar-small">
+              &lt;div class="img-placeholder ratio-1_1">
+                &lt;img class="img-thumb avatar-thumb" src="/assets/avatar_example.jpg" />
+              &lt;/div>
+            &lt;/div>
+          &lt;/div>
+          &lt;div class="tweet-right">
+            &lt;a href="#">Show this thread&lt;/a>
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+  &lt;/div>
+&lt;/div>
+      </code></pre>
+    </div>
+
+    <div class="col-7 mt-2">
+      <div class="box-fix">
+        <div class="box">
+          <div class="box-item">
+            <div class="tweet-container thread">
+              <div class="tweet-context">
+                <div class="tweet-left">
+                  <i class="fas fa-retweet"></i>
+                </div>
+                <div class="tweet-right">
+                  <a href="#">TwinBox@コミ1-あ33a</a><span>&nbsp;</span><span>Retweet</span>
+                </div>
+              </div>
+              <div class="original-tweet">
+                <div class="tweet-left">
+                  <div class="avatar-medium">
+                    <div class="img-placeholder ratio-1_1">
+                      <img class="img-thumb avatar-thumb" src="/assets/avatar_example.jpg" />
+                    </div>
+                  </div>
+                </div>
+                <div class="tweet-right">
+                  <div class="tweet-info">
+                    <span class="account-info"><a class="account-link" href="#"><strong>泉水茜</strong><span>&nbsp;</span><span>@izumi_akn</span></a></span><span class="px-1">&middot;</span><span class="time">15h</span>
+                  </div>
+                  <p>
+                    エレちゃんバニーです！ #FGO #FateGO
+                  </p>
+                  <div class="tweet-medias">
+                    <div class="img-placeholder ratio-2_3">
+                      <img class="img-thumb" src="/assets/example.jpg" />
+                    </div>
+                  </div>
+                  <div class="tweet-actions">
+                    <div data-placement="top" data-toggle="tooltip" title="Reply">
+                      <button class="tweet-action-button"><i class="far fa-comment"></i><span>29</span></button>
+                    </div>
+                    <div data-placement="top" data-toggle="tooltip" title="Retweet">
+                      <button class="tweet-action-button"><i class="fas fa-retweet"></i><span>1.2K</span></button>
+                    </div>
+                    <div data-placement="top" data-toggle="tooltip" title="Favorite">
+                      <button class="tweet-action-button"><i class="far fa-heart"></i><span>3.6K</span></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tweet-extras">
+                <div class="tweet-left">
+                  <div class="avatar-small">
+                    <div class="img-placeholder ratio-1_1">
+                      <img class="img-thumb avatar-thumb" src="/assets/avatar_example.jpg" />
+                    </div>
+                  </div>
+                </div>
+                <div class="tweet-right">
+                  <a href="#">Show this thread</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="box-fix">
+        <div class="box">
+          <div class="box-item">
+            <div class="tweet-container">
+              <div class="tweet-context">
+                <div class="tweet-left">
+                  <i class="fas fa-retweet"></i>
+                </div>
+                <div class="tweet-right">
+                  <a href="#">TwinBox@コミ1-あ33a</a><span>&nbsp;</span><span>Retweet</span>
+                </div>
+              </div>
+              <div class="original-tweet">
+                <div class="tweet-left">
+                  <div class="avatar-medium">
+                    <div class="img-placeholder ratio-1_1">
+                      <img class="img-thumb avatar-thumb" src="/assets/avatar_example.jpg" />
+                    </div>
+                  </div>
+                </div>
+                <div class="tweet-right">
+                  <div class="tweet-info">
+                    <span class="account-info"><a class="account-link" href="#"><strong>泉水茜</strong><span>&nbsp;</span><span>@izumi_akn</span></a></span><span class="px-1">&middot;</span><span class="time">15h</span>
+                  </div>
+                  <p>
+                    エレちゃんバニーです！ #FGO #FateGO
+                  </p>
+                  <div class="tweet-medias">
+                    <div class="img-placeholder ratio-2_3">
+                      <img class="img-thumb" src="/assets/example.jpg" />
+                    </div>
+                  </div>
+                  <div class="tweet-actions">
+                    <div data-placement="top" data-toggle="tooltip" title="Reply">
+                      <button class="tweet-action-button"><i class="far fa-comment"></i><span>29</span></button>
+                    </div>
+                    <div data-placement="top" data-toggle="tooltip" title="Retweet">
+                      <button class="tweet-action-button"><i class="fas fa-retweet"></i><span>1.2K</span></button>
+                    </div>
+                    <div data-placement="top" data-toggle="tooltip" title="Favorite">
+                      <button class="tweet-action-button"><i class="far fa-heart"></i><span>3.6K</span></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

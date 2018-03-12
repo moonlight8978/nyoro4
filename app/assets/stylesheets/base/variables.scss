@@ -2,13 +2,20 @@
 $gray: #e6ecf0;
 $white: #fff;
 $blue: #1da1f2;
+$blue--dark: #0056b3;
 $red: #c33;
 $black: #212529;
 $black--light: #657786;
 
 
+
+
+
 // font-weight
 $text-bold: 600;
+
+
+
 
 
 // font-size
@@ -17,9 +24,20 @@ $text-small: .85rem;
 $text-big: 1.5rem;
 $decoration-primary: underline;
 
-//
+
+
+
+// Spaces
 $padding-primary: 1rem;
 $padding-low: .5rem;
+
+
+
+// Sizings
+$avatar-small: 32px;
+$avatar-medium: 48px;
+
+
 
 // Grid breakpoints
 $grid-breakpoints: (
@@ -31,14 +49,24 @@ $grid-breakpoints: (
 ) !default;
 
 
+
+
+
 // Body
 $body-bg-color: $gray;
 $container-padding-x: 15px;
 
 
+
+
+
 // Page wrapper
 $page-wrapper-margin-top: 68px;
-$page-wrapper-sm-padding-x: 15px;
+$page-wrapper-whitespace: 0;
+$page-wrapper-sm-whitespace: 15px;
+
+
+
 
 
 // Border
@@ -49,19 +77,73 @@ $border-style-primary: solid;
 $border-color-dark: rgba(0,0,0,0.25);
 
 
-// Auth navbar
+// Navbar
+
+  // Default
+$navbar-min-width: 49px;
+$navbar-border-width: $border-width-primary;
+$navbar-border-style: $border-style-primary;
+$navbar-border-color: $border-color-dark;
+$navbar-logo-font-size: 24px;
+$navbar-logo-color: $blue;
+$navbar-logo-margin-left: -$navbar-logo-font-size / 2;
+
+
+
+  // Auth navbar
 $auth-navbar-padding-y: .75rem;
 // $auth-navbar-padding-x: 1rem;
 $auth-navbar-bg: asset_path('nav_gradient_bg.png');
-$auth-navbar-border-width: $border-width-primary;
-$auth-navbar-border-style: $border-style-primary;
-$auth-navbar-border-color: $border-color-dark;
-
 $auth-navbar-icon-color: $white;
 $auth-navbar-icon-font-size: 1.5rem;
 
 $language-dropdown-toggle-color: $white;
 $language-dropdown-toggle-font-size: $text-small;
+
+
+
+
+  // App navbar
+$app-navbar-bg-color: $white;
+
+$app-navbar-nav-link-padding-x: 1rem;
+$app-navbar-nav-link-padding-y: .75rem;
+
+$app-navbar-global-actions-nav-link-font-weight: $text-bold;
+$app-navbar-global-actions-nav-link-color: $black--light;
+$app-navbar-global-actions-nav-link-border-color: transparent;
+$app-navbar-global-actions-nav-link-border-width: 2px;
+$app-navbar-global-actions-nav-link-border-style: $border-style-primary;
+
+$app-navbar-global-actions-nav-link-icon-font-size: 1.15rem;
+$app-navbar-global-actions-nav-link-icon-margin-right: 3px;
+
+$app-navbar-global-actions-nav-link-active-color: $blue;
+$app-navbar-global-actions-nav-link-active-border-color: $blue;
+
+$app-navbar-nav-extras-form-margin-right: 1rem;
+
+$app-navbar-nav-extras-input-border-radius: 100px;
+$app-navbar-nav-extras-input-padding-y: .25rem;
+$app-navbar-nav-extras-input-padding-left: 1rem;
+$app-navbar-nav-extras-input-padding-right: 40px;
+$app-navbar-nav-extras-input-background-color: #f5f8fa;
+$app-navbar-nav-extras-input-border-color: $gray;
+$app-navbar-nav-extras-input-border-width: 2px;
+$app-navbar-nav-extras-input-glow-width: $app-navbar-nav-extras-input-border-width / 2;
+$app-navbar-nav-extras-input-focus-border-color: $blue;
+
+$app-navbar-nav-extras-button-border-width: 0;
+$app-navbar-nav-extras-button-padding-y: .25rem;
+$app-navbar-nav-extras-button-width: 32px;
+$app-navbar-nav-extras-button-bg-color: transparent;
+$app-navbar-nav-extras-button-position-r: .5rem;
+
+$app-navbar-nav-extras-dropdown-item-active-color: $white;
+$app-navbar-nav-extras-dropdown-item-active-bg-color: #1B95E0;
+
+
+
 
 
 // Auth page (sign in, sign up, reset password)
@@ -73,6 +155,10 @@ $auth-form-padding-x: 1rem;
 $widescreen-auth-form-width: 500px;
 
 $auth-header-padding-bottom: 1rem;
+
+
+
+
 
 
 // Form element
@@ -103,13 +189,33 @@ $form-errors-color: $red;
 $form-errors-bg: asset_path('error.png');
 $form-errors-padding-left: 16px;
 
+
+
+
+
 // Button
 $button-edge-border-radius: 100px;
 $button-edge-padding-y: .25rem;
 $button-edge-padding-x: 1rem;
-$button-large-font-size: 1.15rem;
-$button-large-font-weight: $text-bold;
-$button-large-padding-y: .5rem;
+
+$button-edge-large-font-size: 1.15rem;
+$button-edge-large-font-weight: $text-bold;
+$button-edge-large-padding-y: .5rem;
+
+$button-edge-small-font-size: .75rem;
+$button-edge-small-font-weight: $text-bold;
+
+$button-secondary-color: $blue;
+$button-secondary-bg-color: $white;
+$button-secondary-border-color: $blue;
+
+$button-secondary-hover-color: $blue;
+$button-secondary-hover-bg-color: #E8F4FB;
+
+
+
+
+
 
 
 // Box
@@ -123,12 +229,18 @@ $box-item-padding: $padding-primary;
 $box-item-border-color: $border-color-primary;
 $box-item-border-width: $border-width-primary;
 $box-item-border-style: $border-style-primary;
+
 $box-item-header-margin-bottom: 1rem;
+$box-item-header-link-font-size: 0.85rem;
 
 $box-row-padding-y: $padding-primary;
 $box-row-border-color: $border-color-primary;
 $box-row-border-width: $border-width-primary;
 $box-row-border-style: $border-style-primary;
+
+
+
+
 
 // Nav-box
 $nav-box-bg-color: $white;
@@ -151,3 +263,63 @@ $nav-box-hover-link-border-style: $border-style-primary;
 $nav-box-hover-link-active-color: #1b95e0;
 $nav-box-hover-link-active-border-color: #1b95e0;
 $nav-box-hover-link-active-decoration: none;
+
+
+
+
+
+
+// Images
+$avatar-thumb-border-radius: 50%;
+
+
+
+
+
+
+// Tweet (newfeed)
+$tweet-left-width: $avatar-medium;
+$tweet-right-padding-left: $padding-primary;
+
+$tweet-context-margin-bottom: .25rem;
+$tweet-context-color: $black--light;
+$tweet-context-left-text-align: right;
+$tweet-context-right-font-size: .85rem;
+
+$tweet-time-color: $black--light;
+
+$tweet-actions-padding-top: $padding-primary;
+$tweet-actions-padding-bottom: $padding-low;
+
+$tweet-action-button-bg-color: transparent;
+$tweet-action-button-padding-right: $padding-low;
+
+$tweet-action-color: $black--light;
+$tweet-action-icon-font-size: 1.15rem;
+$tweet-action-count-font-size: $text-small;
+$tweet-action-count-margin-left: 1rem;
+
+
+$thread-connect-line-margin-y: 2px;
+$thread-connect-line-width: 4px;
+$thread-connect-line-position-top: $avatar-medium + $thread-connect-line-margin-y;
+$thread-connect-line-position-bottom: $thread-connect-line-margin-y;
+$thread-connect-line-position-left: ($avatar-medium - $thread-connect-line-width) / 2;
+$thread-connect-line-bg-color: #A3D4F1;
+$thread-connect-line-border-radius: 5px;
+
+$thread-tweet-extras-left-padding-left: ($avatar-medium - $avatar-small) / 2;
+
+
+
+
+
+// User's information
+
+$account-username-color: $black--light;
+$account-profilename-color: $black;
+$account-profilename-hover-decoration: underline;
+
+$account-summary-avatar-width: $avatar-medium;
+$account-summary-actions-padding-left: $padding-primary;
+$account-summary-actions-button-padding-top: .25rem;

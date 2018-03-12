@@ -8,7 +8,23 @@
 }
 
 .btn-edge--large {
-  padding: $button-large-padding-y $button-edge-padding-x;
-  font-weight: $button-large-font-weight;
-  font-size: $button-large-font-size;
+  padding: $button-edge-large-padding-y $button-edge-padding-x;
+  font-weight: $button-edge-large-font-weight;
+  font-size: $button-edge-large-font-size;
+}
+
+.btn-edge--small {
+  font-weight: $button-edge-small-font-weight;
+  font-size: $button-edge-small-font-size;
+}
+
+.btn-secondary {
+  background-color: $button-secondary-bg-color;
+  color: $button-secondary-color;
+  border-color: $button-secondary-border-color !important;
+
+  &:hover {
+    color: $button-secondary-hover-color;
+    background-color: $button-secondary-hover-bg-color;
+  }
 }

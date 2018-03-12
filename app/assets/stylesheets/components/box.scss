@@ -17,6 +17,11 @@
 
   .box-item-header {
     margin-bottom: $box-item-header-margin-bottom;
+
+    h3, h4, h5,
+    h6 { display: inline; }
+    
+    a { font-size: $box-item-header-link-font-size; }
   }
 }
 

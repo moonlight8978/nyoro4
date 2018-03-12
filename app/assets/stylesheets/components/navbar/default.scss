@@ -1,4 +1,8 @@
 .navbar {
+  min-width: $navbar-min-width;
+  border-bottom: $navbar-border-width $navbar-border-style
+    $navbar-border-color;
+
   .container {
     position: relative;
   }

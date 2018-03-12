@@ -4,15 +4,43 @@ body {
 
 .page-wrapper {
   margin-top: $page-wrapper-margin-top;
-  padding: 0;
+  padding: $page-wrapper-whitespace;
 
+  > .row {
+    margin-right: $page-wrapper-whitespace;
+    margin-left: $page-wrapper-whitespace;
+
+    > * {
+      padding-right: $page-wrapper-whitespace;
+      padding-left: $page-wrapper-whitespace;
+    }
+  }
+}
+
+.page-wrapper {
   @include responsive(sm) {
-    padding: 0 $page-wrapper-sm-padding-x;
+    padding-left: $page-wrapper-sm-whitespace;
+    padding-right: $page-wrapper-sm-whitespace;
+
+    > .row {
+      margin-right: -$page-wrapper-sm-whitespace;
+      margin-left: -$page-wrapper-sm-whitespace;
+
+      > * {
+        padding-right: $page-wrapper-sm-whitespace;
+        padding-left: $page-wrapper-sm-whitespace;
+      }
+    }
   };
 }
 
-.btn:focus, .btn.focus {
+.btn:focus, .btn.focus, button:focus, button.focus {
   box-shadow: none;
+  outline: 0;
+}
+
+a {
+  color: $blue;
 }
 
 // * {

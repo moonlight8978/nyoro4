@@ -1,0 +1,92 @@
+.tweet-container {
+  .original-tweet,
+  .tweet-context,
+  .tweet-extras {
+    display: flex;
+  }
+
+  .tweet-left {
+    width: $tweet-left-width;
+  }
+
+  .tweet-right {
+    width: calc(100% - #{$tweet-left-width});
+    padding-left: $tweet-right-padding-left;
+  }
+}
+
+
+.tweet-container .tweet-context {
+  margin-bottom: $tweet-context-margin-bottom;
+
+  * {
+    color: $tweet-context-color;
+  }
+
+  .tweet-left {
+    text-align: $tweet-context-left-text-align;
+  }
+
+  .tweet-right {
+    font-size: $tweet-context-right-font-size;
+  }
+}
+
+.tweet-container .original-tweet .tweet-info {
+  .time {
+    color: $tweet-time-color;
+  }
+}
+
+.tweet-container .tweet-medias {
+  @extend %with-border;
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.tweet-container .tweet-actions {
+  display: flex;
+  padding-top: $tweet-actions-padding-top;
+  padding-bottom: $tweet-actions-padding-bottom;
+
+  .tweet-action-button {
+    background-color: $tweet-action-button-bg-color;
+    border: 0;
+    padding-right: $tweet-action-button-padding-right;
+
+    i, span {
+      color: $tweet-action-color;
+      vertical-align: middle;
+    }
+
+    i { font-size: $tweet-action-icon-font-size }
+
+    span {
+      font-size: $tweet-action-count-font-size;
+      margin-left: $tweet-action-count-margin-left;
+    }
+  }
+}
+
+.tweet-container.thread {
+  .original-tweet { position: relative; }
+
+  .original-tweet .tweet-left:after {
+    content: '';
+    position: absolute;
+    top: $thread-connect-line-position-top;
+    bottom: $thread-connect-line-position-bottom;
+    left: $thread-connect-line-position-left;
+    width: $thread-connect-line-width;
+    background-color: $thread-connect-line-bg-color;
+    border-radius: $thread-connect-line-border-radius;
+  }
+
+  .tweet-extras {
+    align-items: center;
+
+    .tweet-left { padding-left: $thread-tweet-extras-left-padding-left; }
+  }
+}

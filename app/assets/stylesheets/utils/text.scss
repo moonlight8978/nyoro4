@@ -1,3 +1,10 @@
 .text-small {
   font-size: $text-small;
 }
+
+.ellipsis {
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  display: block;
+  white-space: nowrap;
+}

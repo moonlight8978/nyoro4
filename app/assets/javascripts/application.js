@@ -19,3 +19,7 @@ const wow = new WOW({
   offset: 150
 });
 wow.init();
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})

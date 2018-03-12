@@ -1,0 +1,7 @@
+en:
+  views:
+    components:
+      follow_suggestions:
+        header: Who to follow
+        refresh: Refresh
+        

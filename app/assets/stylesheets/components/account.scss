@@ -1,0 +1,35 @@
+.account-info {
+  .account-link {
+    text-decoration: none;
+
+    span {
+      color: $account-username-color;
+    }
+
+    &:not(:hover) strong {
+      color: $account-profilename-color;
+    }
+
+    &:hover strong {
+      text-decoration: $account-profilename-hover-decoration;
+    }
+  }
+}
+
+.account-summary {
+  display: flex;
+  align-items: center;
+
+  .account-avatar {
+    width: $account-summary-avatar-width;
+  }
+
+  .account-actions {
+    width: calc(100% - #{$account-summary-avatar-width});
+    padding-left: $account-summary-actions-padding-left;
+
+    button {
+      margin-top: $account-summary-actions-button-padding-top;
+    }
+  }
+}

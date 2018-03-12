@@ -1,84 +1,95 @@
 .navbar-app {
   padding: 0;
-  background-color: $white;
-  min-height: 49px;
-  border-bottom: $auth-navbar-border-width $auth-navbar-border-style
-    $auth-navbar-border-color;
+  background-color: $app-navbar-bg-color;
 
   .logo-link {
     position: absolute;
     left: 50%;
-    margin-left: -12px;
+    margin-left: $navbar-logo-margin-left;
 
     i {
-      color: $blue;
-      font-size: $auth-navbar-icon-font-size;
+      color: $navbar-logo-color;
+      font-size: $navbar-logo-font-size;
     }
   }
 
   .navbar-collapse {
     .nav-link {
-      padding: .75rem 1rem;
+      padding: $app-navbar-nav-link-padding-y $app-navbar-nav-link-padding-x;
     }
-  }
-
-  .nav-form {
-    @extend %middle-vertical;
-  }
-
-  form {
-    position: relative;
-    margin-right: 1rem;
-
-    input {
-      border-radius: 100px;
-      padding: .25rem 40px .25rem 1rem;
-      background-color: #f5f8fa;
-      border-color: $gray;
-      @include transition-standard(all);
-
-      &:focus {
-        box-shadow: 0 0 0 1px $blue;
-      }
-    }
-
-    button {
-      position: absolute;
-      border: 0;
-      padding: .25rem 0;
-      width: 32px;
-      background-color: transparent;
-      right: .5rem;
-    }
-  }
-
-  .nav-avatar {
-    min-width: 32px;
-    padding-top: 1px;
-  }
-
-  .dropdown-menu {
-    border: 0;
   }
 }
 
 .global-actions {
   .nav-link {
-    font-weight: 600;
-    color: $black--light;
-    border-bottom: 2px solid transparent;
+    font-weight: $app-navbar-global-actions-nav-link-font-weight;
+    color: $app-navbar-global-actions-nav-link-color;
+    border-bottom: $app-navbar-global-actions-nav-link-border-width
+      $app-navbar-global-actions-nav-link-border-style
+      $app-navbar-global-actions-nav-link-border-color;
     @include transition-standard(all);
 
-    &.active, &:hover {
-      color: $blue !important;
-      border-color: $blue;
+    &.active,
+    &:hover {
+      color: $app-navbar-global-actions-nav-link-active-color !important;
+      border-color: $app-navbar-global-actions-nav-link-active-border-color;
     }
 
-    span, i { vertical-align: middle; }
+    span,
+    i { vertical-align: middle; }
 
     i {
-      font-size: 1.25rem;
-      margin-right: 3px;
+      font-size: $app-navbar-global-actions-nav-link-icon-font-size;
+      margin-right: $app-navbar-global-actions-nav-link-icon-margin-right;
+    }
+  }
+}
+
+.nav-extras {
+  align-items: center;
+
+  form {
+    position: relative;
+    margin-right: $app-navbar-nav-extras-form-margin-right;
+
+    input {
+      border-radius: $app-navbar-nav-extras-input-border-radius;
+      padding: $app-navbar-nav-extras-input-padding-y
+        $app-navbar-nav-extras-input-padding-right
+        $app-navbar-nav-extras-input-padding-y
+        $app-navbar-nav-extras-input-padding-left;
+      background-color: $app-navbar-nav-extras-input-background-color;
+      border-color: $app-navbar-nav-extras-input-border-color;
+      @include transition-standard(all);
+
+      &:focus {
+        box-shadow: 0 0 0 $app-navbar-nav-extras-input-glow-width
+          $app-navbar-nav-extras-input-focus-border-color;
+      }
+    }
+
+
+    button {
+      position: absolute;
+      border: $app-navbar-nav-extras-button-border-width;
+      padding: $app-navbar-nav-extras-button-padding-y 0;
+      width: $app-navbar-nav-extras-button-width;
+      background-color: $app-navbar-nav-extras-button-bg-color;
+      right: $app-navbar-nav-extras-button-position-r;
+    }
+  }
+
+  .nav-avatar {
+    .dropdown-menu {
+      border: 0;
+    }
+
+    .dropdown-item {
+      &:hover, &:active,
+      .active {
+        color: $app-navbar-nav-extras-dropdown-item-active-color;
+        background-color: $app-navbar-nav-extras-dropdown-item-active-bg-color;
+      }
     }
   }
 }

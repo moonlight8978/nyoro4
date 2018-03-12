@@ -1,0 +1,23 @@
+div class="box-fix"
+  div class="box"
+    div class="box-item"
+      div class="box-item-header"
+        h5 = t(:header, scope: 'views.components.follow_suggestions')
+        span class="px-1" &middot;
+        a href="#" = t(:refresh, scope: 'views.components.follow_suggestions')
+      div class="box-rows"
+        - users.each.with_index do |user, index|
+          div class="box-row"
+            div class="account-summary"
+              div class="account-avatar"
+                div class="avatar-medium"
+                  div class="img-placeholder ratio-1_1"
+                    img class="img-thumb avatar-thumb" src="assets/avatar_example.jpg"
+              div class="account-actions"
+                div class="account-info ellipsis"
+                  a href="#" class="account-link"
+                    strong 泉水茜
+                    span &nbsp;
+                    span @izumi_akn
+                button class="btn btn-edge--small btn-edge btn-secondary"
+                  = t(:follow, scope: 'views.users.shared')

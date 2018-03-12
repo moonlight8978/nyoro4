@@ -4,15 +4,13 @@
   background-position: center center;
   background-repeat: no-repeat;
   padding: $auth-navbar-padding-y 0;
-  border-bottom: $auth-navbar-border-width $auth-navbar-border-style
-    $auth-navbar-border-color;
 
   .logo-link {
     margin: auto;
 
     i {
-      color: $auth-navbar-icon-color;
-      font-size: $auth-navbar-icon-font-size;
+      color: $navbar-logo-color;
+      font-size: $navbar-logo-font-size;
     }
   }
 }

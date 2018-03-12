@@ -1,0 +1,2 @@
+module Users::FollowingStatusesHelper
+end
