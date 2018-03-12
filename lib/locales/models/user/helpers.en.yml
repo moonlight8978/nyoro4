@@ -5,6 +5,8 @@ en:
         email: Email
         password: Password
         remember_me: Remember me
+        profilename: Fullname
+        username: Username
     submit:
       user:
         create: "Create %{model}"

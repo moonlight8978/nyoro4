@@ -7,12 +7,30 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   scope '(:locale)', locale: /en|ja|vi/ do
-    devise_for :users, controllers: {
+    devise_for :users, skip: [:registrations, :unlocks], controllers: {
+      # registrations: 'users/registrations',
+      # unlocks: 'users/unlocks',
       sessions: 'users/sessions',
-      registrations: 'users/registrations',
       confirmations: 'users/confirmations',
-      unlocks: 'users/unlocks',
       passwords: 'users/passwords'
     }
+
+    as :user do
+      get    'sign_up', to: 'users/registrations#new',
+        as: :new_user_registration
+      get    'users/cancel',  to: 'users/registrations#cancel',
+        as: :cancel_user_registration
+      post   'users',         to: 'users/registrations#create',
+        as: :user_registration
+      delete 'users',         to: 'users/registrations#destroy'
+
+      get    'settings/password', to: 'users/settings/passwords#edit'
+      put    'settings/password', to: 'users/settings/passwords#update'
+      patch  'settings/password', to: 'users/settings/passwords#update'
+
+      get    'settings/account', to: 'users/settings/accounts#edit'
+      put    'settings/account', to: 'users/settings/accounts#update'
+      patch  'settings/account', to: 'users/settings/accounts#update'
+    end
   end
 end

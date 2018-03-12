@@ -78,18 +78,11 @@
       right: $app-navbar-nav-extras-button-position-r;
     }
   }
-
-  .nav-avatar {
-    .dropdown-menu {
-      border: 0;
-    }
-
+  
+  .dropdown {
+    .dropdown-menu { max-width: $app-navbar-dropdown-menu-max-width; }
     .dropdown-item {
-      &:hover, &:active,
-      .active {
-        color: $app-navbar-nav-extras-dropdown-item-active-color;
-        background-color: $app-navbar-nav-extras-dropdown-item-active-bg-color;
-      }
+      i { margin-right: $app-navbar-dropdown-item-icon-margin-right; }
     }
   }
 }

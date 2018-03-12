@@ -33,3 +33,19 @@
     }
   }
 }
+
+.account-badge {
+  strong {
+    font-size: $account-badge-profilename-font-size;
+    color: $account-badge-profilename-color;
+  }
+
+  p {
+    margin: 0;
+
+    span {
+      font-size: $account-badge-username-font-size;
+      color: $account-badge-username-color;
+    }
+  }
+}

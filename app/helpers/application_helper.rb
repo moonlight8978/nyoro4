@@ -11,7 +11,7 @@ module ApplicationHelper
     end
   end
 
-  def flash_info 
+  def flash_info
     if notice
       content_tag :div, notice, class: "alert alert-info", role: "alert"
     end
@@ -26,5 +26,13 @@ module ApplicationHelper
     when :vi
       "Tiếng Việt"
     end
+  end
+
+  def class_names(*classes, condition_classes)
+    classes
+    condition_classes.each do |css_class, condition|
+      classes.push(css_class) if condition
+    end
+    classes.join(" ")
   end
 end

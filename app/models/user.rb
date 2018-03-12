@@ -50,7 +50,9 @@ class User < ApplicationRecord
 
   # validates
   validates :accept_tos, presence: true, inclusion: %w(yes), on: :create
-
+  validates :profilename, presence: true
+  validates :username, presence: true, uniqueness: true
+  
   # callbacks
 
   # instance methods

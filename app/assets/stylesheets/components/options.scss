@@ -1,0 +1,13 @@
+.has-options-dropdown {
+  position: relative;
+  padding-right: $options-dropdown-width;
+}
+
+.more-actions {
+  position: absolute;
+  right: 0;
+
+  > a:not(:hover) {
+    color: $options-dropdown-toggle-color;
+  }
+}

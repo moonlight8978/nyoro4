@@ -37,6 +37,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string  :profilename
       t.date    :birthday
       t.integer :birthday_visibility, default: 0
+      t.string  :avatar
+      t.string  :cover
       t.string  :country
       t.string  :language,            default: :en
       t.string  :theme,               default: :blue

@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20180310012004) do
     t.datetime "updated_at", null: false
     t.index ["follower_id", "status"], name: "following_statuses_follower_id_status"
     t.index ["follower_id"], name: "index_user_following_statuses_on_follower_id"
-    t.index ["following_id", "follower_id"], name: "following_statuses_following_id_follower_id", unique: true
+    t.index ["following_id", "follower_id"], name: "following_statuses_following_id_follower_id"
     t.index ["following_id", "status"], name: "following_statuses_following_id_status"
     t.index ["following_id"], name: "index_user_following_statuses_on_following_id"
   end
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20180310012004) do
     t.string "profilename"
     t.date "birthday"
     t.integer "birthday_visibility", default: 0
+    t.string "avatar"
+    t.string "cover"
     t.string "country"
     t.string "language", default: "en"
     t.string "theme", default: "blue"

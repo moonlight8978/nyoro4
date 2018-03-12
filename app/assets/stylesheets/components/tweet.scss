@@ -32,9 +32,15 @@
   }
 }
 
-.tweet-container .original-tweet .tweet-info {
+.tweet-container .original-tweet .tweet-header {
+  display: flex;
+
+  .account-info {
+    max-width: calc(100% - #{$tweet-header-time-width});
+  }
+
   .time {
-    color: $tweet-time-color;
+    color: $tweet-header-time-color;
   }
 }
 
@@ -55,9 +61,10 @@
     background-color: $tweet-action-button-bg-color;
     border: 0;
     padding-right: $tweet-action-button-padding-right;
+    color: $tweet-action-color;
+    @include transition-short(all);
 
     i, span {
-      color: $tweet-action-color;
       vertical-align: middle;
     }
 
@@ -66,6 +73,24 @@
     span {
       font-size: $tweet-action-count-font-size;
       margin-left: $tweet-action-count-margin-left;
+    }
+  }
+
+  .btn-action-reply:hover {
+    color: $tweet-action-btn-reply-active-color;
+  }
+
+  .btn-action-retweet {
+    &:hover,
+    &.btn-undo {
+      color: $tweet-action-btn-retweet-active-color;
+    }
+  }
+
+  .btn-action-favorite {
+    &:hover,
+    &.btn-undo {
+      color: $tweet-action-btn-favorite-active-color;
     }
   }
 }

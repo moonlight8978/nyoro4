@@ -8,20 +8,33 @@ div class="auth-wrapper"
         b = t(:header, scope: 'views.users.registrations.new')
 
       div class="form-group input-field"
-        = f.email_field :email, autofocus: true, autocomplete: "email",
-          class: "form-control"
+        = f.text_field :profilename, autofocus: true, class: "form-control"
+        = f.label :profilename
+
+        = show_errors(resource, :profilename)
+
+      div class="form-group input-field"
+        = f.text_field :username, class: "form-control"
+        = f.label :username
+
+        small class="form-text text-muted"
+          = t(:username_hint, scope: 'views.users.registrations.new')
+
+        = show_errors(resource, :username)
+
+      div class="form-group input-field"
+        = f.email_field :email, autocomplete: "email", class: "form-control"
         = f.label :email
 
         = show_errors(resource, :email)
 
       div class="form-group input-field"
-        = f.password_field :password, autocomplete: "off",
-          class: "form-control"
+        = f.password_field :password, autocomplete: "off", class: "form-control"
         = f.label :password
 
         - if @minimum_password_length
           small class="form-text text-muted"
-            | #{@minimum_password_length} characters minimum
+            = t(:min_chars, scope: 'views.users.registrations.new', chars: @minimum_password_length)
 
         = show_errors(resource, :password)
 

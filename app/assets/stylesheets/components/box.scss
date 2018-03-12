@@ -20,7 +20,7 @@
 
     h3, h4, h5,
     h6 { display: inline; }
-    
+
     a { font-size: $box-item-header-link-font-size; }
   }
 }
@@ -34,4 +34,11 @@
     border-bottom: $box-row-border-width $box-row-border-style $box-row-border-color;
     padding-bottom: $box-row-padding-y;
   }
+}
+
+
+// Effect
+.box-item-hover:hover {
+  background-color: $box-item-hover-bg-color;
+  @include transition-standard(background-color);
 }

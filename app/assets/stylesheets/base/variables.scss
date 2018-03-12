@@ -1,12 +1,14 @@
 // Palette
 $gray: #e6ecf0;
+$gray--light: #f5f8fa;
 $white: #fff;
 $blue: #1da1f2;
 $blue--dark: #0056b3;
-$red: #c33;
+$red--light: #c33;
 $black: #212529;
 $black--light: #657786;
-
+$red: #e0245e;
+$green: #17bf63;
 
 
 
@@ -127,7 +129,7 @@ $app-navbar-nav-extras-input-border-radius: 100px;
 $app-navbar-nav-extras-input-padding-y: .25rem;
 $app-navbar-nav-extras-input-padding-left: 1rem;
 $app-navbar-nav-extras-input-padding-right: 40px;
-$app-navbar-nav-extras-input-background-color: #f5f8fa;
+$app-navbar-nav-extras-input-background-color: $gray--light;
 $app-navbar-nav-extras-input-border-color: $gray;
 $app-navbar-nav-extras-input-border-width: 2px;
 $app-navbar-nav-extras-input-glow-width: $app-navbar-nav-extras-input-border-width / 2;
@@ -139,8 +141,8 @@ $app-navbar-nav-extras-button-width: 32px;
 $app-navbar-nav-extras-button-bg-color: transparent;
 $app-navbar-nav-extras-button-position-r: .5rem;
 
-$app-navbar-nav-extras-dropdown-item-active-color: $white;
-$app-navbar-nav-extras-dropdown-item-active-bg-color: #1B95E0;
+$app-navbar-dropdown-menu-max-width: 300px;
+$app-navbar-dropdown-item-icon-margin-right: 1rem;
 
 
 
@@ -185,7 +187,7 @@ $form-link-font-size: $text-small;
 $form-link-margin-x: 5px;
 
   // errors
-$form-errors-color: $red;
+$form-errors-color: $red--light;
 $form-errors-bg: asset_path('error.png');
 $form-errors-padding-left: 16px;
 
@@ -232,6 +234,8 @@ $box-item-border-style: $border-style-primary;
 
 $box-item-header-margin-bottom: 1rem;
 $box-item-header-link-font-size: 0.85rem;
+
+$box-item-hover-bg-color: $gray--light;
 
 $box-row-padding-y: $padding-primary;
 $box-row-border-color: $border-color-primary;
@@ -286,7 +290,8 @@ $tweet-context-color: $black--light;
 $tweet-context-left-text-align: right;
 $tweet-context-right-font-size: .85rem;
 
-$tweet-time-color: $black--light;
+$tweet-header-time-width: 60px;
+$tweet-header-time-color: $black--light;
 
 $tweet-actions-padding-top: $padding-primary;
 $tweet-actions-padding-bottom: $padding-low;
@@ -299,6 +304,9 @@ $tweet-action-icon-font-size: 1.15rem;
 $tweet-action-count-font-size: $text-small;
 $tweet-action-count-margin-left: 1rem;
 
+$tweet-action-btn-reply-active-color: $blue;
+$tweet-action-btn-retweet-active-color: $green;
+$tweet-action-btn-favorite-active-color: $red;
 
 $thread-connect-line-margin-y: 2px;
 $thread-connect-line-width: 4px;
@@ -323,3 +331,32 @@ $account-profilename-hover-decoration: underline;
 $account-summary-avatar-width: $avatar-medium;
 $account-summary-actions-padding-left: $padding-primary;
 $account-summary-actions-button-padding-top: .25rem;
+
+$account-badge-username-color: $black--light;
+$account-badge-username-font-size: 1rem;
+
+$account-badge-profilename-font-size: 1.25rem;
+$account-badge-profilename-color: $black;
+
+
+
+
+
+
+// Options
+$options-dropdown-width: 14px;
+$options-dropdown-toggle-color: $black--light;
+
+
+
+
+
+
+// Dropdown
+$dropdown-menu-border-color: rgba(0,0,0,0.25);
+$dropdown-menu-shadow-y: 1px;
+$dropdown-menu-shadow-x: 0;
+$dropdown-menu-shadow-opacity: 4px;
+
+$dropdown-item-active-color: $white;
+$dropdown-item-active-bg-color: #1B95E0;

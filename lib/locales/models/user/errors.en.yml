@@ -4,10 +4,17 @@ en:
       models:
         user:
           attributes:
+            profilename:
+              blank: Please provide your fullname.
+
+            username:
+              blank: Please enter your username.
+              taken: Username is already registered.
+
             email:
               blank: Please enter a valid email.
               taken: This email is already registered.
-              not_found: Email not found
+              not_found: Email not found.
 
             password:
               blank: Please enter your password.

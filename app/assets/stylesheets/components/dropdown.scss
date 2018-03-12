@@ -1,0 +1,15 @@
+.dropdown-menu {
+  box-shadow: $dropdown-menu-shadow-x
+    $dropdown-menu-shadow-y
+    $dropdown-menu-shadow-opacity
+    $dropdown-menu-border-color;
+  border: 0;
+}
+
+.dropdown-item {
+  &:hover, &:active,
+  .active {
+    color: $dropdown-item-active-color;
+    background-color: $dropdown-item-active-bg-color;
+  }
+}
