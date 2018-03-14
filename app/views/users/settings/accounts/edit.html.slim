@@ -1,1 +1,88 @@
-- console
+= content_for :title do
+  title = t(:header, scope: 'views.users.settings.account.edit')
+
+= content_for :left_panel do
+  = render 'users/settings/left_panel'
+
+= flash_info
+
+= form_for(resource, as: resource_name, url: user_settings_account_path, html: { method: :put }) do |f|
+  div.box-fix
+    div.box
+      div.box-item
+        h4 = t(:header, scope: 'views.users.settings.account.edit')
+
+      div.box-item
+        div class="box-item-header"
+          h5 = t(:profile, scope: 'views.users.settings.account.edit')
+
+        div class="form-group input-field"
+          = f.text_field :username, autofocus: true, class: "form-control"
+          = f.label :username
+          small class="form-text text-muted"
+            | https://twitter.com/[your_username]
+
+        div class="form-group input-field"
+          = f.text_field :profilename, class: "form-control"
+          = f.label :profilename
+
+          = show_errors(resource, :password_confirmation)
+        div class="form-group input-field"
+          = f.email_field :email, autocomplete: "email",
+            class: "form-control"
+          = f.label :email
+
+          = show_errors(resource, :email)
+
+        div class="custom-file"
+          = f.file_field :avatar, class: "custom-file-input"
+          = f.label :avatar,  class: "custom-file-label"
+
+          = show_errors(resource, :avatar)
+
+        div class="custom-file"
+          = f.file_field :cover, class: "custom-file-input"
+          = f.label :cover,  class: "custom-file-label"
+
+          = show_errors(resource, :cover)
+
+
+      div.box-item
+        div class="box-item-header"
+          h5 = t(:addition, scope: 'views.users.settings.account.edit')
+
+        div class="form-group input-field"
+          = f.text_field :birthday, class: "form-control"
+          = f.label :birthday
+
+          = show_errors(resource, :birthday)
+
+        div class="form-group input-field"
+          = f.text_field :birthday_visibility, class: "form-control"
+          = f.label :birthday_visibility
+
+          = show_errors(resource, :birthday_visibility)
+
+      div.box-item
+        div class="box-item-header"
+          h5 = t(:content, scope: 'views.users.settings.account.edit')
+
+        div class="form-group input-field"
+          = f.text_field :country, class: "form-control"
+          = f.label :country
+
+          = show_errors(resource, :country)
+
+        div class="form-group input-field"
+          = f.text_field :language, class: "form-control"
+          = f.label :language
+
+          = show_errors(resource, :language)
+
+        div class="actions text-center pt-2"
+          = f.submit t(:update, scope: 'defaults'),
+            class: 'btn btn-primary btn-edge'
+
+      div.box-item.text-center.py-4
+        = link_to t(:deactive, scope: 'views.users.settings.account.edit'), registration_path(resource_name),
+          data: { confirm: "Are you sure?" }, method: :delete

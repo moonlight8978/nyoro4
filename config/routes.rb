@@ -24,12 +24,16 @@ Rails.application.routes.draw do
         as: :user_registration
       delete 'users',         to: 'users/registrations#destroy'
 
-      get    'settings/password', to: 'users/settings/passwords#edit'
-      put    'settings/password', to: 'users/settings/passwords#update'
+      get    'settings/password', to: 'users/settings/passwords#edit',
+        as: :edit_user_settings_password
+      put    'settings/password', to: 'users/settings/passwords#update',
+        as: :user_settings_password
       patch  'settings/password', to: 'users/settings/passwords#update'
 
-      get    'settings/account', to: 'users/settings/accounts#edit'
-      put    'settings/account', to: 'users/settings/accounts#update'
+      get    'settings/account', to: 'users/settings/accounts#edit',
+        as: :edit_user_settings_account
+      put    'settings/account', to: 'users/settings/accounts#update',
+        as: :user_settings_account
       patch  'settings/account', to: 'users/settings/accounts#update'
     end
   end

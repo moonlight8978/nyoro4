@@ -1,0 +1,18 @@
+en:
+  views:
+    users:
+      settings:
+        account:
+          edit:
+            header: Account
+            profile: Personal Information
+            content: Content
+            addition: Additional Information
+            deactive: Deactive my account
+
+        password:
+          edit:
+            header: Password
+            label:
+              password_confirmation: Verify password
+              password: New password

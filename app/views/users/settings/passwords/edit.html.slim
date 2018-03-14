@@ -1,1 +1,45 @@
-- console
+= content_for :title do
+  title = t(:header, scope: 'views.users.settings.password.edit')
+
+= content_for :left_panel do
+  = render 'users/settings/left_panel'
+
+= flash_info
+
+= form_for(resource, as: resource_name, url: user_settings_password_path, html: { method: :put }) do |f|
+  div.box-fix
+    div.box
+      div.box-item
+        h4 = t(:header, scope: 'views.users.settings.password.edit')
+
+      div.box-item
+        div class="form-group input-field"
+          = f.password_field :current_password, autofocus: true, autocomplete: "off",
+            class: "form-control"
+          = f.label :current_password
+
+          small class="form-text text-muted"
+            | Forgot your password?
+
+          = show_errors(resource, :current_password)
+
+        div class="form-group input-field"
+          = f.password_field :password, autocomplete: "off",
+            class: "form-control"
+          = f.label :password, t(:password, scope: 'views.users.settings.password.edit.label')
+          small class="form-text text-muted"
+            | #{@minimum_password_length} characters minimum
+
+          = show_errors(resource, :password)
+
+        div class="form-group input-field"
+          = f.password_field :password_confirmation, autocomplete: "off",
+            class: "form-control"
+          = f.label :password_confirmation,
+            t(:password_confirmation, scope: 'views.users.settings.password.edit.label')
+
+          = show_errors(resource, :password_confirmation)
+
+        div class="actions text-center py-3"
+          = f.submit t(:update, scope: 'defaults'),
+            class: 'btn btn-primary btn-edge'

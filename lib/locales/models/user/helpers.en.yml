@@ -5,8 +5,15 @@ en:
         email: Email
         password: Password
         remember_me: Remember me
-        profilename: Fullname
+        profilename: Full name
         username: Username
+        avatar: Avatar
+        cover: Cover
+        birthday: Birthday
+        birthday_visibility: Hide your birthday
+        country: Country
+        language: Language
+        current_password: Current password
     submit:
       user:
         create: "Create %{model}"
