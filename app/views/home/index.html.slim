@@ -1,22 +1,6 @@
-= content_for :left_panel
-  div.box-fix
-    div.box
-      div.box-item
-        h5.box-item-header
-          | Box item header
-        div.box-items
-          - (1..4).each do
-            div.box-row
-              | Box row content
-      div.box-item
-        | Box item content
+- console
 
-    div.box
-      - (1..4).each do
-        div.box-item
-          | Box item content
-
-= content_for :right_panel
-  = render partial: 'components/follow_suggestions/index', locals: { users: User.all }
-
-= render partial: 'components/tweet/index', locals: {}
+- if user_signed_in?
+  = render "home/user"
+- else
+  = render "home/guest"

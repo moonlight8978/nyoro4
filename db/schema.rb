@@ -10,22 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180310012004) do
+ActiveRecord::Schema.define(version: 20180315104313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "user_following_statuses", force: :cascade do |t|
-    t.bigint "following_id"
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "user_followings", force: :cascade do |t|
+    t.bigint "user_id"
     t.bigint "follower_id"
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["follower_id", "status"], name: "following_statuses_follower_id_status"
-    t.index ["follower_id"], name: "index_user_following_statuses_on_follower_id"
-    t.index ["following_id", "follower_id"], name: "following_statuses_following_id_follower_id"
-    t.index ["following_id", "status"], name: "following_statuses_following_id_status"
-    t.index ["following_id"], name: "index_user_following_statuses_on_following_id"
+    t.index ["follower_id", "status"], name: "followings_follower_id_status"
+    t.index ["follower_id"], name: "index_user_followings_on_follower_id"
+    t.index ["user_id", "follower_id"], name: "followings_user_id_follower_id"
+    t.index ["user_id", "status"], name: "followings_user_id_status"
+    t.index ["user_id"], name: "index_user_followings_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,6 +51,7 @@ ActiveRecord::Schema.define(version: 20180310012004) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
+    t.string "slug"
     t.string "username"
     t.string "profilename"
     t.date "birthday"
@@ -54,6 +67,7 @@ ActiveRecord::Schema.define(version: 20180310012004) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["slug"], name: "index_users_on_slug"
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 

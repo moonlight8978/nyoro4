@@ -36,5 +36,16 @@ Rails.application.routes.draw do
         as: :user_settings_account
       patch  'settings/account', to: 'users/settings/accounts#update'
     end
+
+    namespace :users do
+      post '/:user_id', to: 'followings#create', as: :followings
+      delete '/:user_id', to: 'followings#destroy'
+    end
+
+    scope module: :profiles do
+      get '/:user_id', action: :show
+      get '/:user_id/follows', action: :follows
+      get '/:user_id/following', action: :following
+    end
   end
 end

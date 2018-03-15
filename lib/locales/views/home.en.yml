@@ -1,0 +1,13 @@
+en:
+  views:
+    home:
+      guest:
+        title: Welcome to Twitter!
+        message: See what's happening in the world right now
+        join_us: Join Twitter today.
+        user: Have an account?
+        guest: New to Twitter?
+
+        first: Follow your interests.
+        second: Hear what people are talking about.
+        third: Join the conversation.

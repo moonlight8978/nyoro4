@@ -28,24 +28,91 @@
     width: calc(100% - #{$account-summary-avatar-width});
     padding-left: $account-summary-actions-padding-left;
 
-    button {
+    .btn {
       margin-top: $account-summary-actions-button-padding-top;
     }
   }
 }
 
-.account-badge {
+.follow-container-js {
+  &.follow .btn:not(.btn-follow) {
+    display: none;
+  }
+
+  &.following .btn:not(.btn-following) {
+    display: none;
+  }
+}
+
+.account-names {
   strong {
     font-size: $account-badge-profilename-font-size;
     color: $account-badge-profilename-color;
+    line-height: 1;
   }
 
-  p {
-    margin: 0;
+  span {
+    line-height: 1.25;
+    font-size: $account-badge-username-font-size;
+    color: $account-badge-username-color;
+    margin-top: -2px;
+    display: block;
+  }
+}
 
-    span {
-      font-size: $account-badge-username-font-size;
-      color: $account-badge-username-color;
+
+.profile-summary {
+  display: flex;
+  flex-direction: column;
+  margin: -1rem;
+
+
+  .profile-cover {
+    position: relative;
+  }
+
+  .profile-avatar {
+    position: absolute;
+    bottom: -32px;
+    left: 1rem;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px white;
+  }
+
+  .profile-main {
+    min-height: 50px;
+    margin-left: calc(1rem + 64px);
+    padding: .5rem 1rem;
+  }
+
+  .profile-extras {
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  .profile-stats {
+    display: flex;
+
+    .profile-stat-item {
+      flex-grow: 1;
+      text-decoration: none;
+
+      &:hover .profile-stat-item-label {
+        color: $blue;
+      }
+    }
+
+    .profile-stat-item-label {
+      font-size: .85rem;
+      font-weight: bold;
+      color: $black--light;
+      @include transition-short(color);
+    }
+
+    .profile-stat-item-value {
+      font-size: 1.15rem;
+      font-weight: bold;
+      color: $blue;
+      display: block;
     }
   }
 }

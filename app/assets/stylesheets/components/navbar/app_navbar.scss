@@ -2,15 +2,8 @@
   padding: 0;
   background-color: $app-navbar-bg-color;
 
-  .logo-link {
-    position: absolute;
-    left: 50%;
-    margin-left: $navbar-logo-margin-left;
-
-    i {
-      color: $navbar-logo-color;
-      font-size: $navbar-logo-font-size;
-    }
+  .logo-link i {
+    color: $app-navbar-logo-color;
   }
 
   .navbar-collapse {
@@ -78,7 +71,7 @@
       right: $app-navbar-nav-extras-button-position-r;
     }
   }
-  
+
   .dropdown {
     .dropdown-menu { max-width: $app-navbar-dropdown-menu-max-width; }
     .dropdown-item {

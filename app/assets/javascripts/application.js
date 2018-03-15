@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require lib
 //= require_self
+//= require components/follow
 // require_tree .
 
 const wow = new WOW({
@@ -23,3 +24,6 @@ wow.init();
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
+
+const csrfToken = $("meta[name=csrf-token]").attr("content")
+axios.defaults.headers.common['X-CSRF-Token'] = csrfToken

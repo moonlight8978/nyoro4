@@ -1,0 +1,38 @@
+= content_for :title do
+  title = t(:title, scope: "views.home.guest")
+
+div.static-home-page
+  div.static-home-page-cell
+    div.communication-block
+      div.communication-item
+        i class="fas fa-search fa-fw"
+        span = t(:first, scope: "views.home.guest")
+
+      div.communication-item
+        i class="fas fa-users fa-fw"
+        span = t(:second, scope: "views.home.guest")
+
+      div.communication-item
+        i class="far fa-comment fa-fw"
+        span = t(:third, scope: "views.home.guest")
+
+  div.static-home-page-cell
+    div.join-us-block
+      div.join-us-header
+        i class="fab fa-twitter"
+
+      div.join-us-messages.pt-3
+        p.message = t(:message, scope: 'views.home.guest')
+        p.join-us = t(:join_us, scope: 'views.home.guest')
+
+      div.join-us-links.py-2
+        div
+          = t(:guest, scope: 'views.home.guest')
+          span &nbsp;
+          = link_to new_registration_path(:user) do
+            = t(:sign_up_full, scope: 'views.users.shared')
+        div
+          = t(:user, scope: 'views.home.guest')
+          span &nbsp;
+          = link_to new_session_path(:user) do
+            = t(:sign_in_full, scope: 'views.users.shared')

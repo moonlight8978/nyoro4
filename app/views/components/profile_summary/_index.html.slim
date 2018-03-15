@@ -1,0 +1,33 @@
+div.box
+  div.box-item
+    div.profile-summary
+      div.profile-cover
+        div.img-placeholder.ratio-3_1
+          img.img-thumb src="#{user.cover.small.url}"
+        div.profile-avatar.avatar-large
+          div.img-placeholder.ratio-1_1
+            img.img-thumb.avatar-thumb src="#{user.avatar.medium.url}"
+      div.profile-main
+        div.account-names.ellipsis
+          a href="#"
+            strong = user.profilename
+          a href="#"
+            span = "@#{user.username}"
+      - if include_extras
+        div.profile-extras
+          div.profile-stats
+            a.profile-stat-item href="#"
+              span.profile-stat-item-label
+                = t(:tweets, scope: 'views.users.shared')
+              span.profile-stat-item-value
+                | 6
+            a.profile-stat-item href="#"
+              span.profile-stat-item-label
+                = t(:following, scope: 'views.users.shared')
+              span.profile-stat-item-value
+                = user.followings.count
+            a.profile-stat-item href="#"
+              span.profile-stat-item-label
+                = t(:followers, scope: 'views.users.shared')
+              span.profile-stat-item-value
+                = user.followers.count

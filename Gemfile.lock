@@ -134,6 +134,7 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
+    mini_magick (4.8.0)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
@@ -282,10 +283,10 @@ DEPENDENCIES
   factory_bot_rails
   figaro (~> 1.1, >= 1.1.1)
   friendly_id (~> 5.2, >= 5.2.3)
-  i18n
   i18n-tasks
   kaminari
   listen (>= 3.0.5, < 3.2)
+  mini_magick (~> 4.8)
   pg (~> 0.18)
   puma (~> 3.7)
   rails (~> 5.1.4)

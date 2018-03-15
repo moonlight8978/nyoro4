@@ -1,7 +1,7 @@
 class CreateUserFollowingStatuses < ActiveRecord::Migration[5.1]
   def change
-    create_table :user_following_statuses do |t|
-      t.belongs_to :following
+    create_table :user_followings do |t|
+      t.belongs_to :user
       t.belongs_to :follower
 
       t.integer :status
@@ -9,11 +9,11 @@ class CreateUserFollowingStatuses < ActiveRecord::Migration[5.1]
       t.timestamps
     end
 
-    add_index :user_following_statuses, [:following_id, :follower_id],
-      name: :following_statuses_following_id_follower_id
-    add_index :user_following_statuses, [:following_id, :status],
-      name: :following_statuses_following_id_status
-    add_index :user_following_statuses, [:follower_id, :status],
-      name: :following_statuses_follower_id_status
+    add_index :user_followings, [:user_id, :follower_id],
+      name: :followings_user_id_follower_id
+    add_index :user_followings, [:user_id, :status],
+      name: :followings_user_id_status
+    add_index :user_followings, [:follower_id, :status],
+      name: :followings_follower_id_status
   end
 end

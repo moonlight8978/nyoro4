@@ -1,0 +1,18 @@
+div.box-fix
+  = render_profile_summary_box(current_user)
+
+  div.box.border-0
+    div class="list-group mb-3"
+      = link_to edit_user_settings_account_path,
+        class: class_names("list-group-item list-group-item-chevron",
+          "list-group-item-action", "active": settings_account_path?) do
+
+        = t(:header, scope: 'views.users.settings.account.edit')
+
+      = link_to edit_user_settings_password_path,
+        class: class_names("list-group-item list-group-item-chevron",
+          "list-group-item-action", "active": settings_password_path?) do
+
+        = t(:header, scope: 'views.users.settings.password.edit')
+
+  = render_footer_box

@@ -1,0 +1,13 @@
+= content_for :title do
+  title = t(:app_name, scope: "defaults")
+
+= content_for :left_panel do
+  = render_profile_summary_box(current_user, true)
+
+= content_for :right_panel do
+  div.box-fix
+    = render_follow_suggestions_box
+
+    = render_footer_box
+
+= render_tweet({})

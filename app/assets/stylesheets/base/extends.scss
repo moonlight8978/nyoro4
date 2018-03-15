@@ -11,3 +11,24 @@
   flex-direction: column;
   justify-content: center;
 }
+
+%fas {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+%far {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+}
+
+%fab {
+  font-family: "Font Awesome 5 Brands";
+  font-weight: 400;
+}
+
+%list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}

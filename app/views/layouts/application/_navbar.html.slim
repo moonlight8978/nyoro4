@@ -40,9 +40,9 @@ nav class="navbar navbar-app fixed-top navbar-expand-lg navbar-light"
           div [class="dropdown-menu dropdown-menu-right"
                aria-labelledby="navbarDropdownMenuToggle"]
             div class="dropdown-header"
-              div class="account-badge ellipsis"
+              div class="account-names ellipsis"
                 strong = current_user.profilename
-                p: span = "@#{current_user.username}"
+                span = "@#{current_user.username}"
 
             .dropdown-divider
 

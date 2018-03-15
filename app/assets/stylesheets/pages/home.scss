@@ -1,0 +1,61 @@
+.static-home-page {
+  display: flex;
+
+  .static-home-page-cell {
+    flex: 0 0 50%;
+    height: 100vh;
+  }
+
+  .static-home-page-cell {
+    display: flex;
+    align-items: center;
+  }
+
+  .static-home-page-cell:first-child {
+    background-color: $blue;
+  }
+
+  .static-home-page-cell:nth-child(2) {
+    background-color: $white;
+  }
+
+  .communication-block,
+  .join-us-block {
+    margin: auto;
+    max-width: 300px;
+  }
+
+  .communication-item {
+    color: $white;
+    font-weight: 900;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    i {
+      font-size: 2rem;
+      vertical-align: top;
+      margin-right: 1rem;
+    }
+    span { font-size: 1.15rem; }
+  }
+
+  .join-us-header {
+    text-align: center;
+
+    i {
+      font-size: 2.5rem;
+      color: $blue;
+    }
+  }
+
+  .join-us-messages {
+    font-weight: $text-bold;
+
+    .message {
+      font-size: 1.75rem;
+    }
+
+    .join-us {
+      font-size: 1.15rem;
+    }
+  }
+}

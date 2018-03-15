@@ -1,0 +1,30 @@
+.list-group {
+  .list-group-item {
+    border-radius: $list-group-item-border-radius;
+    padding: $list-group-item-padding-y $list-group-item-padding-x;
+    border-color: $list-group-item-border-color;
+    @include transition-short(all);
+
+    &.active,
+    &:active {
+      background-color: $list-group-item-active-bg-color;
+      color: $list-group-item-active-color;
+      font-weight: $list-group-item-active-font-weight;
+    }
+
+    &:hover {
+      color: $list-group-item-hover-color;
+    }
+  }
+
+  .list-group-item-chevron {
+    &:after {
+      @extend %fas;
+      content: '\f054';
+      position: absolute;
+      font-size: $list-group-item-chevron-font-size;
+      top: $list-group-item-chevron-position-top;
+      right: $list-group-item-chevron-position-right;
+    }
+  }
+}

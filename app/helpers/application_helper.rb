@@ -35,4 +35,23 @@ module ApplicationHelper
     end
     classes.join(" ")
   end
+
+  def render_profile_summary_box(user, include_extras = false)
+    render partial: "components/profile_summary/index",
+      locals: { user: user, include_extras: include_extras }
+  end
+
+  def render_footer_box
+    render 'components/footer/index'
+  end
+
+  def render_follow_suggestions_box
+    suggestions = User.suggestions_for(current_user)
+    render partial: 'components/follow_suggestions/index',
+      locals: { users: suggestions }
+  end
+
+  def render_tweet(tweet)
+    render partial: 'components/tweet/index', locals: { tweet: tweet }
+  end
 end

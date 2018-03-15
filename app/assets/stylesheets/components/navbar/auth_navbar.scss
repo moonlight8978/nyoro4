@@ -5,12 +5,23 @@
   background-repeat: no-repeat;
   padding: $auth-navbar-padding-y 0;
 
-  .logo-link {
-    margin: auto;
+  .logo-link i { color: $auth-navbar-logo-color; }
 
-    i {
-      color: $navbar-logo-color;
-      font-size: $navbar-logo-font-size;
+  .language-dropdown {
+    margin-left: auto;
+    .dropdown-toggle {
+      @extend %role-button;
+
+      color: $language-dropdown-toggle-color;
+      font-size: $language-dropdown-toggle-font-size;
+
+      &:hover {
+        color: $language-dropdown-toggle-color;
+      }
+    }
+
+    .dropdown-menu {
+      min-width: auto;
     }
   }
 }

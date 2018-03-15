@@ -23,8 +23,9 @@
   color: $button-secondary-color;
   border-color: $button-secondary-border-color !important;
 
-  &:hover {
-    color: $button-secondary-hover-color;
-    background-color: $button-secondary-hover-bg-color;
+  &:hover,
+  &:active {
+    color: $button-secondary-hover-color !important;
+    background-color: $button-secondary-hover-bg-color !important;
   }
 }

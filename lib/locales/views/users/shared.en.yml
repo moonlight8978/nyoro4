@@ -10,7 +10,11 @@ en:
         sign_out: Sign out
         sign_out_full: Sign out
         follow: Follow
+        follower: Follower
+        followers: Followers
         unfollow: Unfollow
         following: Following
         tweet: Tweet
+        tweets: Tweet
         reply: Reply
+        replies: Replies

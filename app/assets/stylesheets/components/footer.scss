@@ -1,0 +1,18 @@
+.footer {
+  @extend %list;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: $footer-font-size;
+
+  li {
+    padding-right: $footer-item-padding-right;
+  }
+
+  a, span {
+    color: $footer-item-color;
+  }
+
+  a:hover {
+    color: $footer-item-link-hover-color;
+  }
+}

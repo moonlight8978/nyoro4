@@ -29,6 +29,8 @@
 
 .ratio-2_3:after { padding-bottom: 3 / 2 * 100%; }
 
+.ratio-3_1:after { padding-bottom: 1 / 3 * 100%; }
+
 // sizing
 .avatar-small {
   width: $avatar-small;
@@ -36,4 +38,8 @@
 
 .avatar-medium {
   width: $avatar-medium;
+}
+
+.avatar-large {
+  width: $avatar-large;
 }

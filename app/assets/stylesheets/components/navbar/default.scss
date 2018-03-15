@@ -7,23 +7,13 @@
     position: relative;
   }
 
-  .language-dropdown {
+  .logo-link {
     position: absolute;
-    right: $container-padding-x;
+    left: 50%;
+    margin-left: $navbar-logo-margin-left;
 
-    .dropdown-toggle {
-      @extend %role-button;
-
-      color: $language-dropdown-toggle-color;
-      font-size: $language-dropdown-toggle-font-size;
-
-      &:hover {
-        color: $language-dropdown-toggle-color;
-      }
-    }
-
-    .dropdown-menu {
-      min-width: auto;
+    i {
+      font-size: $navbar-logo-font-size;
     }
   }
 }

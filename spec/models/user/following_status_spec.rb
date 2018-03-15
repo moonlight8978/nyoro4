@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe User::FollowingStatus, type: :model do
+RSpec.describe User::Following, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"
 end

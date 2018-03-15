@@ -38,6 +38,8 @@ $padding-low: .5rem;
 // Sizings
 $avatar-small: 32px;
 $avatar-medium: 48px;
+$avatar-large: 72px;
+
 
 
 
@@ -74,6 +76,7 @@ $page-wrapper-sm-whitespace: 15px;
 // Border
 $border-width-primary: 1px;
 $border-color-primary: rgba(0,0,0,0.1);
+$border-color-secondary: #e6ecf0;
 $border-style-primary: solid;
 
 $border-color-dark: rgba(0,0,0,0.25);
@@ -86,8 +89,8 @@ $navbar-min-height: 49px;
 $navbar-border-width: $border-width-primary;
 $navbar-border-style: $border-style-primary;
 $navbar-border-color: $border-color-dark;
-$navbar-logo-font-size: 24px;
-$navbar-logo-color: $blue;
+
+$navbar-logo-font-size: 1.5rem;
 $navbar-logo-margin-left: -$navbar-logo-font-size / 2;
 
 
@@ -96,8 +99,7 @@ $navbar-logo-margin-left: -$navbar-logo-font-size / 2;
 $auth-navbar-padding-y: .75rem;
 // $auth-navbar-padding-x: 1rem;
 $auth-navbar-bg: asset_path('nav_gradient_bg.png');
-$auth-navbar-icon-color: $white;
-$auth-navbar-icon-font-size: 1.5rem;
+$auth-navbar-logo-color: $white;
 
 $language-dropdown-toggle-color: $white;
 $language-dropdown-toggle-font-size: $text-small;
@@ -107,6 +109,7 @@ $language-dropdown-toggle-font-size: $text-small;
 
   // App navbar
 $app-navbar-bg-color: $white;
+$app-navbar-logo-color: $blue;
 
 $app-navbar-nav-link-padding-x: 1rem;
 $app-navbar-nav-link-padding-y: .75rem;
@@ -228,7 +231,7 @@ $box-border-width: $border-width-primary;
 
 $box-item-bg-color: $white;
 $box-item-padding: $padding-primary;
-$box-item-border-color: $border-color-primary;
+$box-item-border-color: $border-color-secondary;
 $box-item-border-width: $border-width-primary;
 $box-item-border-style: $border-style-primary;
 
@@ -238,7 +241,7 @@ $box-item-header-link-font-size: 0.85rem;
 $box-item-hover-bg-color: $gray--light;
 
 $box-row-padding-y: $padding-primary;
-$box-row-border-color: $border-color-primary;
+$box-row-border-color: $border-color-secondary;
 $box-row-border-width: $border-width-primary;
 $box-row-border-style: $border-style-primary;
 
@@ -360,3 +363,32 @@ $dropdown-menu-shadow-opacity: 4px;
 
 $dropdown-item-active-color: $white;
 $dropdown-item-active-bg-color: #1B95E0;
+
+
+
+
+
+// List-group
+$list-group-item-border-radius: 0;
+$list-group-item-padding-x: $padding-primary;
+$list-group-item-padding-y: $padding-low;
+$list-group-item-border-color: $border-color-secondary;
+
+$list-group-item-chevron-font-size: .75rem;
+$list-group-item-chevron-position-right: $list-group-item-padding-x;
+$list-group-item-chevron-position-top: calc(#{$list-group-item-padding-y + (1rem - $list-group-item-chevron-font-size) / 2} + 2px);
+
+$list-group-item-hover-color: $blue;
+
+$list-group-item-active-bg-color: $white;
+$list-group-item-active-color: $black;
+$list-group-item-active-font-weight: $text-bold;
+
+
+
+
+// Footer
+$footer-font-size: $text-small;
+$footer-item-padding-right: $padding-low;
+$footer-item-color: $black--light;
+$footer-item-link-hover-color: $blue;

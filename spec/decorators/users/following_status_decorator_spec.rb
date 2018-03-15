@@ -1,4 +1,4 @@
 require 'rails_helper'
 
-RSpec.describe Users::FollowingStatusDecorator do
+RSpec.describe Users::FollowingDecorator do
 end
