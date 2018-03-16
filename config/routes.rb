@@ -43,9 +43,10 @@ Rails.application.routes.draw do
     end
 
     scope module: :profiles do
-      get '/:user_id', action: :show
-      get '/:user_id/follows', action: :follows
-      get '/:user_id/following', action: :following
+      get '/:user_id', action: :show, as: :profile
+      get '/:user_id/followers', action: :followers, as: :profile_followers
+      get '/:user_id/following', action: :following, as: :profile_following
+      get '/:user_id/likes', action: :likes, as: :profile_likes
     end
   end
 end

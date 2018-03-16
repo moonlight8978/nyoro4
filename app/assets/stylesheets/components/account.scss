@@ -89,6 +89,15 @@
     padding: 0 1rem 1rem 1rem;
   }
 
+  .profile-introduction {
+    margin-bottom: 0;
+    margin-top: 1rem;
+    height: 1rem * 1.25 * 4;
+    line-height: 1.25;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
   .profile-stats {
     display: flex;
 

@@ -1,0 +1,8 @@
+en:
+  views:
+    title:
+      profiles:
+        show: "%{profilename} (@%{username}) | Twitter"
+        followers: "People following %{profilename} (@%{username}) | Twitter"
+        following: "People followed by %{profilename} (@%{username}) | Twitter"
+        likes: "Tweets liked by %{profilename} (@%{username}) | Twitter"

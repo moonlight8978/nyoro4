@@ -34,19 +34,17 @@ nav class="navbar navbar-app fixed-top navbar-expand-lg navbar-light"
         li class="nav-item dropdown nav-avatar"
           a [class="avatar-small img-wrapper" href="#" id="navbarDropdownMenuToggle"
              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
-            div class="img-placeholder ratio-1_1"
-              img class="img-thumb avatar-thumb" src="#{asset_path('default_profile_normal.png')}"
+            = render_image src: current_user.avatar.small.url,
+              avatar: true, ratio: "1_1"
 
           div [class="dropdown-menu dropdown-menu-right"
                aria-labelledby="navbarDropdownMenuToggle"]
             div class="dropdown-header"
-              div class="account-names ellipsis"
-                strong = current_user.profilename
-                span = "@#{current_user.username}"
+              = user_names_multilines(current_user, false)
 
             .dropdown-divider
 
-            a class="dropdown-item" href="#"
+            = link_to profile_path(current_user.username),  class: 'dropdown-item' do
               i class="fas fa-user fa-fw"
               | Profile
 

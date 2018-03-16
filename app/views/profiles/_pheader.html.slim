@@ -1,0 +1,50 @@
+div.profile-header-container
+  div.profile-cover
+    = render_image src: user.cover.url, ratio: "3_1"
+
+    div.profile-avatar
+      div.container
+        div.avatar-original [data-toggle="tooltip" data-placement="right"
+          title="#{user.profilename}"]
+
+          = render_image src: user.avatar.url, ratio: "1_1", avatar: true
+
+  div.profile-nav
+    div.container
+      div.row
+        div.col-3
+
+        div.col-9
+          div.profile-nav-buttons-group
+            ul.nav
+              li.nav-item
+                = link_to profile_path(user.username),
+                  class: class_names("nav-link", active: profile_path?(user)) do
+                  span.profile-stat-label
+                    = t(:tweets, scope: "views.users.shared")
+                  span.profile-stat-value
+                    | 6
+              li.nav-item
+                = link_to profile_following_path(user.username),
+                  class: class_names("nav-link", active: profile_following_path?(user)) do
+                  span.profile-stat-label
+                    = t(:following, scope: "views.users.shared")
+                  span.profile-stat-value
+                    = user.followings.count
+              li.nav-item
+                = link_to profile_followers_path(user.username),
+                  class: class_names("nav-link", active: profile_followers_path?(user)) do
+                  span.profile-stat-label
+                    = t(:followers, scope: "views.users.shared")
+                  span.profile-stat-value
+                    = user.followers.count
+              li.nav-item
+                = link_to profile_likes_path(user.username),
+                  class: class_names("nav-link", active: profile_likes_path?(user)) do
+                  span.profile-stat-label
+                    = t(:likes, scope: "views.users.shared")
+                  span.profile-stat-value
+                    | 169
+
+            - unless current_user_profile?
+              = follow_buttons_for(user, User::Following.exists?(follower: current_user, user: user))

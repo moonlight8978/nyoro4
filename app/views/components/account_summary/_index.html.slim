@@ -1,17 +1,11 @@
 div class="box-row"
-  div class="account-summary follow-container-js follow"
+  div class="account-summary"
     div class="account-avatar"
       div class="avatar-medium"
-        div class="img-placeholder ratio-1_1"
-          img class="img-thumb avatar-thumb" src="#{user.avatar.small.url}"
+        = render_image(src: user.avatar.small.url, avatar: true, ratio: "1_1")
+
     div class="account-actions"
-      div class="account-info ellipsis"
-        a href="#" class="account-link"
-          strong = user.profilename
-          span &nbsp;
-          span "@#{user.username}"
+      = user_names_singleline(user)
+
       div
-        = link_to users_followings_path(user.id), class: "btn btn-edge--small btn-edge btn-secondary btn-follow", "data-type": :post do
-          = t(:follow, scope: 'views.users.shared')
-        = link_to users_followings_path(user.id), class: "btn btn-edge--small btn-edge btn-primary btn-following", "data-type": :delete do
-          = t(:following, scope: 'views.users.shared')
+        = follow_buttons_for(user)

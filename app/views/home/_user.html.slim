@@ -2,7 +2,7 @@
   title = t(:app_name, scope: "defaults")
 
 = content_for :left_panel do
-  = render_profile_summary_box(current_user, true)
+  = render_profile_summary_box(current_user, include_extras: true)
 
 = content_for :right_panel do
   div.box-fix

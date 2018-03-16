@@ -1,0 +1,18 @@
+- console
+
+= content_for :title
+  title
+    = t(:followers, scope: "views.title.profiles",
+      username: user.username, profilename: user.profilename)
+
+= content_for :header
+  = render partial: "profiles/pheader", locals: { user: user }
+
+= content_for :left_panel
+  = render partial: "profiles/pleft", locals: { user: user }
+
+div.mt-3
+  div.row
+    - user_followers.each do |follower|
+      div.col-6
+        = render_profile_summary_box(follower, style: 2, following: @following_ids)

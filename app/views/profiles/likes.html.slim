@@ -1,6 +1,8 @@
+- console
+
 = content_for :title
   title
-    = t(:show, scope: "views.title.profiles",
+    = t(:likes, scope: "views.title.profiles",
       username: user.username, profilename: user.profilename)
 
 = content_for :header
@@ -15,20 +17,7 @@
 
     = render_footer_box
 
-/ Main content
-ul.nav.nav-tabs.nav-box.nav-box-fix.mt-3
-  li.nav-item
-    a.nav-link.active[href="/link1"]
-      | Tweets
 
-  li.nav-item
-    a.nav-link[href="/link2"]
-      | Tweets & Reply
-
-  li.nav-item
-    a.nav-link[href="/link3"]
-      | Media
-
-div.box-fix
+div.box-fix.mt-3
   div.box
     = render_tweet({})

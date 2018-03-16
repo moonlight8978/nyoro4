@@ -1,0 +1,19 @@
+div.profile-left-panel
+  = user_names_multilines(user)
+
+  - if user.introduction
+    p.profile-introduction = user.introduction
+
+  - if user.country
+    div.profile-extra-content
+      i class="fas fa-map-marker-alt fa-fw"
+      = user.country
+
+  div.profile-extra-content
+    i class="fas fa-calendar-alt fa-fw"
+    = user.created_at
+
+  - if user.birthday
+  div.profile-extra-content
+    i class="fas fa-birthday-cake fa-fw"
+    = user.birthday

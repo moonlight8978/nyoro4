@@ -1,18 +1,11 @@
 div.box
   div.box-item
     div.profile-summary
-      div.profile-cover
-        div.img-placeholder.ratio-3_1
-          img.img-thumb src="#{user.cover.small.url}"
-        div.profile-avatar.avatar-large
-          div.img-placeholder.ratio-1_1
-            img.img-thumb.avatar-thumb src="#{user.avatar.medium.url}"
+      = render partial: "components/profile_summary/header", locals: { user: user }
+
       div.profile-main
-        div.account-names.ellipsis
-          a href="#"
-            strong = user.profilename
-          a href="#"
-            span = "@#{user.username}"
+        = user_names_multilines(user)
+
       - if include_extras
         div.profile-extras
           div.profile-stats
