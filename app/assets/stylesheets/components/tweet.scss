@@ -32,17 +32,25 @@
   }
 }
 
-.tweet-container .original-tweet .tweet-header {
-  display: flex;
-
-  .account-info {
-    max-width: calc(100% - #{$tweet-header-time-width});
+.tweet-container .original-tweet {
+  .tweet-content {
+    white-space: pre-wrap;
+    overflow: hidden;
   }
 
-  .time {
-    color: $tweet-header-time-color;
+  .tweet-header {
+    display: flex;
+
+    .account-info {
+      max-width: calc(100% - #{$tweet-header-time-width});
+    }
+
+    .time {
+      color: $tweet-header-time-color;
+    }
   }
 }
+
 
 .tweet-container .tweet-medias {
   @extend %with-border;

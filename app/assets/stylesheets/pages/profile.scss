@@ -78,6 +78,8 @@
 
   .profile-introduction {
     line-height: 1.25;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .profile-extra-content {

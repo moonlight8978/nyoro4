@@ -4,11 +4,11 @@ div.box
       = render partial: "components/profile_summary/header", locals: { user: user }
 
       div.profile-main.text-right
-        - unless current_user?(user)
-          = follow_buttons_for(user, following.include?(user.id))
+        - unless user.current_user?
+          = user.follow_buttons
 
       div.profile-extras
-        = user_names_multilines(user)
+        = user.names_multilines(true)
 
         p.profile-introduction
           = user.introduction

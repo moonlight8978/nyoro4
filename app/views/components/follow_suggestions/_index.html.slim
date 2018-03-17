@@ -2,8 +2,7 @@ div class="box"
   div class="box-item"
     div class="box-item-header"
       h5 = t(:header, scope: 'views.components.follow_suggestions')
-      span class="px-1" &middot;
+      span class="px-1" = Nyoro::Text.html_map(:middot)
       a href="#" = t(:refresh, scope: 'views.components.follow_suggestions')
     div class="box-rows"
-      - users.each.with_index do |user, index|
-        = render partial: 'components/account_summary/index', locals: { user: user }
+      = render partial: 'components/account_summary/index', collection: suggestions, as: :user

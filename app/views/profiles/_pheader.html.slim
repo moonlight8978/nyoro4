@@ -1,13 +1,13 @@
 div.profile-header-container
   div.profile-cover
-    = render_image src: user.cover.url, ratio: "3_1"
+    = image_container(user.cover.url, "3_1")
 
     div.profile-avatar
       div.container
         div.avatar-original [data-toggle="tooltip" data-placement="right"
           title="#{user.profilename}"]
 
-          = render_image src: user.avatar.url, ratio: "1_1", avatar: true
+          = image_container(user.avatar.url, "1_1", true)
 
   div.profile-nav
     div.container
@@ -47,4 +47,4 @@ div.profile-header-container
                     | 169
 
             - unless current_user_profile?
-              = follow_buttons_for(user, User::Following.exists?(follower: current_user, user: user))
+              = user.follow_buttons

@@ -1,4 +1,4 @@
 div.profile-cover
-  = render_image(src: user.cover.small.url, ratio: "3_1")
+  = image_container(user.cover.small.url, "3_1")
   div.profile-avatar.avatar-large
-    = render_image(src: user.avatar.medium.url, ratio: "1_1", avatar: true)
+    = image_container(user.avatar.medium.url, "1_1", true)

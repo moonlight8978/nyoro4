@@ -34,13 +34,12 @@ nav class="navbar navbar-app fixed-top navbar-expand-lg navbar-light"
         li class="nav-item dropdown nav-avatar"
           a [class="avatar-small img-wrapper" href="#" id="navbarDropdownMenuToggle"
              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
-            = render_image src: current_user.avatar.small.url,
-              avatar: true, ratio: "1_1"
+            = image_container(current_user.avatar.small.url, "1_1", true)
 
           div [class="dropdown-menu dropdown-menu-right"
                aria-labelledby="navbarDropdownMenuToggle"]
             div class="dropdown-header"
-              = user_names_multilines(current_user, false)
+              = current_user.names_multilines(false)
 
             .dropdown-divider
 

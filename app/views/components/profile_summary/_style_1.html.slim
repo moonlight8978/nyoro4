@@ -4,22 +4,22 @@ div.box
       = render partial: "components/profile_summary/header", locals: { user: user }
 
       div.profile-main
-        = user_names_multilines(user)
+        = user.names_multilines(true)
 
-      - if include_extras
+      - if local_assigns[:include_extras]
         div.profile-extras
           div.profile-stats
-            a.profile-stat-item href="#"
+            = link_to profile_path(user.username), class: 'profile-stat-item' do
               span.profile-stat-item-label
                 = t(:tweets, scope: 'views.users.shared')
               span.profile-stat-item-value
                 | 6
-            a.profile-stat-item href="#"
+            = link_to profile_following_path(user.username), class: 'profile-stat-item' do
               span.profile-stat-item-label
                 = t(:following, scope: 'views.users.shared')
               span.profile-stat-item-value
                 = user.followings.count
-            a.profile-stat-item href="#"
+            = link_to profile_followers_path(user.username), class: 'profile-stat-item' do
               span.profile-stat-item-label
                 = t(:followers, scope: 'views.users.shared')
               span.profile-stat-item-value

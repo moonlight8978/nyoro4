@@ -35,9 +35,7 @@ div class="box-item"
               a.dropdown-item[href="#"]
                 | Report tweet
 
-        p
-          | 夏全開な蒼ちゃんです！AIR大好きっ子にはサマポケの雰囲気にワクワクしかない…！
-          | #サマポケ応援
+        p.tweet-content == Nyoro::Text::Autolink.auto_link("夏全開な蒼ちゃんです！AIR大好きっ子にはサマポケの雰囲気にワクワクしかない…！\n\n#サマポケ応援")
 
         div class="tweet-medias"
           div class="img-placeholder ratio-2_3"

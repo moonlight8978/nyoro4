@@ -15,4 +15,4 @@ div.mt-3
   div.row
     - user_followers.each do |follower|
       div.col-6
-        = render_profile_summary_box(follower, style: 2, following: @following_ids)
+        =  user.profile_summary_box(1, include_extras: true)

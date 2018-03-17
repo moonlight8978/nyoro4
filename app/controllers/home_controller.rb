@@ -1,7 +1,10 @@
 class HomeController < ApplicationController
   layout :determine_layout
+  
+  decorates_assigned :user
 
   def index
+    @user = current_user
   end
 
 private

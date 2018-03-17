@@ -7,12 +7,10 @@ class ProfilesController < ApplicationController
   end
 
   def followers
-    @following_ids = User::Following.where(follower: current_user).pluck(:user_id)
     @user_followers = UserDecorator.decorate_collection(@user.followers)
   end
 
   def following
-    @following_ids = User::Following.where(follower: current_user).pluck(:user_id)
     @user_following = UserDecorator.decorate_collection(@user.followings)
   end
 

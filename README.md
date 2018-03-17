@@ -51,6 +51,7 @@ postgres=# select version();
 * Redis: `$ sudo apt-get install redis-server`
 * Elasticsearch: `$ sudo apt-get install elasticsearch`
 * ImageMagick: `$ sudo apt-get install imagemagick`
+* libidn: `$ sudo apt-get install libidn11-dev idn`
 * Yarn
 
 #### Run

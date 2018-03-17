@@ -24,6 +24,7 @@ gem 'slim-rails', '~> 3.1', '>= 3.1.3'
 gem 'cancancan', '~> 2.1', '>= 2.1.3'
 gem 'friendly_id', '~> 5.2', '>= 5.2.3'
 gem 'redis'
+gem 'twitter-text', '~> 2.1'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

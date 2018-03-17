@@ -2,10 +2,10 @@ div class="box-row"
   div class="account-summary"
     div class="account-avatar"
       div class="avatar-medium"
-        = render_image(src: user.avatar.small.url, avatar: true, ratio: "1_1")
+        = image_container(user.avatar.small.url, "1_1", true)
 
     div class="account-actions"
-      = user_names_singleline(user)
+      = user.names_singleline
 
       div
-        = follow_buttons_for(user)
+        = user.follow_buttons
