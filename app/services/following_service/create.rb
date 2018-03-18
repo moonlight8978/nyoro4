@@ -1,10 +1,17 @@
-class FollowingService::Create
-  def initialize(**args)
-    @user = args[:user]
-    @follower = args[:follower]
-  end
+module ModuleName
+  # Service to create new following
+  # Use when user try to follow someone
+  class Create
+    # @param follower [User] follower
+    # @param user [User] user to follow
+    def initialize(follower, user)
+      @user = follower
+      @follower = user
+    end
 
-  def perform
-    User::Following.create(user: @user, follower: @follower)
+    # Create the following
+    def perform
+      User::Following.create(user: @user, follower: @follower)
+    end
   end
 end

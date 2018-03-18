@@ -1,4 +1,5 @@
 module Nyoro
+  # Use to store, map special characters
   module Text
     HTML_MAP = {
       space: "&nbsp;",

@@ -1,5 +1,5 @@
 class UserDecorator < ApplicationDecorator
-  delegate_all
+  delegate_all 
   # CSS class for follow link
   FOLLOW_BUTTON_CLASS = "btn btn-edge--small btn-edge btn-secondary btn-follow".freeze
   # CSS class for unfollow link
@@ -59,7 +59,7 @@ class UserDecorator < ApplicationDecorator
     group =
       h.link_to profile_path, class: NAMES[:link_class] do
         html = h.content_tag(:strong, object.profilename)
-        html << h.content_tag(:span, Nyoro::Text.html_map(:middot), class: 'px-1')
+        html << h.content_tag(:span, Nyoro::Text.html_map(:space))
         html << h.content_tag(:span, username_with_symbol)
       end
     h.content_tag :div, group, class: NAMES[:single_container_class]
@@ -85,7 +85,7 @@ class UserDecorator < ApplicationDecorator
 
   # Add auto-link urls, hashtags, usernames
   def introduction
-    Nyoro::Text::Autolink.auto_link(h.html_escape(object.introduction)) 
+    Nyoro::Text::Autolink.auto_link(h.html_escape(object.introduction))
   end
 
 private
@@ -99,7 +99,7 @@ private
       h.t(type, scope: 'views.users.shared'),
       followings_path,
       class: FOLLOWINGS[:"#{type}_class"],
-      "data-type": method
+      "data-http": method
     )
   end
 

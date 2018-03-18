@@ -1,0 +1,10 @@
+en:
+  helpers:
+    label:
+      feed:
+        tweet:
+          content: Content
+    submit:
+      feed:
+        tweet:
+          create: "Tweet"

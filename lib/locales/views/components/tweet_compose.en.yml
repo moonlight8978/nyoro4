@@ -1,0 +1,10 @@
+en:
+  views:
+    components:
+      tweet_compose:
+        placeholder: What's happening?
+        new: New tweet
+        reply: "Replying to @%{username}"
+        upload: Add photos or videos
+        minimize: Minimize
+        close: Close

@@ -10,4 +10,6 @@
 
     = render_footer_box
 
-= render_tweet({})
+= render partial: "components/tweet_compose/index", locals: { user: user }
+
+= render partial: "components/feed/index", collection: feeds, as: :feed

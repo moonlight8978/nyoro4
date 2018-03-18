@@ -10,10 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180315104313) do
+ActiveRecord::Schema.define(version: 20180318085110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "feed_tweets", force: :cascade do |t|
+    t.bigint "user_id"
+    t.text "content"
+    t.boolean "pinned"
+    t.integer "replies_count", default: 0
+    t.integer "likes_count", default: 0
+    t.integer "retweets_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.json "photos"
+    t.string "video"
+    t.index ["pinned"], name: "index_feed_tweets_on_pinned"
+    t.index ["user_id"], name: "index_feed_tweets_on_user_id"
+  end
+
+  create_table "feeds", force: :cascade do |t|
+    t.string "feedable_type"
+    t.bigint "feedable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["feedable_type", "feedable_id"], name: "index_feeds_on_feedable_type_and_feedable_id"
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false

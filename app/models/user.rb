@@ -1,6 +1,11 @@
 class User < ApplicationRecord
+  # value is what others can see
+  # @example
+  #   ddmmyy  => "18-12-1997"
+  #   ddmm    => "18-12"
   enum birthday_visibility: %i(ddmmyy ddmm yy hidden)
 
+  # Use friendly url for profile path
   extend FriendlyId
   friendly_id :username, use: [:slugged, :finders]
 
@@ -12,6 +17,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  # Accept TOS required for registration
   attr_accessor :accept_tos
 
   # associations
@@ -19,12 +25,13 @@ class User < ApplicationRecord
   has_many :follower_statuses, class_name: 'User::Following', foreign_key: :user_id
 
   has_many :followers, through: :follower_statuses do
-    def accepted
-      includes(:follower_statuses)
-        .where("user_followings.status": User::Following.statuses[:accepted])
-        .references(:user_followings)
-    end
+    # def accepted
+    #   includes(:follower_statuses)
+    #     .where("user_followings.status": User::Following.statuses[:accepted])
+    #     .references(:user_followings)
+    # end
 
+    # Fetch followers which are waiting for accepting
     def pending
       includes(:follower_statuses)
         .where("user_followings.status": User::Following.statuses[:pending])
@@ -33,12 +40,13 @@ class User < ApplicationRecord
   end
 
   has_many :followings, through: :following_statuses, source: :user do
+    # Fetch followings which has been accepted
     def accepted
       includes(:following_statuses)
         .where("user_followings.status": User::Following.statuses[:accepted])
         .references(:user_followings)
     end
-
+    # Fetch followings which waiting for accepting
     def pending
       includes(:following_statuses)
         .where("user_followings.status": User::Following.statuses[:pending])
@@ -49,6 +57,7 @@ class User < ApplicationRecord
   # scopes
 
   # class methods
+  # Suggest users to follow, max is 3
   def self.suggestions_for(user)
     # offset(rand(User.count) - 3)
     # User.where.not(id: user.id).order("RANDOM()").limit(3)
@@ -59,8 +68,11 @@ class User < ApplicationRecord
   end
 
   # validates
+  # Require "yes" value at registration
   validates :accept_tos, presence: true, inclusion: %w(yes), on: :create
+  # Profilename is required
   validates :profilename, presence: true
+  # Username is required and is unique, User can use this to access profile
   validates :username, presence: true, uniqueness: true
 
   # callbacks

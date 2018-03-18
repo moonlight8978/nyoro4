@@ -1,0 +1,7 @@
+en:
+  views:
+    context:
+      retweet: "%{profilename} Retweeted"
+      reply: "Reply to %{profilename}"
+      replying: "Replying to @%{username}"
+      like: "%{profilename} Liked"

@@ -311,6 +311,35 @@ $tweet-action-btn-reply-active-color: $blue;
 $tweet-action-btn-retweet-active-color: $green;
 $tweet-action-btn-favorite-active-color: $red;
 
+
+
+
+// Tweet Compose
+$tweet-compose-color: #1B95E0;
+$tweet-compose-input-color: $black;
+$tweet-compose-input-padding-y: .5rem;
+$tweet-compose-input-border-width: $border-width-primary;
+$tweet-compose-input-border-style: $border-style-primary;
+$tweet-compose-input-border-color: #C6E4F7;
+
+$tweet-compose-input-focus-border-color: #A3D4F2;
+
+$tweet-compose-form-actions-margin-top: .5rem;
+
+$tweet-compose-form-tool-padding-y: .25rem;
+$tweet-compose-form-tool-padding-x: .5rem;
+$tweet-compose-form-tool-font-size: 1.5rem;
+$tweet-compose-form-tool-border-radius: 5px;
+$tweet-compose-form-tool-border-color: transparent;
+$tweet-compose-form-tool-border-style: $border-style-primary;
+$tweet-compose-form-tool-border-width: $border-width-primary;
+
+$tweet-compose-form-tool-hover-border-color: rgba(27,149,224,0.4);
+$tweet-compose-form-tool-hover-bg-image: linear-gradient(rgba(255,255,255,0), rgba(27,149,224,0.1));
+
+
+
+// Thread
 $thread-connect-line-margin-y: 2px;
 $thread-connect-line-width: 4px;
 $thread-connect-line-position-top: $avatar-medium + $thread-connect-line-margin-y;

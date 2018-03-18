@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
 
   def current_user
-    super.decorate
+    super && super.decorate
   end
 
 protected

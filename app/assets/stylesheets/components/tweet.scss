@@ -1,7 +1,8 @@
 .tweet-container {
   .original-tweet,
   .tweet-context,
-  .tweet-extras {
+  .tweet-extras,
+  .tweet-compose {
     display: flex;
   }
 
@@ -121,5 +122,77 @@
     align-items: center;
 
     .tweet-left { padding-left: $thread-tweet-extras-left-padding-left; }
+  }
+}
+
+.tweet-compose-container .tweet-context {
+  display: none;
+}
+
+.tweet-compose-container .tweet-compose {
+  align-items: center;
+
+  .tweet-compose-form {
+    outline: 0;
+
+    .form-control {
+      color: $tweet-compose-input-color;
+      border: $tweet-compose-input-border-width
+        $tweet-compose-input-border-style
+        $tweet-compose-input-border-color;
+      resize: none;
+      padding-top: $tweet-compose-input-padding-y;
+      padding-bottom: $tweet-compose-input-padding-y;
+
+      &::placeholder {
+        color: $tweet-compose-color;
+      }
+
+      &:focus {
+        border-color: $tweet-compose-input-focus-border-color;
+        box-shadow: 0 0 0 $tweet-compose-input-border-width $tweet-compose-input-focus-border-color;
+      }
+    }
+
+    .form-control-file {
+      display: none;
+    }
+
+    .tweet-compose-form-actions {
+      display: none;
+      margin-top: $tweet-compose-form-actions-margin-top;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .tweet-compose-form-tools {
+      color: $tweet-compose-color;
+
+      .tweet-compose-form-tool {
+        border: $tweet-compose-form-tool-border-width
+          $tweet-compose-form-tool-border-style
+          $tweet-compose-form-tool-border-color;
+        border-radius: $tweet-compose-form-tool-border-radius;
+        padding: $tweet-compose-form-tool-padding-y $tweet-compose-form-tool-padding-x;
+        font-size: $tweet-compose-form-tool-font-size;
+        margin: 0;
+        @include transition-short(all);
+
+        &:hover {
+          border-color: $tweet-compose-form-tool-hover-border-color;
+          background-image: $tweet-compose-form-tool-hover-bg-image;
+        }
+      }
+    }
+  }
+}
+
+.tweet-compose-container.active {
+  .tweet-compose {
+    align-items: flex-start !important;
+  }
+
+  .tweet-context, .tweet-compose-form-actions {
+    display: flex !important;
   }
 }

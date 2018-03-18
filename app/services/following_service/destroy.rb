@@ -1,12 +1,19 @@
-class FollowingService::Destroy
-  def initialize(**args)
-    @user = args[:user]
-    @follower = args[:follower]
-  end
+module FollowingService
+  # Service to delete following
+  # Use when user try to unfollow someone
+  class Destroy
+    # @param follower [User] follower
+    # @param user [User] user to unfollow
+    def initialize(follower, user)
+      @user = user
+      @follower = follower
+    end
 
-  def perform
-    User::Following
-      .where(user: @user, follower: @follower)
-      .destroy_all
+    # Delete the following
+    def perform
+      User::Following
+        .where(user: @user, follower: @follower)
+        .destroy_all
+    end
   end
 end

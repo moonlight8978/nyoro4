@@ -42,3 +42,8 @@
   background-color: $box-item-hover-bg-color;
   @include transition-standard(background-color);
 }
+
+$box-blue-bg-color: #E8F4FB;
+.box-bg-blue {
+  background-color: $box-blue-bg-color;
+}

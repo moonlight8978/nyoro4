@@ -16,7 +16,7 @@
     const $el = $(el)
     const $container = $el.closest(container)
 
-    const method = $el.data("type")
+    const method = $el.data("http")
     const path = $el.attr("href")
 
     let promise

@@ -48,5 +48,9 @@ Rails.application.routes.draw do
       get '/:user_id/following', action: :following, as: :profile_following
       get '/:user_id/likes', action: :likes, as: :profile_likes
     end
+
+    scope module: :feeds do
+      resource :tweet, only: [:show, :update, :create, :destroy]
+    end
   end
 end
