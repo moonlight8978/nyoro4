@@ -1,4 +1,4 @@
-class HomeController < ApplicationController 
+class HomeController < ApplicationController
   layout :determine_layout
 
   decorates_assigned :user, :feeds

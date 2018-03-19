@@ -22,19 +22,19 @@ div class="original-tweet"
 
     p.tweet-content == tweet.content
 
-    div class="tweet-medias"
-      = image_container(tweet.photos.first.url, "2_3")
+    = tweet.medias
 
     div class="tweet-actions"
       div
-        button class="tweet-action-button btn-action-reply"
+        = link_to "#", class: "tweet-action-button btn-action-reply btn-show-tweet" do
           i class="far fa-comment" data-toggle="tooltip" data-placement="top" title="Reply"
           span = tweet.replies_count
       div
-        button class="tweet-action-button btn-action-retweet"
+        = link_to "#", class: "tweet-action-button btn-action-retweet" do
           i class="fas fa-retweet" data-toggle="tooltip" data-placement="top" title="Retweet"
           span = tweet.retweets_count
+
       div
-        button class="tweet-action-button btn-action-favorite btn-undo"
+        = link_to "#", class: "tweet-action-button btn-action-favorite btn-undo" do
           i class="far fa-heart" data-toggle="tooltip" data-placement="top" title="Favorite"
           span = tweet.likes_count

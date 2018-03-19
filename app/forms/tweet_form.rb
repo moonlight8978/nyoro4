@@ -1,9 +1,12 @@
 class TweetForm < ApplicationForm
-  delegate :content, :user_id, :pinned, to: :tweet
+  delegate :content, :photos, :video, :user_id, :pinned, to: :tweet
 
   attr_accessor :params, :tweet, :user
 
   validates :content, presence: true
+  validate :max_photos
+
+  MAX_PHOTO = 3
 
   # Build form from user, use to create form to writing tweet
   # @param user [User] should be current user
@@ -39,5 +42,12 @@ private
     params.require(:tweet).permit(
       :content, :video, photos: []
     )
+  end
+
+  # User can't upload more than 3 photos
+  def max_photos
+    if photos.size > MAX_PHOTO
+      errors.add(:photos, :too_many)
+    end
   end
 end

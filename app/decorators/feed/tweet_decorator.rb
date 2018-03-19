@@ -1,4 +1,6 @@
 class Feed::TweetDecorator < ApplicationDecorator
+  include ::Tweet::MediaDecorator
+
   delegate_all
 
   decorates_association :user, with: UserDecorator

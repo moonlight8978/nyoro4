@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180318085110) do
+ActiveRecord::Schema.define(version: 20180318072335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,14 +18,16 @@ ActiveRecord::Schema.define(version: 20180318085110) do
   create_table "feed_tweets", force: :cascade do |t|
     t.bigint "user_id"
     t.text "content"
-    t.boolean "pinned"
+    t.boolean "pinned", default: false
     t.integer "replies_count", default: 0
     t.integer "likes_count", default: 0
     t.integer "retweets_count", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.json "photos"
     t.string "video"
+    t.string "widths", default: ""
+    t.string "heights", default: ""
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["pinned"], name: "index_feed_tweets_on_pinned"
     t.index ["user_id"], name: "index_feed_tweets_on_user_id"
   end
@@ -53,7 +55,7 @@ ActiveRecord::Schema.define(version: 20180318085110) do
   create_table "user_followings", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "follower_id"
-    t.integer "status"
+    t.integer "status", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["follower_id", "status"], name: "followings_follower_id_status"

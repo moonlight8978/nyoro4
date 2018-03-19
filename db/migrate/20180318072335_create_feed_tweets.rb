@@ -8,9 +8,17 @@ class CreateFeedTweets < ActiveRecord::Migration[5.1]
       t.integer     :likes_count,     default: 0
       t.integer     :retweets_count,  default: 0
 
+      # Tweet medias
+      t.json        :photos
+      t.string      :video
+
+      # Dimensions of photos, seperate by ","
+      t.string      :widths,          default: ""
+      t.string      :heights,         default: ""
+
       t.timestamps
     end
-    
+
     add_index :feed_tweets, :pinned
   end
 end

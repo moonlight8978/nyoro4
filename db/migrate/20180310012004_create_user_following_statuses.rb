@@ -4,7 +4,7 @@ class CreateUserFollowingStatuses < ActiveRecord::Migration[5.1]
       t.belongs_to :user
       t.belongs_to :follower
 
-      t.integer :status
+      t.integer :status, default: User::Following.statuses[:accepted]
 
       t.timestamps
     end

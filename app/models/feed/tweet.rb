@@ -8,13 +8,5 @@ class Feed::Tweet < ApplicationRecord
   # class methods
   # validates
   # callbacks
-  after_initialize :set_defaults
-
-  def set_defaults
-    self.pinned = false
-    self.likes_count = 0
-    self.retweets_count = 0
-    self.replies_count = 0
-  end
   # instance methods
 end

@@ -66,13 +66,13 @@ en:
       almost_x_years:
         one: almost 1 year
         other: almost %{count} years
-      half_a_minute: half a minute
+      half_a_minute: 30s
       less_than_x_minutes:
-        one: less than a minute
-        other: less than %{count} minutes
+        one: 1m
+        other: "%{count}m"
       less_than_x_seconds:
-        one: less than 1 second
-        other: less than %{count} seconds
+        one: 1s
+        other: "%{count}s"
       over_x_years:
         one: over 1 year
         other: over %{count} years

@@ -23,6 +23,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
   # Process files as they are uploaded:
   # process scale: [200, 300]
+  process :store_dimensions
   #
   # def scale(width, height)
   #   # do something
@@ -35,13 +36,45 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  # def extension_whitelist
-  #   %w(jpg jpeg gif png)
-  # end
+  def extension_whitelist
+    %w(jpg jpeg png)
+  end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
+  def filename
+    "#{secure_token}.#{file.extension}" if original_filename.present?
+  end
+
+protected
+
+  def secure_token
+    media_original_filenames_var = :"@#{mounted_as}_original_filenames"
+
+    unless model.instance_variable_get(media_original_filenames_var)
+      model.instance_variable_set(media_original_filenames_var, {})
+    end
+
+    unless model.instance_variable_get(media_original_filenames_var).map{|k,v| k }.include? original_filename.to_sym
+      new_value = model.instance_variable_get(media_original_filenames_var).merge({"#{original_filename}": SecureRandom.uuid})
+      model.instance_variable_set(media_original_filenames_var, new_value)
+    end
+
+    model.instance_variable_get(media_original_filenames_var)[original_filename.to_sym]
+  end
+
+private
+
+  def store_dimensions
+    if file && model
+      # model.width, model.height = ::MiniMagick::Image.open(file.file)[:dimensions]
+      dimensions = ::MiniMagick::Image.open(file.file)[:dimensions]
+      if model.widths.present? && model.heights.present?
+        model.widths << ",#{dimensions.first}"
+        model.heights << ",#{dimensions.last}"
+      else
+        model.widths, model.heights = dimensions.map(&:to_s)
+      end
+    end
+  end
 end

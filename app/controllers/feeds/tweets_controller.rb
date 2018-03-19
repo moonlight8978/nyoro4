@@ -11,12 +11,13 @@ class Feeds::TweetsController < ApplicationController
       TweetService::Create.new(current_user, form.tweet).perform
       head :ok
     else
+      puts form.errors.full_messages
       head :bad_request
     end
   end
 
   def update
-    #code
+
   end
 
   def destroy

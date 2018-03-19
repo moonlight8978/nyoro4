@@ -15,8 +15,7 @@ module TweetService
       content = tweet.content
       names = extractor.extract_mentioned_screen_names(content)
       hashtags = extractor.extract_hashtags(content)
-      p names, hashtags
-      
+
       ActiveRecord::Base.transaction do
         tweet.save
         tweet.create_feed

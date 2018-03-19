@@ -54,10 +54,42 @@
 
 
 .tweet-container .tweet-medias {
-  @extend %with-border;
-
   img {
+    @extend %with-border;
     object-fit: cover;
+    // border: 1px solid #000;
+  }
+
+  .tweet-medias-group {
+    display: flex;
+
+    &.horizontal {
+      > .tweet-media-item,
+      > .tweet-medias-group {
+        width: 50%;
+      }
+
+      > .tweet-media-item:not(.tweet-media-item-main) {
+        &:first-child { padding-right: 2px; }
+        &:last-child { padding-left: 2px; }
+      }
+
+      > .tweet-medias-group.vertical {
+        padding-left: 3px;
+      }
+    }
+
+    &.vertical {
+      flex-direction: column;
+
+      > .tweet-media-item {
+        width: 100%;
+
+        &:first-child {
+          padding-bottom: 6px;
+        }
+      }
+    }
   }
 }
 
@@ -71,6 +103,7 @@
     border: 0;
     padding-right: $tweet-action-button-padding-right;
     color: $tweet-action-color;
+    text-decoration: none;
     @include transition-short(all);
 
     i, span {

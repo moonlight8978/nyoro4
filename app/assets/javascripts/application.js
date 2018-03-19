@@ -15,6 +15,7 @@
 //= require_self
 //= require components/follow
 //= require components/tweet-compose
+//= require components/reply
 // require_tree .
 
 const wow = new WOW({
