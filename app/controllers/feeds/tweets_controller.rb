@@ -1,6 +1,7 @@
 class Feeds::TweetsController < ApplicationController
   def show
-    #code
+    tweet = Feed::Tweet.find(params[:id]).decorate
+    render partial: "components/tweet/full", object: tweet, as: :tweet, layout: false
   end
 
   # User submit tweet
@@ -21,6 +22,12 @@ class Feeds::TweetsController < ApplicationController
   end
 
   def destroy
-    #code
+    tweet = Feed::Tweet.find_by(id: params[:id], user: current_user)
+    if tweet
+      TweetService::Destroy.new(tweet).perform
+      head :ok
+    else
+      head :bad_request
+    end
   end
 end

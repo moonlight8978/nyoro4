@@ -19,6 +19,8 @@ div class="original-tweet"
             = t(:hide, scope: "views.components.tweet.options")
           a.dropdown-item[href="#"]
             = t(:report, scope: "views.components.tweet.options")
+          = link_to tweet_path(tweet.id), class: "dropdown-item btn-delete-tweet" do
+            = t(:delete, scope: "views.components.tweet.options")
 
     p.tweet-content == tweet.content
 
@@ -26,7 +28,7 @@ div class="original-tweet"
 
     div class="tweet-actions"
       div
-        = link_to "#", class: "tweet-action-button btn-action-reply btn-show-tweet" do
+        = link_to "#", class: "tweet-action-button btn-action-reply btn-reply-tweet" do
           i class="far fa-comment" data-toggle="tooltip" data-placement="top" title="Reply"
           span = tweet.replies_count
       div

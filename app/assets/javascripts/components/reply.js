@@ -7,26 +7,9 @@
 
   const htmlLoading = `<div class="modal-loading"></div>`
 
-  $(document).on("click", ".btn-show-tweet", function(event) {
-    event.preventDefault()
-    const $modal = $(".modal-show-tweet")
-    const $modalContent = $modal.find(".modal-content")
-    $modal.attr("loading", true)
-    $modal.modal("show")
-
-    getData()
-      .then((response) => {
-        console.log(response)
-        if ($modal.attr("loading")) {
-          $modalContent.html(html)
-          $modal.removeAttr("loading")
-        }
-      })
-      .catch(error => console.log(error))
-  })
-
   $(document).on("click", ".btn-reply-tweet", function(event) {
     event.preventDefault()
+    event.stopPropagation()
     const $modal = $(".modal-reply-tweet")
     const $modalContent = $modal.find(".modal-content")
     $modal.attr("loading", true)

@@ -5,4 +5,5 @@ en:
         options:
           clipboard: Copy link to clipboard
           hide: I don't like this Tweet
-          report: Report tweet
+          report: Report Tweet
+          delete: Delete Tweet

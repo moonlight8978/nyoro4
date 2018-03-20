@@ -13,7 +13,7 @@ div.box-item.box-bg-blue
 
       div.tweet-right
         - tweet = TweetForm.from_user(user)
-        = form_with(model: tweet, scope: :tweet, url: tweet_path, local: true,
+        = form_with(model: tweet, scope: :tweet, url: tweets_path, local: true,
           class: "tweet-compose-form") do |f|
 
           div.tweet-compose-form-input-field

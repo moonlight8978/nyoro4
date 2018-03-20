@@ -3,7 +3,7 @@ class Feed < ApplicationRecord
   # associations
   # Polymorphic association used to show tweets, retweets and likes
   #   in homepage together
-  belongs_to :feedable, polymorphic: true
+  belongs_to :feedable, polymorphic: true, dependent: :destroy
   # For eager loadings
   belongs_to :tweet, foreign_key: :feedable_id, foreign_type: TWEET_CLASS, class_name: TWEET_CLASS
   # scopes

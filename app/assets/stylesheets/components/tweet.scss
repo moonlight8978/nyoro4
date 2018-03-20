@@ -229,3 +229,16 @@
     display: flex !important;
   }
 }
+
+$modal-tweet-box-padding-y: 30px;
+$modal-tweet-box-padding-x: 40px;
+$modal-tweet-box-border-radius: 8px;
+
+.modal-show-tweet {
+  .modal-content {
+    .box-item.tweet-wrapper {
+      padding: $modal-tweet-box-padding-y $modal-tweet-box-padding-x;
+      border-radius: $modal-tweet-box-border-radius;
+    }
+  }
+}

@@ -3,6 +3,9 @@ class FeedDecorator < ApplicationDecorator
 
   decorates_association :tweet, with: Feed::TweetDecorator, context: {}
 
+  # Path to component in views folder
+  COMPONENT_PATH = "components/feed/index"
+
   RETWEET_ICON_CLASS = "fas fa-retweet"
   LIKE_ICON_CLASS = "fas fa-heart"
   TWEET_CONTAINER_CLASS = "tweet-container"
@@ -51,5 +54,13 @@ class FeedDecorator < ApplicationDecorator
   # Feed thread extras
   def extras
     nil
+  end
+
+  def render(options = {})
+    params = {
+      partial: "components/feed/index",
+      object: self, as: :feed
+    }.merge(options)
+    h.render params
   end
 end

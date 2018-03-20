@@ -50,7 +50,7 @@ Rails.application.routes.draw do
     end
 
     scope module: :feeds do
-      resource :tweet, only: [:show, :update, :create, :destroy]
+      resources :tweets, only: [:show, :update, :create, :destroy]
     end
   end
 end

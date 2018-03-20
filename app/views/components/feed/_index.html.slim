@@ -1,24 +1,22 @@
-div class="box-item"
+div class="btn-show-tweet tweet-wrapper box-item box-item-hover" data-path="#{tweet_path(feed.tweet.id)}" data-tweet-id="#{feed.tweet.id}"
   div class="#{feed.container_class}"
-    / div class="tweet-context"
-    /   div class="tweet-left"
-    /     i class="fas fa-retweet"
-    /   div class="tweet-right"
-    /     a href="#" TwinBox@コミ1-あ33a
-    /     span &nbsp;
-    /     span Retweet
-
     = feed.context
-
     = feed.original_tweet
-
     = feed.extras
 
-    / div class="tweet-extras"
-    /   div class="tweet-left"
-    /     div class="avatar-small"
-    /       div class="img-placeholder ratio-1_1"
-    /         img class="img-thumb avatar-thumb" src="/assets/avatar_sample.jpg"
-    /
-    /   div class="tweet-right"
-    /     a href="#" Show this thread
+/ div class="tweet-context"
+/   div class="tweet-left"
+/     i class="fas fa-retweet"
+/   div class="tweet-right"
+/     a href="#" TwinBox@コミ1-あ33a
+/     span &nbsp;
+/     span Retweet
+
+/ div class="tweet-extras"
+/   div class="tweet-left"
+/     div class="avatar-small"
+/       div class="img-placeholder ratio-1_1"
+/         img class="img-thumb avatar-thumb" src="/assets/avatar_sample.jpg"
+/
+/   div class="tweet-right"
+/     a href="#" Show this thread

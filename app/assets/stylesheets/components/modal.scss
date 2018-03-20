@@ -5,6 +5,7 @@ $modal-content-margin-y: ($modal-min-height - $modal-loading-image-height) / 2;
 
 $modal-width: 640px;
 $modal-margin-y: 60px;
+$modal-border-radius: 8px;
 
 .modal-loading {
   height: $modal-loading-image-height;
@@ -19,4 +20,5 @@ $modal-margin-y: 60px;
 .modal-dialog {
   max-width: $modal-width;
   margin: $modal-margin-y auto;
+  border-radius: $modal-border-radius;
 }
