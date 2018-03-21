@@ -11,7 +11,9 @@
 
   $(document).on("submit", ".tweet-compose-form", function(event) {
     event.preventDefault()
-    tweet(this)
+    tweet(this, (data) => {
+      $("#newfeeds").prepend(data)
+    })
   })
 
   function tweet(form, callback) {
@@ -24,7 +26,7 @@
       .then(response => {
         console.log(response)
         form.reset()
-        callback && callback()
+        callback && callback(response.data)
       })
       .catch(error => {
         console.log(error)

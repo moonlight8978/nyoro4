@@ -7,8 +7,11 @@
   }
 }
 
+.box {
+  background-color: $box-bg-color;
+}
+
 .box-item {
-  background-color: $box-item-bg-color;
   padding: $box-item-padding;
 
   &:not(:last-child) {
@@ -46,4 +49,9 @@
 $box-blue-bg-color: #E8F4FB;
 .box-bg-blue {
   background-color: $box-blue-bg-color;
+}
+
+$box-gray-bg-color: $gray--light;
+.box-bg-gray {
+  background-color: $box-gray-bg-color;
 }

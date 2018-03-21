@@ -7,7 +7,7 @@
 
   const htmlLoading = `<div class="modal-loading"></div>`
 
-  $(document).on("click", ".btn-reply-tweet", function(event) {
+  $(document).on("click", ".js-btn-reply-tweet", function(event) {
     event.preventDefault()
     event.stopPropagation()
     const $modal = $(".modal-reply-tweet")

@@ -1,9 +1,10 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!, :find_user
 
-  decorates_assigned :user, :user_following, :user_followers
+  decorates_assigned :user, :user_following, :user_followers, :feeds
 
   def show
+    @feeds = Feed.includes(tweet: :user).where("feed_tweets.user_id": user.id)
   end
 
   def followers

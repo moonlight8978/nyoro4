@@ -2,6 +2,9 @@ module TweetService
   # Use to create tweet after validating
   # The data must be sure 100% valid
   class Create
+    # Get the feed has been created
+    attr_reader :feed
+    
     # @param user  [User]         user who tweeted
     # @param tweet [Feed::Tweet]  valid tweet
     def initialize(user, tweet)
@@ -18,7 +21,7 @@ module TweetService
 
       ActiveRecord::Base.transaction do
         tweet.save
-        tweet.create_feed
+        @feed = tweet.create_feed
       end
     end
 

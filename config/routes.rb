@@ -50,7 +50,16 @@ Rails.application.routes.draw do
     end
 
     scope module: :feeds do
-      resources :tweets, only: [:show, :update, :create, :destroy]
+      resources :tweets, only: [:show, :update, :create, :destroy] do
+        member do
+          get    'likes'
+          post   'like'
+          get    'retweets'
+          post   'retweet'
+        end
+      end
+      resources :likes,    only: :destroy
+      resources :retweets, only: :destroy
     end
   end
 end

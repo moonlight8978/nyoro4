@@ -1,37 +1,38 @@
-div.box-item
-  div class="tweet-container"
-    div class="original-tweet"
-      div class="tweet-left"
-        div class="avatar-medium"
-          = image_container(tweet.user.avatar.medium.url, "1_1", true)
+div.box
+  div.box-item.tweet-wrapper
+    div class="tweet-container"
+      div class="original-tweet"
+        div class="tweet-left"
+          div class="avatar-medium"
+            = image_container(tweet.user.avatar.medium.url, "1_1", true)
 
-      div class="tweet-right"
-        div class="tweet-header has-options-dropdown"
-          = tweet.user.names_multilines
+        div class="tweet-right"
+          div class="tweet-header has-options-dropdown"
+            = tweet.user.names_multilines
 
-          span class="more-actions"
-            a [href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
-              i class="fas fa-chevron-down"
-            .dropdown-menu.dropdown-menu-right
-              a.dropdown-item[href="#"]
-                = t(:clipboard, scope: "views.components.tweet.options")
-              a.dropdown-item[href="#"]
-                = t(:hide, scope: "views.components.tweet.options")
-              a.dropdown-item[href="#"]
-                = t(:report, scope: "views.components.tweet.options")
-              = link_to tweet_path(tweet.id), class: "dropdown-item btn-delete-tweet" do
-                = t(:delete, scope: "views.components.tweet.options")
-    div
+            span class="more-actions"
+              a [href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
+                i class="fas fa-chevron-down"
+              .dropdown-menu.dropdown-menu-right
+                a.dropdown-item[href="#"]
+                  = t(:clipboard, scope: "views.components.tweet.options")
+                a.dropdown-item[href="#"]
+                  = t(:hide, scope: "views.components.tweet.options")
+                a.dropdown-item[href="#"]
+                  = t(:report, scope: "views.components.tweet.options")
+                = link_to tweet_path(tweet.id), class: "dropdown-item btn-delete-tweet" do
+                  = t(:delete, scope: "views.components.tweet.options")
+
       p.tweet-content == tweet.content
 
       = tweet.medias
-    div
-      = tweet.created_at_long
 
-    div
+      div.tweet-date-long
+        = tweet.created_at_long
+
       div class="tweet-actions"
         div
-          = link_to "#", class: "tweet-action-button btn-action-reply btn-reply-tweet" do
+          = link_to "#", class: "tweet-action-button btn-action-reply" do
             i class="far fa-comment" data-toggle="tooltip" data-placement="top" title="Reply"
             span = tweet.replies_count
         div
@@ -44,6 +45,11 @@ div.box-item
             i class="far fa-heart" data-toggle="tooltip" data-placement="top" title="Favorite"
             span = tweet.likes_count
 
-= render partial: "components/tweet_compose/index", locals: { user: current_user }
+div.box
+  = render partial: "components/tweet_compose/index", locals: { user: current_user }
 
-div.replies
+div.box
+
+div.box.box-bg-gray
+  div.tweet-full-footer
+    i class="fab fa-twitter"

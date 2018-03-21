@@ -28,7 +28,7 @@ div class="original-tweet"
 
     div class="tweet-actions"
       div
-        = link_to "#", class: "tweet-action-button btn-action-reply btn-reply-tweet" do
+        = link_to "#", class: "tweet-action-button btn-action-reply js-btn-reply-tweet" do
           i class="far fa-comment" data-toggle="tooltip" data-placement="top" title="Reply"
           span = tweet.replies_count
       div

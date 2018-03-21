@@ -4,6 +4,7 @@ class Feed::Tweet < ApplicationRecord
   # associations
   belongs_to :user, class_name: "User"
   has_one :feed, as: :feedable
+  has_many :retweets, class_name: "Feed::Retweet"
   # scopes
   # class methods
   # validates

@@ -2,7 +2,9 @@
   .original-tweet,
   .tweet-context,
   .tweet-extras,
-  .tweet-compose {
+  .tweet-compose,
+  .tweet-actions
+   {
     display: flex;
   }
 
@@ -33,10 +35,11 @@
   }
 }
 
-.tweet-container .original-tweet {
+.tweet-container {
   .tweet-content {
     white-space: pre-wrap;
     overflow: hidden;
+    margin: 0;
   }
 
   .tweet-header {
@@ -54,6 +57,8 @@
 
 
 .tweet-container .tweet-medias {
+  margin-top: $tweet-medias-margin-top;
+
   img {
     @extend %with-border;
     object-fit: cover;
@@ -234,11 +239,65 @@ $modal-tweet-box-padding-y: 30px;
 $modal-tweet-box-padding-x: 40px;
 $modal-tweet-box-border-radius: 8px;
 
+$modal-tweet-content-font-size: 1.5rem;
+$modal-tweet-date-color: $black--light;
+$modal-tweet-date-padding-y: 1rem;
+$modal-tweet-date-border-color: $border-color-primary;
+$modal-tweet-date-border-width: $border-width-primary;
+$modal-tweet-date-border-style: $border-style-primary;
+
 .modal-show-tweet {
-  .modal-content {
-    .box-item.tweet-wrapper {
-      padding: $modal-tweet-box-padding-y $modal-tweet-box-padding-x;
-      border-radius: $modal-tweet-box-border-radius;
+  .box-item {
+    padding-right:  $modal-tweet-box-padding-x;
+    padding-left:  $modal-tweet-box-padding-x;
+
+    &.tweet-wrapper {
+      padding-bottom: $modal-tweet-box-padding-y;
+      padding-top: $modal-tweet-box-padding-y;
     }
+  }
+
+  .tweet-content {
+    font-size: $modal-tweet-content-font-size;
+  }
+
+  .tweet-date-long {
+    color: $modal-tweet-date-color;
+    padding-top: $modal-tweet-date-padding-y;
+    padding-bottom: $modal-tweet-date-padding-y;
+    border-bottom: $modal-tweet-date-border-width
+      $modal-tweet-date-border-style $modal-tweet-date-border-color;
+  }
+
+  $modal-tweet-actions-padding-bottom: 0;
+  $modal-tweet-action-button-padding-right: 1.5rem;
+
+  .tweet-actions {
+    padding-bottom: $modal-tweet-actions-padding-bottom;
+
+    .tweet-action-button {
+      padding-right: $modal-tweet-action-button-padding-right;
+    }
+  }
+
+  .box {
+    margin-bottom: 0;
+    &:last-child {
+      border-radius: 0 0 $modal-tweet-box-border-radius $modal-tweet-box-border-radius;
+    }
+    &:first-child {
+      border-radius: $modal-tweet-box-border-radius $modal-tweet-box-border-radius 0 0;
+    }
+  }
+
+  .box-item {
+
+  }
+
+  .tweet-full-footer {
+    color: #ccd6dd;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
   }
 }

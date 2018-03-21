@@ -1,11 +1,27 @@
 class Feed < ApplicationRecord
   TWEET_CLASS = Feed::Tweet.name
+  RETWEET_CLASS = Feed::React.name
+  LIKE_CLASS = Feed::React.name
   # associations
   # Polymorphic association used to show tweets, retweets and likes
   #   in homepage together
   belongs_to :feedable, polymorphic: true, dependent: :destroy
   # For eager loadings
-  belongs_to :tweet, foreign_key: :feedable_id, foreign_type: TWEET_CLASS, class_name: TWEET_CLASS
+  belongs_to :tweet,
+    foreign_key: :feedable_id,
+    foreign_type: TWEET_CLASS,
+    class_name: TWEET_CLASS,
+    optional: true
+  belongs_to :retweet,
+    foreign_key: :feedable_id,
+    foreign_type: RETWEET_CLASS,
+    class_name: RETWEET_CLASS,
+    optional: true
+  belongs_to :like,
+    foreign_key: :feedable_id,
+    foreign_type: LIKE_CLASS,
+    class_name: LIKE_CLASS,
+    optional: true
   # scopes
   default_scope { order(created_at: :desc) }
   # class methods
