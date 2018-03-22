@@ -9,34 +9,10 @@ div class="original-tweet"
       span class="px-1" = Nyoro::Text.html_map(:middot)
       span class="time" = tweet.created_at
 
-      span class="more-actions"
-        a [href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
-          i class="fas fa-chevron-down"
-        .dropdown-menu.dropdown-menu-right
-          a.dropdown-item[href="#"]
-            = t(:clipboard, scope: "views.components.tweet.options")
-          a.dropdown-item[href="#"]
-            = t(:hide, scope: "views.components.tweet.options")
-          a.dropdown-item[href="#"]
-            = t(:report, scope: "views.components.tweet.options")
-          = link_to tweet_path(tweet.id), class: "dropdown-item btn-delete-tweet" do
-            = t(:delete, scope: "views.components.tweet.options")
+      = render partial: 'components/tweets/options', locals: { tweet: tweet }
 
     p.tweet-content == tweet.content
 
     = tweet.medias
 
-    div class="tweet-actions"
-      div
-        = link_to "#", class: "tweet-action-button btn-action-reply js-btn-reply-tweet" do
-          i class="far fa-comment" data-toggle="tooltip" data-placement="top" title="Reply"
-          span = tweet.replies_count
-      div
-        = link_to "#", class: "tweet-action-button btn-action-retweet" do
-          i class="fas fa-retweet" data-toggle="tooltip" data-placement="top" title="Retweet"
-          span = tweet.retweets_count
-
-      div
-        = link_to "#", class: "tweet-action-button btn-action-favorite btn-undo" do
-          i class="far fa-heart" data-toggle="tooltip" data-placement="top" title="Favorite"
-          span = tweet.likes_count
+    = render partial: "components/tweets/actions", locals: { tweet: tweet, reply_js: true }

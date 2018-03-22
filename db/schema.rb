@@ -15,15 +15,24 @@ ActiveRecord::Schema.define(version: 20180321091851) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "feed_reacts", force: :cascade do |t|
-    t.string "type"
+  create_table "feed_likes", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "tweet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tweet_id"], name: "index_feed_reacts_on_tweet_id"
-    t.index ["user_id", "tweet_id"], name: "index_feed_reacts_on_user_id_and_tweet_id"
-    t.index ["user_id"], name: "index_feed_reacts_on_user_id"
+    t.index ["tweet_id"], name: "index_feed_likes_on_tweet_id"
+    t.index ["user_id", "tweet_id"], name: "index_feed_likes_on_user_id_and_tweet_id"
+    t.index ["user_id"], name: "index_feed_likes_on_user_id"
+  end
+
+  create_table "feed_retweets", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "tweet_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tweet_id"], name: "index_feed_retweets_on_tweet_id"
+    t.index ["user_id", "tweet_id"], name: "index_feed_retweets_on_user_id_and_tweet_id"
+    t.index ["user_id"], name: "index_feed_retweets_on_user_id"
   end
 
   create_table "feed_tweets", force: :cascade do |t|

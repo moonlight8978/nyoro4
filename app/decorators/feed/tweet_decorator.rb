@@ -33,4 +33,14 @@ class Feed::TweetDecorator < ApplicationDecorator
   def created_at_long
     h.l(object.created_at, format: :long)
   end
+
+  def liked?
+    liked_ids = h.current_user.likeds.pluck(:id)
+    liked_ids.include?(self.id)
+  end
+
+  def retweeted?
+    retweeted_ids = h.current_user.retweeteds.pluck(:id)
+    retweeted_ids.include?(self.id)
+  end
 end

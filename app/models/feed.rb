@@ -1,11 +1,11 @@
 class Feed < ApplicationRecord
   TWEET_CLASS = Feed::Tweet.name
-  RETWEET_CLASS = Feed::React.name
-  LIKE_CLASS = Feed::React.name
+  RETWEET_CLASS = Feed::Retweet.name
+  LIKE_CLASS = Feed::Like.name
   # associations
   # Polymorphic association used to show tweets, retweets and likes
   #   in homepage together
-  belongs_to :feedable, polymorphic: true, dependent: :destroy
+  belongs_to :feedable, polymorphic: true
   # For eager loadings
   belongs_to :tweet,
     foreign_key: :feedable_id,
@@ -44,12 +44,12 @@ class Feed < ApplicationRecord
 
   # If feed is a like
   def like?
-    false
+    feedable_type == LIKE_CLASS
   end
 
   # If feed is a retweet
   def retweet?
-    false
+    feedable_type == RETWEET_CLASS
   end
 
   # If feed is a thread

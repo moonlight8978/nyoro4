@@ -8,9 +8,8 @@ module TweetService
 
     # Perform the service
     def perform
-      feed = tweet.feed
       ActiveRecord::Base.transaction do
-        feed.destroy
+        tweet.destroy
       end
     end
 

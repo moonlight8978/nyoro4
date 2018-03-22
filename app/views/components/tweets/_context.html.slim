@@ -1,0 +1,7 @@
+div class="tweet-context"
+  div class="tweet-left"
+    i class="fas fa-retweet"
+  div class="tweet-right"
+    = link_to user.profilename, profile_path(user.username)
+    span &nbsp;
+    span = context

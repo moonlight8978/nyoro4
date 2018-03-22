@@ -54,12 +54,11 @@ class User < ApplicationRecord
     end
   end
 
-  has_many :likes, class_name: "Feed::Like"
+  has_many :likes,    class_name: "Feed::Like"
   has_many :retweets, class_name: "Feed::Retweet"
-  
-  has_many :retweeteds, class_name: "Feed::Tweet", source: :tweet, through: :retweets
-  has_many :likeds, class_name: "Feed::Like", source: :tweet, through: :likes
 
+  has_many :likeds,     class_name: "Feed::Tweet",  source: :tweet, through: :likes
+  has_many :retweeteds, class_name: "Feed::Tweet",  source: :tweet, through: :retweets
 
   # scopes
 

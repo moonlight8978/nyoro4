@@ -1,0 +1,25 @@
+- js_button = defined?(reply_js) && reply_js
+
+- retweet_class_names = ["tweet-action-button", "btn-action-retweet"]
+- state = tweet.retweeted? ? "btn-undo" : "js-btn-react"
+- retweet_class_names = retweet_class_names.push(state).join(' ')
+
+- like_class_names = ["tweet-action-button", "btn-action-favorite"]
+- state = tweet.liked? ? "btn-undo" : "js-btn-react"
+- like_class_names = like_class_names.push(state).join(' ')
+
+div class="tweet-actions"
+  div
+    = link_to "#", class: tweet_action_class_name(:reply, js_button) do
+      i class="far fa-comment" data-toggle="tooltip" data-placement="top" title="Reply"
+      span = tweet.replies_count
+
+  div
+    = link_to retweet_tweet_path(tweet), class: retweet_class_names do
+      i class="fas fa-retweet" data-toggle="tooltip" data-placement="top" title="Retweet"
+      span = tweet.retweets_count
+
+  div
+    = link_to like_tweet_path(tweet), class: like_class_names do
+      i class="far fa-heart" data-toggle="tooltip" data-placement="top" title="Favorite"
+      span = tweet.likes_count

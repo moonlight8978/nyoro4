@@ -5,8 +5,8 @@ module FollowingService
     # @param follower [User] follower
     # @param user [User] user to unfollow
     def initialize(follower, user)
-      @user = user
       @follower = follower
+      @user = user
     end
 
     # Delete the following

@@ -3,7 +3,7 @@ class Feed::Tweet < ApplicationRecord
   mount_uploader  :video,  VideoUploader
   # associations
   belongs_to :user, class_name: "User"
-  has_one :feed, as: :feedable
+  has_one :feed, as: :feedable, dependent: :destroy
   has_many :retweets, class_name: "Feed::Retweet"
   # scopes
   # class methods

@@ -48,4 +48,32 @@
         .catch(error => console.log(error))
     }, 3000)
   })
+
+  $(document).on("click", ".js-btn-react", function(event) {
+    event.preventDefault()
+
+    const $this = $(this)
+    const path = $this.attr('href')
+    axios
+      .post(path)
+      .then(() => {
+        $this.removeClass('js-btn-react')
+        $this.addClass('btn-undo')
+      })
+      .catch(error => console.log(error))
+  })
+
+  $(document).on("click", ".btn-undo", function(event) {
+    event.preventDefault()
+
+    const $this = $(this)
+    const path = $this.attr('href')
+    axios
+      .delete(path)
+      .then(() => {
+        $this.removeClass('btn-undo')
+        $this.addClass('js-btn-react')
+      })
+      .catch(error => console.log(error))
+  })
 })()

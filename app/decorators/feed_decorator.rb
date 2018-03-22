@@ -34,7 +34,9 @@ class FeedDecorator < ApplicationDecorator
   # Feed context
   def context
     if like?
+      h.render partial: 'components/tweets/context', locals: { user: object.like.user, context: 'Liked' }
     elsif retweet?
+      h.render partial: 'components/tweets/context', locals: { user: object.retweet.user, context: 'Retweeted' }
     else
       nil
     end
@@ -44,11 +46,12 @@ class FeedDecorator < ApplicationDecorator
   def original_tweet
     tweet =
       if like?
+        object.like.tweet
       elsif retweet?
+        object.retweet.tweet
       else
         self.tweet
       end
-    h.render partial: "components/tweet/index", object: tweet, as: :tweet
   end
 
   # Feed thread extras

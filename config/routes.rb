@@ -52,14 +52,15 @@ Rails.application.routes.draw do
     scope module: :feeds do
       resources :tweets, only: [:show, :update, :create, :destroy] do
         member do
-          get    'likes'
-          post   'like'
-          get    'retweets'
-          post   'retweet'
+          get    'like', to: 'likes#index',   as: :like
+          post   'like', to: 'likes#create'
+          delete 'like', to: 'likes#destroy'
+
+          get    'retweet', to: 'retweets#index',   as: :retweet
+          post   'retweet', to: 'retweets#create'
+          delete 'retweet', to: 'retweets#destroy'
         end
       end
-      resources :likes,    only: :destroy
-      resources :retweets, only: :destroy
     end
   end
 end
