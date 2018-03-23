@@ -1,42 +1,46 @@
 (function() {
   $(document).on('click', '.btn-follow', function(event) {
     event.preventDefault()
-    event.stopPropagation();
-    changeState(this, ".follow-container-js", "follow", "following")
-    console.log("Followed")
+
+    const $this = $(this)
+    const path = $(this).attr("href")
+    axios
+      .post(path)
+      .then((response) => {
+        console.log(response)
+        $this.trigger('follow:following')
+      })
+      .catch(error => console.log(error))
+
   })
 
   $(document).on('click', '.btn-following', function(event) {
     event.preventDefault()
-    changeState(this, ".follow-container-js", "following", "follow")
+
+    const $this = $(this)
+    const path = $(this).attr("href")
+    axios
+      .delete(path)
+      .then((response) => {
+        console.log(response)
+        $this.trigger('follow:follow')
+      })
+      .catch(error => console.log(error))
+  })
+
+  // Unfollowed/Follow state
+  $(document).on('follow:follow', '.btn-follow, .btn-following', function(event) {
+    $(this).closest(".js-follow-container")
+      .removeClass("following")
+      .addClass("follow")
     console.log("Unfollowed")
   })
 
-  function changeState(el, container, fromState, toState) {
-    const $el = $(el)
-    const $container = $el.closest(container)
-
-    const method = $el.data("http")
-    const path = $el.attr("href")
-
-    let promise
-
-    if (isPost(method)) {
-      promise = axios.post(path)
-    } else {
-      promise = axios.delete(path)
-    }
-
-    promise
-      .then((response) => {
-        console.log(response.data)
-        $container.removeClass(fromState)
-        $container.addClass(toState)
-      })
-      .catch(error => console.log(error.response))
-  }
-
-  function isPost(method) {
-    return method === "post"
-  }
+  // Following/Followed state
+  $(document).on('follow:following', '.btn-follow, .btn-following', function(event) {
+    $(this).closest(".js-follow-container")
+      .removeClass("follow")
+      .addClass("following")
+    console.log("Followed")
+  })
 })()

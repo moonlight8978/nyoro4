@@ -13,17 +13,14 @@ module Feeds::ReactsController
       if react
         head :bad_request
       else
-        self.react = react_class.create(user: current_user, tweet: tweet)
-        self.react.create_feed
+        service_class.new(tweet, current_user).perform
         head :ok
       end
     end
 
     def destroy
       tweet = Feed::Tweet.find(params[:id])
-      react_class
-        .find_by(user: current_user, tweet: tweet)
-        .destroy
+      service_class.new(tweet, current_user).perform
       head :ok
     end
 
@@ -35,14 +32,6 @@ module Feeds::ReactsController
 
     def react_class
       "feed/#{controller_name.singularize}".camelize.constantize
-    end
-
-    def react
-      instance_variable_get(:"@#{react_name}")
-    end
-
-    def react=(react)
-      instance_variable_set(:"@#{react_name}", react)
     end
 
     def service_class

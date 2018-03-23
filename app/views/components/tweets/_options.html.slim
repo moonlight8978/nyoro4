@@ -1,14 +1,18 @@
-span class="more-actions"
+span.more-actions
   a [href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
-    i class="fas fa-chevron-down"
+    i.fas.fa-chevron-down
+
   .dropdown-menu.dropdown-menu-right
     a.dropdown-item[href="#"]
       = t(:clipboard, scope: "views.components.tweet.options")
+
     a.dropdown-item[href="#"]
       = t(:hide, scope: "views.components.tweet.options")
-    - if current_user == tweet.user
+
+    = tweet.for_owner do
       = link_to tweet_path(tweet.id), class: "dropdown-item btn-delete-tweet" do
         = t(:delete, scope: "views.components.tweet.options")
-    - else
+
+    = tweet.for_others do
       a.dropdown-item[href="#"]
         = t(:report, scope: "views.components.tweet.options")

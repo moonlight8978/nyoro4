@@ -12,6 +12,7 @@
 //
 //= require rails-ujs
 //= require lib
+//= require helpers
 //= require_self
 //= require components/follow
 //= require components/tweet-compose

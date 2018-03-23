@@ -10,7 +10,7 @@ div.box
           div class="tweet-header has-options-dropdown"
             = tweet.user.names_multilines
 
-            = render partial: 'components/tweets/options', locals: { tweet: tweet }
+            = tweet.options_dropdown
 
       p.tweet-content == tweet.content
 
@@ -19,7 +19,7 @@ div.box
       div.tweet-date-long
         = tweet.created_at_long
 
-      = render partial: "components/tweets/actions", locals: { tweet: tweet, reply_js: false }
+      = tweet.action_buttons(false)
 
 div.box
   = render partial: "components/tweet_compose/index", locals: { user: current_user }

@@ -9,10 +9,10 @@ div class="original-tweet"
       span class="px-1" = Nyoro::Text.html_map(:middot)
       span class="time" = tweet.created_at
 
-      = render partial: 'components/tweets/options', locals: { tweet: tweet }
+      = tweet.options_dropdown
 
     p.tweet-content == tweet.content
 
     = tweet.medias
 
-    = render partial: "components/tweets/actions", locals: { tweet: tweet, reply_js: true }
+    = tweet.action_buttons

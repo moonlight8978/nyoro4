@@ -1,11 +1,11 @@
 class UserDecorator < ApplicationDecorator
-  delegate_all 
+  delegate_all
   # CSS class for follow link
   FOLLOW_BUTTON_CLASS = "btn btn-edge--small btn-edge btn-secondary btn-follow".freeze
   # CSS class for unfollow link
   FOLLOWING_BUTTON_CLASS = "btn btn-edge--small btn-edge btn-primary btn-following".freeze
   # Follow container CSS class
-  FOLLOW_CONTAINER_CLASS = "follow-container-js".freeze
+  FOLLOW_CONTAINER_CLASS = "js-follow-container follow-container".freeze
 
   FOLLOWINGS = {
     follow_class: FOLLOW_BUTTON_CLASS,

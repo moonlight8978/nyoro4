@@ -44,26 +44,17 @@ class FeedDecorator < ApplicationDecorator
 
   # Feed tweet
   def original_tweet
-    tweet =
-      if like?
-        object.like.tweet
-      elsif retweet?
-        object.retweet.tweet
-      else
-        self.tweet
-      end
+    if like?
+      object.like.tweet
+    elsif retweet?
+      object.retweet.tweet
+    else
+      self.tweet
+    end
   end
 
   # Feed thread extras
   def extras
     nil
-  end
-
-  def render(options = {})
-    params = {
-      partial: "components/feed/index",
-      object: self, as: :feed
-    }.merge(options)
-    h.render params
   end
 end
