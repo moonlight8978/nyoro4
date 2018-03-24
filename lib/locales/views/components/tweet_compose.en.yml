@@ -4,7 +4,7 @@ en:
       tweet_compose:
         placeholder: What's happening?
         new: New tweet
-        reply: "Replying to @%{username}"
+        reply: "Replying to"
         upload: Add photos or videos
         minimize: Minimize
         close: Close

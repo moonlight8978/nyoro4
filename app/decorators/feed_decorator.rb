@@ -4,7 +4,7 @@ class FeedDecorator < ApplicationDecorator
   decorates_association :tweet, with: Feed::TweetDecorator, context: {}
 
   # Path to component in views folder
-  COMPONENT_PATH = "components/feed/index"
+  COMPONENT_PATH = "components/feed"
 
   RETWEET_ICON_CLASS = "fas fa-retweet"
   LIKE_ICON_CLASS = "fas fa-heart"

@@ -1,5 +1,5 @@
 div class="btn-show-tweet tweet-wrapper box-item box-item-hover" data-path="#{tweet_path(feed.original_tweet.id)}" data-tweet-id="#{feed.original_tweet.id}"
   div class="#{feed.container_class}"
     = feed.context
-    = render partial: "components/tweet/index", object: feed.original_tweet.decorate, as: :tweet
+    = render partial: "components/tweet", object: feed.original_tweet.decorate, as: :tweet
     = feed.extras

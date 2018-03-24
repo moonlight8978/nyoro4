@@ -19,17 +19,22 @@
 
     const $modal = $(".modal-reply-tweet")
     const $modalContent = $modal.find(".modal-content")
+    const url = $(this).attr('href')
     $modal.modal("show")
 
-    getData()
-      .then((response) => {
-        console.log(response) //debug
+    setTimeout(function () {
+      axios
+        .get(url)
+        .then((response) => {
+          console.log(response) //debug
 
-        if (isOpening($modal)) {
-          $modalContent.html(html)
-        }
-      })
-      .catch(error => console.log(error)) //debug
+          if (isOpening($modal)) {
+            $modalContent.html(response.data)
+            $('.lazy').lazyload().removeClass('lazy')
+          }
+        })
+        .catch(error => console.log(error)) //debug
+    }, 3000);
   })
 
   /**

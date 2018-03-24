@@ -1,6 +1,6 @@
 div class="tweet-actions"
   div
-    = link_to "#", class: classnames[:reply] do
+    = link_to new_tweet_reply_path(tweet), class: classnames[:reply] do
       i class="far fa-comment" data-toggle="tooltip" data-placement="top" title="Reply"
       span = tweet.replies_count
 

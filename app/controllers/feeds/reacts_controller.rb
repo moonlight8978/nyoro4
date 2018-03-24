@@ -1,41 +1,38 @@
 module Feeds::ReactsController
-  extend ActiveSupport::Concern
+  # TODO: #index get everyone reacted to tweet
+  def index
 
-  included do
-    def index
+  end
 
-    end
+  def create
+    tweet = Feed::Tweet.find(params[:id])
+    react = react_class.find_by(user: current_user, tweet: tweet)
 
-    def create
-      tweet = Feed::Tweet.find(params[:id])
-      react = react_class.find_by(user: current_user, tweet: tweet)
-
-      if react
-        head :bad_request
-      else
-        service_class.new(tweet, current_user).perform
-        head :ok
-      end
-    end
-
-    def destroy
-      tweet = Feed::Tweet.find(params[:id])
+    if react
+      head :bad_request
+    else
       service_class.new(tweet, current_user).perform
       head :ok
     end
+  end
 
-  protected
+  def destroy
+    tweet = Feed::Tweet.find(params[:id])
+    service_class.new(tweet, current_user).perform
+    head :ok
+  end
 
-    def react_name
-      controller_name.singularize
-    end
+protected
 
-    def react_class
-      "feed/#{controller_name.singularize}".camelize.constantize
-    end
+  def react_name
+    controller_name.singularize
+  end
 
-    def service_class
-      "react_service/#{react_name}/#{action_name}".camelize.constantize
-    end
+  def react_class
+    "feed/#{controller_name.singularize}".camelize.constantize
+  end
+
+  def service_class
+    "react_service/#{react_name}/#{action_name}".camelize.constantize
   end
 end

@@ -10,28 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180321091851) do
+ActiveRecord::Schema.define(version: 20180324041954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "feed_likes", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "tweet_id"
+    t.string "likable_type"
+    t.bigint "likable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tweet_id"], name: "index_feed_likes_on_tweet_id"
-    t.index ["user_id", "tweet_id"], name: "index_feed_likes_on_user_id_and_tweet_id"
+    t.index ["likable_type", "likable_id"], name: "index_feed_likes_on_likable_type_and_likable_id"
+    t.index ["user_id", "likable_id", "likable_type"], name: "feed_likes_likeable"
     t.index ["user_id"], name: "index_feed_likes_on_user_id"
   end
 
   create_table "feed_retweets", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "tweet_id"
+    t.string "retweetable_type"
+    t.bigint "retweetable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tweet_id"], name: "index_feed_retweets_on_tweet_id"
-    t.index ["user_id", "tweet_id"], name: "index_feed_retweets_on_user_id_and_tweet_id"
+    t.index ["retweetable_type", "retweetable_id"], name: "index_feed_retweets_on_retweetable_type_and_retweetable_id"
+    t.index ["user_id", "retweetable_id", "retweetable_type"], name: "feed_retweets_retweetable"
     t.index ["user_id"], name: "index_feed_retweets_on_user_id"
   end
 
@@ -70,6 +72,25 @@ ActiveRecord::Schema.define(version: 20180321091851) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "tweet_replies", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "root_id"
+    t.bigint "tweet_id"
+    t.text "content"
+    t.integer "replies_count", default: 0
+    t.integer "likes_count", default: 0
+    t.integer "retweets_count", default: 0
+    t.json "photos"
+    t.string "video"
+    t.string "widths", default: ""
+    t.string "heights", default: ""
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["root_id"], name: "index_tweet_replies_on_root_id"
+    t.index ["tweet_id"], name: "index_tweet_replies_on_tweet_id"
+    t.index ["user_id"], name: "index_tweet_replies_on_user_id"
   end
 
   create_table "user_followings", force: :cascade do |t|

@@ -5,4 +5,4 @@ div class="box"
       span class="px-1" = Nyoro::Text.html_map(:middot)
       a href="#" = t(:refresh, scope: 'views.components.follow_suggestions')
     div class="box-rows"
-      = render partial: 'components/account_summary/index', collection: suggestions, as: :user
+      = render partial: 'components/account_summary', collection: suggestions, as: :user

@@ -1,0 +1,17 @@
+div.box.box-bg-blue
+  div.box-item
+    div.tweet-container.reply-compose-container
+      div.tweet-context
+        div.tweet-left
+        div.tweet-right
+          = t(:reply, scope: "views.components.tweet_compose")
+          span &nbsp;
+          = link_to tweet.user.username_with_symbol, profile_path(tweet.user.username)
+
+      div.tweet-compose
+        div.tweet-left
+          div.avatar-medium
+            = image_container(current_user.avatar.small.url, "1_1", true)
+        div.tweet-right
+          = render partial: 'components/tweets/form',
+            locals: { submit_text: t(:reply, scope: "views.users.shared"), url: url, as: :reply }

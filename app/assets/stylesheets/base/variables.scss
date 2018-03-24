@@ -286,7 +286,7 @@ $avatar-thumb-border-radius: 50%;
 
 // Tweet (newfeed)
 $tweet-left-width: $avatar-medium;
-$tweet-right-padding-left: $padding-primary;
+$tweet-right-padding-x: $padding-primary;
 
 $tweet-context-margin-bottom: .25rem;
 $tweet-context-color: $black--light;
@@ -314,6 +314,20 @@ $tweet-action-btn-favorite-active-color: $red;
 
 
 $tweet-medias-margin-top: 1rem;
+
+
+
+
+
+$modal-tweet-box-padding-y: 30px;
+$modal-tweet-box-padding-x: 40px;
+
+$modal-tweet-content-font-size: 1.5rem;
+$modal-tweet-date-color: $black--light;
+$modal-tweet-date-padding-y: 1rem;
+$modal-tweet-date-border-color: $border-color-primary;
+$modal-tweet-date-border-width: $border-width-primary;
+$modal-tweet-date-border-style: $border-style-primary;
 
 
 
@@ -425,3 +439,8 @@ $footer-font-size: $text-small;
 $footer-item-padding-right: $padding-low;
 $footer-item-color: $black--light;
 $footer-item-link-hover-color: $blue;
+
+
+
+// Modal
+$modal-box-border-radius: 8px;

@@ -62,5 +62,11 @@ Rails.application.routes.draw do
         end
       end
     end
+
+    resources :tweets, only: [] do
+      resources :replies, shallow: true, controller: "tweets/replies" do
+        resources :replies, only: [:create, :new]
+      end
+    end
   end
 end

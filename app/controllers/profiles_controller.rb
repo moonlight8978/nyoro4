@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController
   decorates_assigned :user, :user_following, :user_followers, :feeds
 
   def show
-    @feeds = Feed.includes(tweet: :user).where("feed_tweets.user_id": user.id)
+    @feeds = Feed.tweets_of(user)
   end
 
   def followers
@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
   end
 
   def likes
-    #code
+    @feeds = Feed.where(id: @user.likeds)
   end
 
   def current_user_profile?

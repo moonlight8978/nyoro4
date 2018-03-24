@@ -13,8 +13,12 @@
   }
 
   .tweet-right {
+    width: 100%;
+  }
+
+  .tweet-left ~ .tweet-right {
     width: calc(100% - #{$tweet-left-width});
-    padding-left: $tweet-right-padding-left;
+    padding-left: $tweet-right-padding-x;
   }
 }
 
@@ -163,11 +167,13 @@
   }
 }
 
-.tweet-compose-container .tweet-context {
+.tweet-compose-container .tweet-context,
+.reply-compose-container .tweet-context {
   display: none;
 }
 
-.tweet-compose-container .tweet-compose {
+.tweet-compose-container .tweet-compose,
+.reply-compose-container .tweet-compose {
   align-items: center;
 
   .tweet-compose-form {
@@ -225,7 +231,7 @@
   }
 }
 
-.tweet-compose-container.active {
+.tweet-compose-container.active, .reply-compose-container.active {
   .tweet-compose {
     align-items: flex-start !important;
   }
@@ -234,17 +240,6 @@
     display: flex !important;
   }
 }
-
-$modal-tweet-box-padding-y: 30px;
-$modal-tweet-box-padding-x: 40px;
-$modal-tweet-box-border-radius: 8px;
-
-$modal-tweet-content-font-size: 1.5rem;
-$modal-tweet-date-color: $black--light;
-$modal-tweet-date-padding-y: 1rem;
-$modal-tweet-date-border-color: $border-color-primary;
-$modal-tweet-date-border-width: $border-width-primary;
-$modal-tweet-date-border-style: $border-style-primary;
 
 .modal-show-tweet {
   .box-item {
@@ -277,16 +272,6 @@ $modal-tweet-date-border-style: $border-style-primary;
 
     .tweet-action-button {
       padding-right: $modal-tweet-action-button-padding-right;
-    }
-  }
-
-  .box {
-    margin-bottom: 0;
-    &:last-child {
-      border-radius: 0 0 $modal-tweet-box-border-radius $modal-tweet-box-border-radius;
-    }
-    &:first-child {
-      border-radius: $modal-tweet-box-border-radius $modal-tweet-box-border-radius 0 0;
     }
   }
 

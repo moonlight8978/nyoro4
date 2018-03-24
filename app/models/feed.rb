@@ -22,9 +22,31 @@ class Feed < ApplicationRecord
     foreign_type: LIKE_CLASS,
     class_name: LIKE_CLASS,
     optional: true
+
   # scopes
   default_scope { order(created_at: :desc) }
+
+  scope :tweets, -> { where(feedable_type: TWEET_CLASS) }
+
   # class methods
+  # Get all liked tweets of specific user
+  # @note Should use with scope #tweets
+  def self.liked_by(user)
+    joins(tweet: :likes).where(feed_likes: { user_id: user.id })
+  end
+
+  # Get all tweets and retweets of specific user
+  def self.tweets_of(user)
+    includes(:tweet, :retweet)
+      .where(
+        "(feedable_type = ? AND feedable_id IN (?)) OR (feedable_type = ? AND feedable_id IN (?))",
+        TWEET_CLASS,
+        Feed::Tweet.select(:id).where(user: user), 
+        RETWEET_CLASS,
+        Feed::Retweet.select(:id).where(user: user, retweetable_type: TWEET_CLASS)
+      )
+      .references(:feed_tweets, :feed_retweets)
+  end
   # validates
   # callbacks
   # instance methods

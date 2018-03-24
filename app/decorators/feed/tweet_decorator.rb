@@ -80,4 +80,16 @@ class Feed::TweetDecorator < ApplicationDecorator
   def options_dropdown
     h.render partial: 'components/tweets/options', locals: { tweet: self }
   end
+
+  def new_context(&block)
+    if tweet.content.blank?
+      h.capture(&block)
+    end
+  end
+
+  def reply_context(&block)
+    if tweet.content.present?
+      h.capture(&block)
+    end
+  end
 end

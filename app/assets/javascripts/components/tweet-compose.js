@@ -1,18 +1,31 @@
 (function() {
   // Focus tweet compose form to expand
   $(document).on("focus", ".tweet-compose-form", function(event) {
-    changeState(this, ".tweet-compose-container", ".form-control", "inactive", "active")
+    changeState(this, ".tweet-compose-container, .reply-compose-container", ".form-control", "inactive", "active")
   })
 
   // Click minimize button to minimize the form
   $(document).on("click", ".tweet-compose-minimize", function(event) {
-    changeState(this, ".tweet-compose-container", ".form-control", "active", "inactive")
+    changeState(this, ".tweet-compose-container, .reply-compose-container", ".form-control", "active", "inactive")
   })
 
-  $(document).on("submit", ".tweet-compose-form", function(event) {
+  $(document).on("submit", ".tweet-compose-container .tweet-compose-form", function(event) {
     event.preventDefault()
     tweet(this, (data) => {
       $("#newfeeds").prepend(data)
+    })
+  })
+
+  $(document).on("submit", ".reply-compose-container .tweet-compose-form", function(event) {
+    event.preventDefault()
+    tweet(this, (data) => {
+      const $modal = $('.modal-reply-tweet')
+
+      if ($modal.length > 0) {
+        $modal.modal('hide')
+      } else {
+        $('#tweetComments').prepend(data)
+      }
     })
   })
 

@@ -2,7 +2,7 @@
   title = t(:app_name, scope: "defaults")
 
 = content_for :left_panel do
-  = user.profile_summary_box(1, include_extras: true)
+  = current_user.profile_summary_box(1, include_extras: true)
 
 = content_for :right_panel do
   div.box-fix
@@ -12,6 +12,6 @@
 
 div.box-fix
   div.box-mb-0
-    = render partial: "components/tweet_compose/index", locals: { user: user }
+    = render partial: "components/tweet_composer"
   div.box#newfeeds
-    = render partial: "components/feed/index", collection: feeds, as: :feed
+    = render partial: "components/feed", collection: feeds, as: :feed

@@ -37,16 +37,16 @@ module ApplicationHelper
   end
 
   def render_footer_box
-    render 'components/footer/index'
+    render 'components/footer'
   end
 
   def render_follow_suggestions_box
     suggestions = User.suggestions_for(current_user).decorate
-    render partial: 'components/follow_suggestions/index', locals: { suggestions: suggestions }
+    render partial: 'components/follow_suggestions', locals: { suggestions: suggestions }
   end
 
   def render_tweet(tweet)
-    render partial: 'components/tweet/index', locals: { tweet: tweet }
+    render partial: 'components/tweet', locals: { tweet: tweet }
   end
 
   # Return image with placeholder container
@@ -54,10 +54,23 @@ module ApplicationHelper
   # @param ratio [String]   image ratio. `1_1`, `3_1`, `2_3`, etc...
   # @param avatar [Boolean] if avatar
   def image_container(src, ratio, avatar = false)
-    img_class_names = avatar ? "img-thumb avatar-thumb" : "img-thumb"
-
+    img_class_names = avatar ? "img-thumb avatar-thumb lazy" : "img-thumb lazy"
+    placeholder = asset_path('placeholder.png')
     content_tag :div, class: "img-placeholder ratio-#{ratio}" do
-      image_tag src, class: img_class_names
+      "<img src='#{placeholder}' data-src='#{src}' class='#{img_class_names}'>".html_safe
     end
+  end
+
+  def reply_box(tweet, reply = nil)
+    url =
+      if reply
+        reply_replies_path(reply)
+      else
+        tweet_replies_path(tweet)
+      end
+
+    render partial: "components/reply_composer", locals: {
+      tweet: tweet, url: url, as: :reply
+    }
   end
 end

@@ -1,9 +1,10 @@
 class Feeds::TweetsController < ApplicationController
+  # TODO: Edit, update tweet
+  decorates_assigned :tweet
+
   def show
-    tweet = Feed::Tweet.find(params[:id]).decorate
-    render partial: "components/tweet/full",
-      object: tweet, as: :tweet,
-      layout: false
+    @tweet = Feed::Tweet.find(params[:id]).decorate
+    render layout: false
   end
 
   # User submit tweet
@@ -13,7 +14,7 @@ class Feeds::TweetsController < ApplicationController
     if form.valid?
       service = TweetService::Create.new(current_user, form.tweet)
       service.perform
-      render partial: "components/feed/index",
+      render partial: "components/feed",
         object: service.feed.decorate, as: :feed,
         layout: false
     else

@@ -20,4 +20,4 @@
 
 div.box-fix.mt-3
   div.box
-    = render_tweet({})
+    = render partial: 'components/feed', collection: feeds, as: :feed

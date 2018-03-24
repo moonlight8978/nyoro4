@@ -1,0 +1,33 @@
+div.box
+  div.box-item.pb-0
+    h5.text-center.m-0 = "Reply to #{tweet.user.profilename}"
+
+div.box
+  div.box-item
+    div.tweet-container
+      div class="original-tweet"
+        div class="tweet-left"
+          div class="avatar-medium"
+            = image_container(tweet.user.avatar.medium.url, "1_1", true)
+
+        div class="tweet-right"
+          div class="tweet-header"
+            = tweet.user.names_singleline
+            span class="px-1" = Nyoro::Text.html_map(:middot)
+            span class="time" = tweet.created_at
+
+          p.tweet-content == tweet.content
+
+div.box.box-bg-blue
+  div.box-item
+    div.tweet-container.reply-compose-container
+      div.tweet-context
+        div.tweet-right
+          = t(:reply, scope: "views.components.tweet_compose")
+          span &nbsp;
+          = link_to tweet.user.username_with_symbol, profile_path(tweet.user.username)
+
+      div.tweet-compose
+        div.tweet-right
+          = render partial: 'components/tweets/form',
+            locals: { submit_text: t(:reply, scope: "views.users.shared"), url: tweet_path(tweet), as: :reply }

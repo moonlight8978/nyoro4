@@ -22,9 +22,12 @@ div.box
       = tweet.action_buttons(false)
 
 div.box
-  = render partial: "components/tweet_compose/index", locals: { user: current_user }
+  = reply_box(tweet)
 
 div.box
+  div#tweetComments
+    - tweet.replies.each do |reply|
+      = reply.content
 
 div.box.box-bg-gray
   div.tweet-full-footer

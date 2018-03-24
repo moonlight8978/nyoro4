@@ -3,7 +3,10 @@ module Feed::React
 
   included do
     belongs_to :user, class_name: "User"
-    belongs_to :tweet, class_name: "Feed::Tweet"
     has_one :feed, as: :feedable, dependent: :destroy
+
+    def self.reacted_to(tweet)
+      where(tweet: tweet)
+    end
   end
 end

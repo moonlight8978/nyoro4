@@ -88,6 +88,15 @@ class UserDecorator < ApplicationDecorator
     Nyoro::Text::Autolink.auto_link(h.html_escape(object.introduction))
   end
 
+  # Return username with symbol @
+  def username_with_symbol
+    "@#{object.username}"
+  end
+
+  def method
+    #code
+  end
+
 private
 
   # Link to follow or unfollow user
@@ -111,10 +120,5 @@ private
   # Return path to profile
   def profile_path
     h.profile_path(object.username)
-  end
-
-  # Return username with symbol @
-  def username_with_symbol
-    "@#{object.username}"
   end
 end

@@ -9,15 +9,18 @@
 
     const $modal = $(".modal-show-tweet")
     const $modalContent = $modal.find(".modal-content")
-
     const path = $(this).data('path')
+
+    $modal.modal('show')
 
     setTimeout(function () {
       axios.get(path)
         .then((response) => {
           console.log(response) //debug
+          console.log(isOpening($modal))
           if (isOpening($modal)) {
             $modalContent.html(response.data)
+            $('.lazy').lazyload().removeClass('lazy')
           }
         })
         .catch(error => console.log(error)) //debug

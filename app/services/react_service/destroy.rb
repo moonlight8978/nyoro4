@@ -9,14 +9,21 @@ module ReactService::Destroy
   def perform
     ActiveRecord::Base.transaction do
       react_class
-        .find_by(user: reactor, tweet: tweet)
+        .find_by(user: reactor, "#{reactable}": tweet)
         .destroy
     end
   end
 
+protected
+
   # Return class for reaction
   def react_class
     raise NoMethodError, "You need to implement this method in subclasses"
+  end
+
+  # Return reactable association key
+  def reactable
+    raise NoMethodError, "You must implement this method in subclasses"
   end
 
 private

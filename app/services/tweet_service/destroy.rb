@@ -8,7 +8,11 @@ module TweetService
 
     # Perform the service
     def perform
+      retweets = Feed::Retweet.reacted_to(tweet)
+      likeds = Feed::Like.reacted_to(tweet)
       ActiveRecord::Base.transaction do
+        retweets.destroy_all
+        likeds.destroy_all
         tweet.destroy
       end
     end

@@ -1,3 +1,3 @@
 function isOpening(modal) {
-  return modal.attr('opening') === 'opening'
+  return modal.attr('opening') === 'true'
 }

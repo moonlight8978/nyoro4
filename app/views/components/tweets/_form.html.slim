@@ -1,0 +1,27 @@
+= form_with(scope: as, url: url, local: true, class: "tweet-compose-form") do |f|
+
+  div.tweet-compose-form-input-field
+    = f.text_area :content,
+      class: "form-control",
+      rows: 1,
+      placeholder: t(:placeholder, scope: "views.components.tweet_compose")
+
+  div.tweet-compose-form-actions
+    div.tweet-compose-form-tools
+      = f.label :photos, class: "tweet-compose-form-tool", for: :tweet_compose_photos do
+        i class="far fa-images"
+        = f.file_field :photos, multiple: true,
+          class: "form-control-file",
+          id: :tweet_compose_photos
+
+      = f.label :video, class: "tweet-compose-form-tool", for: :tweet_compose_video do
+        i class="fas fa-video"
+        = f.file_field :video, class: "form-control-file",
+          id: :tweet_compose_video
+
+      span.tweet-compose-form-tool.tweet-compose-minimize
+        i class="fas fa-compress"
+
+    div.tweet-compose-form-submit
+      = f.submit submit_text,
+        class: "btn btn-edge btn-primary"

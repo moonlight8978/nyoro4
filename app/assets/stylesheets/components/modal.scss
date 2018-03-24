@@ -22,3 +22,15 @@ $modal-border-radius: 8px;
   margin: $modal-margin-y auto;
   border-radius: $modal-border-radius;
 }
+
+.modal {
+  .box {
+    margin-bottom: 0;
+    &:last-child {
+      border-radius: 0 0 $modal-box-border-radius $modal-box-border-radius;
+    }
+    &:first-child {
+      border-radius: $modal-box-border-radius $modal-box-border-radius 0 0;
+    }
+  }
+}
