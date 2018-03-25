@@ -26,8 +26,7 @@ div.box
 
 div.box
   div#tweetComments
-    - tweet.replies.each do |reply|
-      = reply.content
+    = render partial: 'components/reply_tweet', collection: tweet.replies, as: :reply
 
 div.box.box-bg-gray
   div.tweet-full-footer

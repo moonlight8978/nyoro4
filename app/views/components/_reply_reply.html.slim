@@ -1,0 +1,19 @@
+div.tweet-container
+  div class="original-tweet"
+    div class="tweet-left"
+      div class="avatar-medium"
+        = image_container(reply.user.avatar.medium.url, "1_1", true)
+
+    div class="tweet-right"
+      div class="tweet-header has-options-dropdown"
+        = reply.user.names_singleline
+        span class="px-1" = Nyoro::Text.html_map(:middot)
+        span class="time" = reply.created_at
+
+        = reply.options_dropdown
+
+      p.tweet-content == reply.content
+
+      = reply.medias
+
+      = reply.action_buttons

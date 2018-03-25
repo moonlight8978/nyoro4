@@ -63,9 +63,23 @@ Rails.application.routes.draw do
       end
     end
 
+    scope module: :replies do
+      resources :replies, only: [] do
+        member do
+          get    'like', to: 'likes#index',   as: :like
+          post   'like', to: 'likes#create'
+          delete 'like', to: 'likes#destroy'
+
+          get    'retweet', to: 'retweets#index',   as: :retweet
+          post   'retweet', to: 'retweets#create'
+          delete 'retweet', to: 'retweets#destroy'
+        end
+      end
+    end
+
     resources :tweets, only: [] do
       resources :replies, shallow: true, controller: "tweets/replies" do
-        resources :replies, only: [:create, :new]
+        resources :replies, only: [:create, :new], controller: "tweets/replies"
       end
     end
   end

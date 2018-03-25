@@ -1,15 +1,15 @@
 div class="tweet-actions"
   div
-    = link_to new_tweet_reply_path(tweet), class: classnames[:reply] do
+    = link_to urls[:reply], class: classnames[:reply] do
       i class="far fa-comment" data-toggle="tooltip" data-placement="top" title="Reply"
       span = tweet.replies_count
 
   div
-    = link_to retweet_tweet_path(tweet), class: classnames[:retweet] do
+    = link_to urls[:retweet], class: classnames[:retweet] do
       i class="fas fa-retweet" data-toggle="tooltip" data-placement="top" title="Retweet"
       span = tweet.retweets_count
 
   div
-    = link_to like_tweet_path(tweet), class: classnames[:like] do
+    = link_to urls[:like], class: classnames[:like] do
       i class="far fa-heart" data-toggle="tooltip" data-placement="top" title="Favorite"
       span = tweet.likes_count

@@ -249,11 +249,11 @@
     &.tweet-wrapper {
       padding-bottom: $modal-tweet-box-padding-y;
       padding-top: $modal-tweet-box-padding-y;
-    }
-  }
 
-  .tweet-content {
-    font-size: $modal-tweet-content-font-size;
+      .tweet-content {
+        font-size: $modal-tweet-content-font-size;
+      }
+    }
   }
 
   .tweet-date-long {

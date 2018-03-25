@@ -1,14 +1,26 @@
 class Tweets::RepliesController < ApplicationController
-  decorates_assigned :tweet
-
   def new
-    @tweet = Feed::Tweet.find(params[:tweet_id]).decorate
+    if params[:reply_id]
+      @replyable = Tweet::Reply.find(params[:reply_id]).decorate
+    else
+      @replyable = Feed::Tweet.find(params[:tweet_id]).decorate
+    end
+
     render layout: false
   end
 
   def create
-    tweet = Feed::Tweet.find(params[:tweet_id])
-    reply = tweet.replies.build(reply_params)
+    replyable =
+      if params[:reply_id]
+        Tweet::Reply.find(params[:reply_id])
+      else
+        Feed::Tweet.find(params[:tweet_id])
+      end
+    reply = replyable.replies.build(reply_params)
+
+    if params[:reply_id]
+      reply.tweet_id = replyable.tweet_id
+    end
     reply.user = current_user
     reply.save
     head :ok

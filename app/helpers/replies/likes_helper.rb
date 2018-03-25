@@ -1,0 +1,2 @@
+module Replies::LikesHelper
+end

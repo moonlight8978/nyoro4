@@ -5,4 +5,6 @@ class Tweet::Reply < ApplicationRecord
   belongs_to :root, class_name: "Tweet::Reply", optional: true
   belongs_to :user, class_name: "User"
   belongs_to :tweet, class_name: "Feed::Tweet"
+
+  scope :root, -> { where(root_id: nil) }
 end
