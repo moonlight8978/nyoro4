@@ -22,10 +22,11 @@ div.box
       = tweet.action_buttons(false)
 
 div.box
-  = reply_box(tweet)
+  div.inline-reply-composer
+    = reply_box(tweet)
 
 div.box
-  div#tweetComments
+  div#replyStream
     = render partial: 'components/reply_tweet', collection: tweet.replies, as: :reply
 
 div.box.box-bg-gray

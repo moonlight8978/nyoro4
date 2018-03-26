@@ -17,7 +17,7 @@ module Replies::ReactsController
   end
 
   def destroy
-    tweet = Tweet::Reply.find(params[:id])
+    reply = Tweet::Reply.find(params[:id])
     service_class.new(reply, current_user).perform
     head :ok
   end

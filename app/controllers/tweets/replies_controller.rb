@@ -1,10 +1,11 @@
 class Tweets::RepliesController < ApplicationController
   def new
-    if params[:reply_id]
-      @replyable = Tweet::Reply.find(params[:reply_id]).decorate
-    else
-      @replyable = Feed::Tweet.find(params[:tweet_id]).decorate
-    end
+    @replyable =
+      if params[:reply_id]
+        Tweet::Reply.find(params[:reply_id]).decorate
+      else
+        Feed::Tweet.find(params[:tweet_id]).decorate
+      end
 
     render layout: false
   end
@@ -23,7 +24,16 @@ class Tweets::RepliesController < ApplicationController
     end
     reply.user = current_user
     reply.save
-    head :ok
+
+    partial =
+      if params[:reply_id]
+        'components/reply_reply'
+      else
+        'components/reply_tweet'
+      end
+    puts "ok"
+
+    render partial: partial, object: reply.decorate, as: :reply, layout: false
   end
 
   def update

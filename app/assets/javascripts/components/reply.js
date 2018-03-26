@@ -10,31 +10,35 @@
   const htmlLoading = `<div class="modal-loading"></div>`
 
   /**
-   * Attach event on reply button. It will open the modal, fetch data
-   * from server then set the data to client.
-   * It wont set the data if modal is already closed.
+   * Get the reply form
+   *
+   * #feedStream use for main feeds/tweets/replies
    */
-  $(document).on("click", ".js-btn-reply-tweet", function(event) {
+  $(document).on("click", "#feedStream .js-btn-reply-tweet", function(event) {
     event.preventDefault()
 
-    const $modal = $(".modal-reply-tweet")
-    const $modalContent = $modal.find(".modal-content")
     const url = $(this).attr('href')
-    $modal.modal("show")
+    getForm(url)
+  })
 
-    setTimeout(function () {
-      axios
-        .get(url)
-        .then((response) => {
-          console.log(response) //debug
+  /**
+   * It get the conversation-id from .conversation-stream and bind it to modal
+   *  Usage of conversation-id, see 'tweet-compose'.
+   *  Then get the reply form
+   *
+   * #replyStream use for tweet's root replies container
+   */
+  $(document).on("click", "#replyStream .js-btn-reply-tweet", function(event) {
+    event.preventDefault()
 
-          if (isOpening($modal)) {
-            $modalContent.html(response.data)
-            $('.lazy').lazyload().removeClass('lazy')
-          }
-        })
-        .catch(error => console.log(error)) //debug
-    }, 3000);
+    const $this = $(this)
+    const $modal = $(".modal-reply-tweet")
+    const url = $this.attr('href')
+
+    const conversationId = $this.closest('.conversation-stream').data('conversation-id')
+    $modal.data('conversation-id', conversationId)
+
+    getForm(url)
   })
 
   /**
@@ -53,14 +57,34 @@
     const $modal = $(this)
     const $modalContent = $modal.find(".modal-content")
     $modal.removeAttr('opening')
+    $modal.removeData('conversation-id')
     $modalContent.html(htmlLoading)
   })
 
-  function getData() {
-    return new Promise((resolve, reject) => {
-      setTimeout(function () {
-        resolve(1)
-      }, 3000)
-    })
+
+  /**
+   * Open the modal, get reply form from server, and show it
+   */
+  function getForm(url, callback) {
+    const $modal = $(".modal-reply-tweet")
+    const $modalContent = $modal.find(".modal-content")
+
+    $modal.modal("show")
+    setTimeout(function () {
+      axios
+        .get(url)
+        .then((response) => {
+          console.log(response)
+
+          if (isOpening($modal)) {
+            $modalContent.html(response.data)
+          }
+          callback && callback(response.data, $modal)
+        })
+        .catch(error => console.log(error))
+        .finally(() => {
+          lazyloadImages()
+        })
+    }, 3000)
   }
 })()

@@ -35,5 +35,5 @@ axios.defaults.headers.common['X-CSRF-Token'] = csrfToken
 $(document).ready(() => {
   // let images = document.querySelectorAll(".lazy")
   // lazy = lazyload(images)
-  $('.lazy').lazyload().removeClass('lazy')
+  lazyloadImages()
 })

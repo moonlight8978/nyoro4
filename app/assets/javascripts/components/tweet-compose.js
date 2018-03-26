@@ -1,6 +1,6 @@
 (function() {
   // Focus tweet compose form to expand
-  $(document).on("focus", ".tweet-compose-form", function(event) {
+  $(document).on("focus", ".js-composer", function(event) {
     changeState(this, ".tweet-compose-container, .reply-compose-container", ".form-control", "inactive", "active")
   })
 
@@ -9,23 +9,36 @@
     changeState(this, ".tweet-compose-container, .reply-compose-container", ".form-control", "active", "inactive")
   })
 
-  $(document).on("submit", ".tweet-compose-container .tweet-compose-form", function(event) {
+  $(document).on("submit", ".new-tweet-composer .js-composer", function(event) {
     event.preventDefault()
     tweet(this, (data) => {
-      $("#newfeeds").prepend(data)
+      $("#feedStream").prepend(data)
     })
   })
 
-  $(document).on("submit", ".reply-compose-container .tweet-compose-form", function(event) {
+  $(document).on("submit", ".inline-reply-composer .js-composer", function(event) {
+    event.preventDefault()
+    tweet(this, (data) => {
+      $("#replyStream").prepend(data)
+    })
+  })
+
+  /**
+   * After submiting the data, it check if modal is used for tweet's reply or
+   *  reply's reply by checking the conversation-id.
+   *  If conversation exists, it will append the data to conversation stream
+   */
+  $(document).on("submit", ".modal-reply-tweet .js-composer", function(event) {
     event.preventDefault()
     tweet(this, (data) => {
       const $modal = $('.modal-reply-tweet')
-
-      if ($modal.length > 0) {
-        $modal.modal('hide')
-      } else {
-        $('#tweetComments').prepend(data)
+      const conversationId = $modal.data('conversation-id')
+      if (conversationId) {
+        const $conversation = $(`.conversation-stream[data-conversation-id="${conversationId}"]`)
+        $conversation.append(data)
       }
+
+      $modal.modal('hide')
     })
   })
 
@@ -45,7 +58,10 @@
         console.log(error)
         error.response && console.log(error.response)
       })
-      .finally(() => $submitButton.removeAttr('disabled'))
+      .finally(() => {
+        $submitButton.removeAttr('disabled')
+        lazyloadImages()
+      })
   }
 
   const state = {

@@ -14,7 +14,7 @@ class Tweet::ReplyDecorator < ApplicationDecorator
   end
 
   def render_replies
-    if object.replies.size > 0
+    if object.replies_count > 0
       h.render partial: 'components/reply_reply', collection: self.replies, as: :reply
     end
   end

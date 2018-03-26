@@ -12,6 +12,7 @@
 
 div.box-fix
   div.box-mb-0
-    = render partial: "components/tweet_composer"
-  div.box#newfeeds
+    div.new-tweet-composer
+      = render partial: "components/tweet_composer"
+  div.box#feedStream
     = render partial: "components/feed", collection: feeds, as: :feed
