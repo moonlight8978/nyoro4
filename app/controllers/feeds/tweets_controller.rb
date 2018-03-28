@@ -3,7 +3,9 @@ class Feeds::TweetsController < ApplicationController
   decorates_assigned :tweet
 
   def show
-    @tweet = Feed::Tweet.find(params[:id]).decorate
+    @tweet = Feed::Tweet.includes(replies: [{ previous: :user }, :user, :tweet ])
+      .find(params[:id])
+      .decorate
     render layout: false
   end
 

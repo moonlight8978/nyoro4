@@ -12,6 +12,9 @@ div.tweet-container
 
         = reply.options_dropdown
 
+      div.reply-context
+        == t(:replying, scope: 'views.context', username: reply.reply_to.user.username)
+
       p.tweet-content == reply.content
 
       = reply.medias

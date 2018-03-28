@@ -10,7 +10,7 @@ span.more-actions
       = t(:hide, scope: "views.components.tweet.options")
 
     = tweet.for_owner do
-      = link_to tweet_path(tweet.id), class: "dropdown-item btn-delete-tweet" do
+      = link_to tweet.destroy_path, class: "dropdown-item btn-delete-tweet" do
         = t(:delete, scope: "views.components.tweet.options")
 
     = tweet.for_others do

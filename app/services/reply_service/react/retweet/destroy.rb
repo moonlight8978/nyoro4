@@ -10,4 +10,8 @@ protected
   def react_class
     ::Feed::Retweet
   end
+
+  def counter_column
+    'retweets_count'
+  end
 end

@@ -10,6 +10,7 @@ module ReplyService::React::Destroy
       react_class
         .find_by(user: reactor, "#{reactable}": reply)
         .destroy
+      Tweet::Reply.decrement_counter(:"#{counter_column}", reply.id)
     end
   end
 
@@ -22,6 +23,10 @@ protected
   end
 
   def reactable
+    raise NoMethodError
+  end
+
+  def counter_column
     raise NoMethodError
   end
 end

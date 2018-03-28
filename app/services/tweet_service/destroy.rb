@@ -10,9 +10,13 @@ module TweetService
     def perform
       retweets = Feed::Retweet.reacted_to(tweet)
       likeds = Feed::Like.reacted_to(tweet)
+      reply_ids = Tweet::Reply.where(tweet: tweet)
       ActiveRecord::Base.transaction do
-        retweets.destroy_all
-        likeds.destroy_all
+        retweets.delete_all
+        likeds.delete_all
+        Feed::Retweet.where(retweetable_id: reply_ids, retweetable_type: 'Tweet::Reply').delete_all
+        Feed::Like.where(likable_id: reply_ids, likable_type: 'Tweet::Reply').delete_all
+        Tweet::Reply.where(id: reply_ids).delete_all
         tweet.destroy
       end
     end

@@ -3,3 +3,6 @@ en:
     language: Language
     update: Save changes
     app_name: Twitter
+  spoil:
+    replies: Show more replies
+    subreplies: Show conversation

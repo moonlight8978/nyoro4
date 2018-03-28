@@ -3,7 +3,8 @@
   .tweet-context,
   .tweet-extras,
   .tweet-compose,
-  .tweet-actions
+  .tweet-actions,
+  .conversation-show
    {
     display: flex;
   }
@@ -56,6 +57,12 @@
     .time {
       color: $tweet-header-time-color;
     }
+  }
+
+  .reply-context {
+    color: $black--light;
+    padding-top: 4px;
+    padding-bottom: 4px;
   }
 }
 
@@ -275,14 +282,31 @@
     }
   }
 
-  .box-item {
-
-  }
-
   .tweet-full-footer {
     color: #ccd6dd;
     padding: 1rem;
     text-align: center;
     font-size: 1.5rem;
+  }
+}
+
+$conversation-tweet-container-padding-bottom: 16px;
+
+.conversation .tweet-container:not(:last-child) {
+  padding-bottom: $conversation-tweet-container-padding-bottom;
+
+  .original-tweet > .tweet-left {
+    position: relative;
+
+    &:after {
+      position: absolute;
+      content: '';
+      top: $thread-connect-line-position-top;
+      bottom: $thread-connect-line-position-bottom - $conversation-tweet-container-padding-bottom;
+      left: $thread-connect-line-position-left;
+      width: $thread-connect-line-width;
+      background-color: $thread-connect-line-bg-color;
+      border-radius: $thread-connect-line-border-radius;
+    }
   }
 }

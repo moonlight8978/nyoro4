@@ -7,7 +7,7 @@ class Feed::Tweet < ApplicationRecord
   has_many :retweets, class_name: "Feed::Retweet"
   has_many :likes, class_name: "Feed::Like", as: :likable
   has_many :retweets, class_name: "Feed::Retweet", as: :retweetable
-  has_many :replies, class_name: "Tweet::Reply"
+  has_many :replies, -> { root.order(created_at: :asc) }, class_name: "Tweet::Reply"
   # scopes
   # class methods
   # validates

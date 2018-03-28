@@ -1,7 +1,7 @@
 en:
   views:
     context:
-      retweet: "%{profilename} Retweeted"
       reply: "Reply to %{profilename}"
-      replying: "Replying to @%{username}"
-      like: "%{profilename} Liked"
+      replying: "Replying to <a href='/%{username}'>@%{username}</a>"
+      liked: "<a href='/%{username}'>%{profilename}</a> Liked"
+      retweeted: "<a href='/%{username}'>%{profilename}</a> Retweeted"

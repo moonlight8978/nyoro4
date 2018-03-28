@@ -10,4 +10,8 @@ protected
   def reactable
     'retweetable'
   end
+
+  def counter_column
+    'retweets_count'
+  end
 end

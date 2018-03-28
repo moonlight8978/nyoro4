@@ -10,4 +10,8 @@ protected
   def react_class
     ::Feed::Like
   end
+
+  def counter_column
+    'likes_count'
+  end
 end

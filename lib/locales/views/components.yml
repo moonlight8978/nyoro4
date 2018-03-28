@@ -1,0 +1,6 @@
+en:
+  views:
+    components:
+      reply:
+        content:
+          deleted: The reply has been deleted

@@ -79,7 +79,7 @@ Rails.application.routes.draw do
 
     resources :tweets, only: [] do
       resources :replies, shallow: true, controller: "tweets/replies" do
-        resources :replies, only: [:create, :new], controller: "tweets/replies"
+        resources :replies, only: [:create, :new, :index], controller: "tweets/replies"
       end
     end
   end

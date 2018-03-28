@@ -1,9 +1,8 @@
 class Feed::TweetDecorator < ApplicationDecorator
   include ::TweetDecorator
 
-  def replies
-    ::Tweet::ReplyDecorator.decorate_collection(object.replies.root)
-  end
+  decorates_association :replies, with: ::Tweet::ReplyDecorator
+
   # If current_user liked this tweet
   def liked?
     liked_ids = h.current_user.liked_tweets.pluck(:id)
@@ -26,5 +25,9 @@ class Feed::TweetDecorator < ApplicationDecorator
 
   def like_path
     h.like_tweet_path(self.id)
+  end
+
+  def destroy_path
+    h.tweet_path(self.id)
   end
 end

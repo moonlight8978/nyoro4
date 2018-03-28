@@ -78,5 +78,9 @@ module TweetDecorator
     def options_dropdown
       h.render partial: 'components/tweets/options', locals: { tweet: self }
     end
+
+    def destroy_path
+      raise NoMethodError
+    end
   end
 end

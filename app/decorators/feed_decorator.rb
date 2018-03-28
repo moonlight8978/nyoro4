@@ -12,10 +12,10 @@ class FeedDecorator < ApplicationDecorator
   THREAD_CONTAINER_CLASS = "tweet-container thread"
 
   CONTEXT = {
-    retweet_class: RETWEET_ICON_CLASS,
-    like_class: LIKE_ICON_CLASS,
-    retweet_text: -> (profilename) { h.t(:retweet, scope: "views.context", profilename: profilename) },
-    like_text: -> (profilename) { h.t(:like, scope: "views.context", profilename: profilename) },
+    retweet_icon: RETWEET_ICON_CLASS,
+    like_icon: LIKE_ICON_CLASS,
+    retweet_text: -> (profilename, username) { h.t(:retweeted, scope: "views.context", profilename: profilename, username: username) },
+    like_text: -> (profilename, username) { h.t(:liked, scope: "views.context", profilename: profilename, username: username) },
   }
 
   CONTAINER = {
@@ -34,9 +34,10 @@ class FeedDecorator < ApplicationDecorator
   # Feed context
   def context
     if like?
-      h.render partial: 'components/tweets/context', locals: { user: object.like.user, context: 'Liked' }
+      h.render partial: 'components/tweets/context', locals: { user: object.like.user, context: CONTEXT[:like_text].call(object.like.user.profilename, object.like.user.username), icon: CONTEXT[:like_icon] }
     elsif retweet?
-      h.render partial: 'components/tweets/context', locals: { user: object.retweet.user, context: 'Retweeted' }
+      h.render partial: 'components/tweets/context', locals: { user: object.retweet.user, context: CONTEXT[:retweet_text].call(object.retweet.user.profilename, object.retweet.user.username),
+      icon: CONTEXT[:retweet_icon] }
     else
       nil
     end

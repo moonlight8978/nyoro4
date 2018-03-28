@@ -10,6 +10,7 @@ module ReactService::Create
     ActiveRecord::Base.transaction do
       react = react_class.create(user: reactor, "#{reactable}": tweet)
       react.create_feed
+      Feed::Tweet.increment_counter(:"#{counter_column}", tweet.id)
     end
   end
 
@@ -22,6 +23,10 @@ protected
 
   # Return reactable association key
   def reactable
+    raise NoMethodError, "You must implement this method in subclasses"
+  end
+
+  def counter_column
     raise NoMethodError, "You must implement this method in subclasses"
   end
 

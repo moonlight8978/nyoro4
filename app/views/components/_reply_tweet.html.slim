@@ -1,22 +1,34 @@
-div.box-item.conversation-stream data-conversation-id="#{reply.id}"
-  div.tweet-container
-    div class="original-tweet"
-      div class="tweet-left"
-        div class="avatar-medium"
-          = image_container(reply.user.avatar.medium.url, "1_1", true)
+div.box-item.js-has-more-wrapper.conversation
+  div.js-has-more-container.conversation-stream data-conversation-id="#{reply.id}"
+    div.tweet-container
+      div class="original-tweet"
+        div class="tweet-left"
+          div class="avatar-medium"
+            = image_container(reply.user.avatar.medium.url, "1_1", true)
 
-      div class="tweet-right"
-        div class="tweet-header has-options-dropdown"
-          = reply.user.names_singleline
-          span class="px-1" = Nyoro::Text.html_map(:middot)
-          span class="time" = reply.created_at
+        div class="tweet-right"
+          div class="tweet-header has-options-dropdown"
+            = reply.user.names_singleline
+            span class="px-1" = Nyoro::Text.html_map(:middot)
+            span class="time" = reply.created_at
 
-          = reply.options_dropdown
+            = reply.options_dropdown
 
-        p.tweet-content == reply.content
+          div.reply-context
+            == t(:replying, scope: 'views.context', username: reply.reply_to.user.username)
 
-        = reply.medias
+          p.tweet-content == reply.content
 
-        = reply.action_buttons
+          = reply.medias
 
-  = reply.render_replies
+          = reply.action_buttons
+
+    = reply.render_replies do
+      div.tweet-container
+        div.conversation-show
+          div.tweet-left
+
+          div.tweet-right
+            = link_to t(:subreplies, scope: 'spoil'),
+              reply_replies_path(reply.id),
+              class: 'js-btn-spoil', data: { container: '.tweet-container' }

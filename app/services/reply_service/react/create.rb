@@ -9,6 +9,7 @@ module ReplyService::React::Create
     ActiveRecord::Base.transaction do
       react_class
         .create(user: reactor, "#{reactable}": reply)
+      Tweet::Reply.increment_counter(:"#{counter_column}", reply.id)
     end
   end
 
@@ -21,6 +22,10 @@ protected
   end
 
   def reactable
+    raise NoMethodError
+  end
+
+  def counter_column
     raise NoMethodError
   end
 end

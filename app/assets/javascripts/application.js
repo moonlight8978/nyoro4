@@ -14,10 +14,7 @@
 //= require lib
 //= require helpers
 //= require_self
-//= require components/follow
-//= require components/tweet-compose
-//= require components/reply
-//= require components/tweet
+//= require_tree ./components
 // require_tree .
 
 const wow = new WOW({

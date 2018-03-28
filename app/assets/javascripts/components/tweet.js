@@ -32,33 +32,70 @@
     event.stopPropagation()
   })
 
+
   /**
-   * Button to delete tweet.
-   * It will close the modal if tweet is showed in modal.
-   * If in newfeeds stream, it will remove the item from client.
+   * Delete tweet from feed stream
+   *
+   * #feedStream use for main feeds/tweets/replies
    */
-  $(document).on("click", ".btn-delete-tweet", function(event) {
+  $(document).on("click", "#feedStream .btn-delete-tweet", function(event) {
+    event.preventDefault()
+
+    const $this = $(this)
+    const $container = $this.closest('.tweet-wrapper')
+    const url = $this.attr('href')
+
+    deleteReply(url, (data) => {
+      $container.remove()
+    })
+  })
+
+  /**
+   * Delete reply
+   *
+   * #replyStream use for tweet's root replies container
+   */
+  $(document).on("click", "#replyStream .btn-delete-tweet", function(event) {
+    event.preventDefault()
+
+    const $this = $(this)
+    const $container = $this.closest('.tweet-container')
+    const url = $this.attr('href')
+
+    deleteReply(url, (data) => {
+      $container.replaceWith(data)
+    })
+  })
+
+  /**
+   * Delete tweet while it shown in modal
+   */
+  $(document).on("click", ".modal-show-tweet .tweet-wrapper .btn-delete-tweet", function(event) {
     event.preventDefault()
 
     const $this = $(this)
     const $modal = $(".modal-show-tweet")
-    const $modalContent = $this.closest(".modal-content")
-    const $container = $this.closest(".tweet-wrapper")
+    const url = $this.attr('href')
 
-    const path = $this.attr('href')
-
-    setTimeout(function () {
-      axios.delete(path)
-        .then((response) => {
-          if ($modalContent.length > 0) {
-            $modal.modal('hide')
-          } else {
-            $container.remove()
-          }
-        })
-        .catch(error => console.log(error)) //debug
-    }, 3000)
+    deleteReply(url, (data) => {
+      $modal.modal('hide')
+    })
   })
+
+  /**
+   * Send delete request to server
+   */
+  function deleteReply(url, callback) {
+    axios
+      .delete(url)
+      .then((response) => {
+        console.log(response.data)
+        callback && callback(response.data)
+      })
+      .catch(error => console.log(error))
+      .finally(() => lazyloadImages())
+  }
+
 
   /**
    * React button. Use ".btn-undo" to mark reacted tweet

@@ -4,6 +4,7 @@ class CreateTweetReplies < ActiveRecord::Migration[5.1]
       t.belongs_to  :user
       t.belongs_to  :root
       t.belongs_to  :tweet
+      t.belongs_to  :previous
 
       t.text        :content
       t.integer     :replies_count,   default: 0

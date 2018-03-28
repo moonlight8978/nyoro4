@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180324041954) do
+ActiveRecord::Schema.define(version: 20180328020404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20180324041954) do
     t.bigint "user_id"
     t.bigint "root_id"
     t.bigint "tweet_id"
+    t.bigint "previous_id"
     t.text "content"
     t.integer "replies_count", default: 0
     t.integer "likes_count", default: 0
@@ -88,6 +89,8 @@ ActiveRecord::Schema.define(version: 20180324041954) do
     t.string "heights", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "deleted"
+    t.index ["previous_id"], name: "index_tweet_replies_on_previous_id"
     t.index ["root_id"], name: "index_tweet_replies_on_root_id"
     t.index ["tweet_id"], name: "index_tweet_replies_on_tweet_id"
     t.index ["user_id"], name: "index_tweet_replies_on_user_id"

@@ -1,6 +1,7 @@
 div.box
   div.box-item.pb-0
-    h5.text-center.m-0 = "Reply to #{@replyable.user.profilename}"
+    h5.text-center.m-0
+      == t(:reply, scope: "views.components.tweet_compose", profilename: @replyable.user.profilename)
 
 div.box
   div.box-item
@@ -23,9 +24,7 @@ div.box.box-bg-blue
     div.tweet-container.reply-compose-container
       div.tweet-context
         div.tweet-right
-          = t(:reply, scope: "views.components.tweet_compose")
-          span &nbsp;
-          = link_to @replyable.user.username_with_symbol, profile_path(@replyable.user.username)
+          == t(:replying, scope: "views.components.tweet_compose", username: @replyable.user.username)
 
       div.tweet-compose
         div.tweet-right

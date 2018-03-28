@@ -11,6 +11,7 @@ module ReactService::Destroy
       react_class
         .find_by(user: reactor, "#{reactable}": tweet)
         .destroy
+      Feed::Tweet.decrement_counter(:"#{counter_column}", tweet.id)
     end
   end
 
@@ -23,6 +24,10 @@ protected
 
   # Return reactable association key
   def reactable
+    raise NoMethodError, "You must implement this method in subclasses"
+  end
+
+  def counter_column
     raise NoMethodError, "You must implement this method in subclasses"
   end
 

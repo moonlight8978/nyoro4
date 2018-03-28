@@ -10,6 +10,14 @@ class Ability
       can :report, Feed::Tweet do |tweet|
         tweet.user_id != user.id
       end
+
+      # Users can crud reply which is belongs to them
+      can :crud, Tweet::Reply, user_id: user.id
+
+      # Other people can report reply
+      can :report, Tweet::Reply do |reply|
+        reply.user_id != user.id
+      end
     end
   end
 end
