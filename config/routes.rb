@@ -81,6 +81,8 @@ Rails.application.routes.draw do
       resources :replies, shallow: true, controller: "tweets/replies" do
         resources :replies, only: [:create, :new, :index], controller: "tweets/replies"
       end
+
+      resources :hashtags, shallow: true, only: :show, controller: "tweets/hashtags"
     end
   end
 end

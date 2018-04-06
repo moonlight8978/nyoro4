@@ -1,0 +1,19 @@
+- console
+
+- content_for :title
+  title
+    | #{@hashtag_name} - Twitter
+
+- content_for :header
+  div.query-header
+    .container
+      h1 = @hashtag_name
+
+- content_for :left_panel
+  div.box-fix
+    = render_follow_suggestions_box
+    = render_footer_box
+
+div.box-fix#feedStream
+  div.box
+    = render partial: "components/tweet_box", collection: tweets, as: :tweet

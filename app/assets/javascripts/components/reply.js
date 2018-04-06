@@ -7,7 +7,13 @@
   `
 
   // modal loading animation
-  const htmlLoading = `<div class="modal-loading"></div>`
+  const htmlLoading = `
+    <div class="modal-loading">
+      <div class="loading_container">
+        <i class="fas fa-spinner fa-pulse"></i>
+      </div>
+    </div>
+  `
 
   /**
    * Get the reply form

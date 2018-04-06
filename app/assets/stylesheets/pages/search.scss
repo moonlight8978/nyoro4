@@ -1,0 +1,12 @@
+$query-header-bg-color: $blue;
+$query-header-color: $white;
+$query-header-spacing: 1rem;
+
+.query-header {
+  background-color: $query-header-bg-color;
+  color: $query-header-color;
+  margin-top: -1rem;
+  margin-bottom: $query-header-spacing;
+  padding-top: $query-header-spacing;
+  padding-bottom: $query-header-spacing;
+}

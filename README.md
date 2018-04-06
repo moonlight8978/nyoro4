@@ -64,9 +64,9 @@ postgres=# select version();
 * ~~Settings pages~~
 * ~~Following~~
 * ~~User profile~~
-* Tweet, Retweet, Favorite
-* Reply
+* ~~Tweet, Retweet/Favorite Tweet~~
+* ~~Reply, Retweet/Favorite Reply~~
 * Hashtag
-* Tag people in tweet
+* Mention
 * Tweet with images (enhanced)
 * Newfeed

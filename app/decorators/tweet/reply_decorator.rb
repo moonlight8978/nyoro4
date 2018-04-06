@@ -6,7 +6,7 @@ class Tweet::ReplyDecorator < ApplicationDecorator
     if object.deleted
       h.t(:deleted, scope: "views.components.reply.content")
     else
-      super
+      Nyoro::Text::Autolink.auto_link(h.html_escape(object.content))
     end
   end
 

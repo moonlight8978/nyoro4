@@ -14,9 +14,19 @@ class ReplyService::Tweet::Create
 
   # Save the reply
   def perform
+    hashtags = reply.extract_hashtags
+    users = reply.extract_mentioned_users
+
     ActiveRecord::Base.transaction do
       reply.save
       Feed::Tweet.increment_counter(:replies_count, reply_to.id)
+      hashtags.map do |name|
+        hashtag = ::Tweet::Hashtag.find_or_create_by(name: name)
+        tagging = ::Tweet::Tagging.create(hashtag: hashtag, taggable: reply)
+      end
+      users.map do |user|
+        mentioning = ::Tweet::Mentioning.create(mentionable: reply, user: user)
+      end
     end
   end
 

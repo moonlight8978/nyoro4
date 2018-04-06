@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180328020404) do
+ActiveRecord::Schema.define(version: 20180406053541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,26 @@ ActiveRecord::Schema.define(version: 20180328020404) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
+  create_table "tweet_hashtags", force: :cascade do |t|
+    t.string "name"
+    t.integer "tweets_count", default: 0
+    t.integer "replies_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_tweet_hashtags_on_slug"
+  end
+
+  create_table "tweet_mentionings", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "mentionable_type"
+    t.bigint "mentionable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mentionable_type", "mentionable_id"], name: "index_tweet_mentionings_on_mentionable_type_and_mentionable_id"
+    t.index ["user_id"], name: "index_tweet_mentionings_on_user_id"
+  end
+
   create_table "tweet_replies", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "root_id"
@@ -94,6 +114,16 @@ ActiveRecord::Schema.define(version: 20180328020404) do
     t.index ["root_id"], name: "index_tweet_replies_on_root_id"
     t.index ["tweet_id"], name: "index_tweet_replies_on_tweet_id"
     t.index ["user_id"], name: "index_tweet_replies_on_user_id"
+  end
+
+  create_table "tweet_taggings", force: :cascade do |t|
+    t.bigint "hashtag_id"
+    t.string "taggable_type"
+    t.bigint "taggable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hashtag_id"], name: "index_tweet_taggings_on_hashtag_id"
+    t.index ["taggable_type", "taggable_id"], name: "index_tweet_taggings_on_taggable_type_and_taggable_id"
   end
 
   create_table "user_followings", force: :cascade do |t|

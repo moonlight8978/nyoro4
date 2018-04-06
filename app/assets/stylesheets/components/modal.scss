@@ -1,20 +1,27 @@
 $modal-loading-image: asset_path("loading.gif");
-$modal-min-height: 250px;
 $modal-loading-image-height: 70px;
+
+$modal-min-height: 250px;
+$modal-loading-spacing: 30px;
 $modal-content-margin-y: ($modal-min-height - $modal-loading-image-height) / 2;
 
 $modal-width: 640px;
 $modal-margin-y: 60px;
 $modal-border-radius: 8px;
 
+// .modal-loading {
+//   height: $modal-loading-image-height;
+//   margin-top: $modal-content-margin-y;
+//   margin-bottom: $modal-content-margin-y;
+//   background-repeat: no-repeat;
+//   background-image: $modal-loading-image;
+//   background-position: center center;
+//   background-size: contain;
+// }
+//
 .modal-loading {
-  height: $modal-loading-image-height;
-  margin-top: $modal-content-margin-y;
-  margin-bottom: $modal-content-margin-y;
-  background-repeat: no-repeat;
-  background-image: $modal-loading-image;
-  background-position: center center;
-  background-size: contain;
+  padding-top: $modal-loading-spacing;
+  padding-bottom: $modal-loading-spacing;
 }
 
 .modal-dialog {
