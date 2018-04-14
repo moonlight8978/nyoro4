@@ -2,6 +2,10 @@
   "name": "nyoro4",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.5",
+    "@fortawesome/fontawesome-free-brands": "^5.0.10",
+    "@fortawesome/fontawesome-free-regular": "^5.0.10",
+    "@fortawesome/fontawesome-free-solid": "^5.0.10",
     "@fortawesome/fontawesome-free-webfonts": "^1.0.4",
     "animate.css": "^3.6.1",
     "axios": "^0.18.0",

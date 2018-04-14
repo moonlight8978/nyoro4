@@ -1,0 +1,12 @@
+en:
+  views:
+    search:
+      shared:
+        nav:
+          users: People
+          tweets: Tweets
+          hashtags: Hashtags
+
+        users:
+        tweets:
+        hashtags:

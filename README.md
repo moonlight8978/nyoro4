@@ -66,7 +66,11 @@ postgres=# select version();
 * ~~User profile~~
 * ~~Tweet, Retweet/Favorite Tweet~~
 * ~~Reply, Retweet/Favorite Reply~~
-* Hashtag
-* Mention
-* Tweet with images (enhanced)
+* ~~Hashtag~~
+* ~~Mention~~
+* ~~Search~~
+* ~~Fix delete tweet/reply~~
+* Profile page
+* Tweet composer (改)
 * Newfeed
+* Support Docker

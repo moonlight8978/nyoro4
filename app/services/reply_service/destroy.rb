@@ -7,7 +7,11 @@ class ReplyService::Destroy
 
   # Delete the comment and related associations
   def perform
-    reply.update(deleted: true)
+    ActiveRecord::Base.transaction do
+      reply.update(deleted: true)
+      reply.taggings.delete_all
+      reply.mentionings.delete_all
+    end
   end
 
 private

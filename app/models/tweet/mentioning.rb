@@ -9,4 +9,10 @@ class Tweet::Mentioning < ApplicationRecord
     foreign_key: :mentionable_id,
     foreign_type: 'Tweet::Reply',
     class_name: 'Tweet::Reply'
+
+  def self.mention(mentionable)
+    mentionable.extract_mentioned_users.map do |user|
+      self.create(mentionable: mentionable, user: user)
+    end
+  end
 end

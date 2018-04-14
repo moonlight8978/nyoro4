@@ -2,7 +2,7 @@
   padding: 0;
   background-color: $app-navbar-bg-color;
 
-  .logo-link i {
+  .logo-link svg {
     color: $app-navbar-logo-color;
   }
 
@@ -29,9 +29,9 @@
     }
 
     span,
-    i { vertical-align: middle; }
+    svg { vertical-align: middle; }
 
-    i {
+    svg {
       font-size: $app-navbar-global-actions-nav-link-icon-font-size;
       margin-right: $app-navbar-global-actions-nav-link-icon-margin-right;
     }
@@ -75,7 +75,7 @@
   .dropdown {
     .dropdown-menu { max-width: $app-navbar-dropdown-menu-max-width; }
     .dropdown-item {
-      i { margin-right: $app-navbar-dropdown-item-icon-margin-right; }
+      svg { margin-right: $app-navbar-dropdown-item-icon-margin-right; }
     }
   }
 }

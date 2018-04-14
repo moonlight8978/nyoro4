@@ -36,7 +36,5 @@ module Nyoro4
     ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
       html_tag.html_safe
     end
-    config.cache_classes = false
-    config.reload_classes_only_on_change = false
   end
 end

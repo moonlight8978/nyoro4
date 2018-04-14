@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  searchkick highlight: [:username, :profilename], word_middle: [:username, :profilename]
+
   # value is what others can see
   # @example
   #   ddmmyy  => "18-12-1997"

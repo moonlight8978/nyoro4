@@ -84,5 +84,11 @@ Rails.application.routes.draw do
 
       resources :hashtags, shallow: true, only: :show, controller: "tweets/hashtags"
     end
+
+    namespace :search do
+      get 'users'
+      get 'hashtags'
+      get 'tweets'
+    end
   end
 end

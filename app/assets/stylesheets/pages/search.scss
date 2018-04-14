@@ -1,12 +1,52 @@
-$query-header-bg-color: $blue;
-$query-header-color: $white;
 $query-header-spacing: 1rem;
 
+$query-title-bg-color: $blue;
+$query-title-color: $white;
+$query-title-spacing: 1rem;
+
+$query-nav-bg-color: $white;
+
 .query-header {
-  background-color: $query-header-bg-color;
-  color: $query-header-color;
-  margin-top: -1rem;
   margin-bottom: $query-header-spacing;
-  padding-top: $query-header-spacing;
-  padding-bottom: $query-header-spacing;
+
+  .query-title {
+    background-color: $query-title-bg-color;
+    color: $query-title-color;
+    margin-top: -1rem;
+    padding-top: $query-title-spacing;
+    padding-bottom: $query-title-spacing;
+
+    h1, h2, h3, h4, h5,
+    h6 {
+      font-size: 1.75rem;
+      margin: 0;
+    }
+  }
+
+  .query-nav {
+    background-color: $query-nav-bg-color;
+
+    .nav-tabs {
+      border: 0;
+
+
+      .nav-item {
+        margin-bottom: 0;
+
+        .nav-link {
+          border: 0;
+          border-radius: 0;
+          color: $black--light;
+          font-weight: 600;
+          border-bottom: 2px solid transparent;
+          transition: all .3s ease;
+
+          &.active, &:hover {
+            border-color: $blue;
+            color: $blue;
+          }
+        }
+      }
+    }
+  }
 }

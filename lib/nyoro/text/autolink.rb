@@ -18,9 +18,9 @@ module Nyoro
       # CSS class for hashtag wrapper tag
       HASHTAG_CLASS = "pre-p pre-hashtag".freeze
       # URL base for auto-linked hashtags
-      HASHTAG_URL_BASE = "http://moon.co.jp/hashtags/".freeze
+      HASHTAG_URL_BASE = "/hashtags/".freeze
       # URL base for auto-linked usernames
-      USERNAME_URL_BASE = "http://moon.co.jp/".freeze
+      USERNAME_URL_BASE = "/".freeze
 
       OPTIONS = {
         username_class: USERNAME_CLASS,

@@ -1,14 +1,6 @@
 - console
 
-- content_for :title
-  title
-    | #{@hashtag_name} - Twitter
-
-- content_for :header
-  div.query-header
-    div.query-title
-      .container
-        h1 = @hashtag_name
+= render partial: 'search/header', locals: { keyword: params[:q] }
 
 - content_for :left_panel
   div.box-fix

@@ -1,0 +1,15 @@
+ul.nav.nav-tabs
+  li.nav-item
+    = link_to search_users_path(request.query_parameters),
+      class: class_names('nav-link', active: current_page?(search_users_path)) do
+      = t(:users, scope: 'views.search.shared.nav')
+
+  / li.nav-item
+  /   = link_to search_hashtags_path(request.query_parameters),
+  /     class: class_names('nav-link', active: current_page?(search_hashtags_path)) do
+  /     = t(:hashtags, scope: 'views.search.shared.nav')
+
+  li.nav-item
+    = link_to search_tweets_path(request.query_parameters),
+      class: class_names('nav-link', active: current_page?(search_tweets_path)) do
+      = t(:tweets, scope: 'views.search.shared.nav')

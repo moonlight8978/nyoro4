@@ -1,4 +1,6 @@
 class Feed::Tweet < ApplicationRecord
+  searchkick highlight: [:content]
+
   include HasExtractableContent
 
   mount_uploaders :photos, PhotoUploader

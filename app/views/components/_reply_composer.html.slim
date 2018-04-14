@@ -4,9 +4,7 @@ div.box.box-bg-blue
       div.tweet-context
         div.tweet-left
         div.tweet-right
-          = t(:reply, scope: "views.components.tweet_compose")
-          span &nbsp;
-          = link_to tweet.user.username_with_symbol, profile_path(tweet.user.username)
+          == t(:replying, scope: "views.context", username: tweet.user.username)
 
       div.tweet-compose
         div.tweet-left

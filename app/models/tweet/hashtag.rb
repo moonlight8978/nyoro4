@@ -1,4 +1,6 @@
 class Tweet::Hashtag < ApplicationRecord
+  searchkick highlight: [:name], word_middle: [:name]
+
   extend FriendlyId
   friendly_id :name, use: [:slugged, :finders]
 
@@ -7,5 +9,4 @@ class Tweet::Hashtag < ApplicationRecord
   has_many :reply_taggings, -> { where(taggable_type: 'Tweet::Reply') }, class_name: 'Tweet::Tagging'
   has_many :tweets,
     through: :tweet_taggings, class_name: 'Feed::Tweet'
-
 end

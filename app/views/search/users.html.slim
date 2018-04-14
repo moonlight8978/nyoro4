@@ -1,0 +1,12 @@
+- console
+
+= render partial: 'search/header', locals: { keyword: params[:q] }
+
+- content_for :left_panel
+  div.box-fix
+    = render_follow_suggestions_box
+    = render_footer_box
+
+div.row
+  - users.each do |user|
+    div.col-6 = user.profile_summary_box(2)

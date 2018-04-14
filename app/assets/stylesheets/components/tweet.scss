@@ -122,11 +122,11 @@
     text-decoration: none;
     @include transition-short(all);
 
-    i, span {
+    svg, span {
       vertical-align: middle;
     }
 
-    i { font-size: $tweet-action-icon-font-size }
+    svg { font-size: $tweet-action-icon-font-size }
 
     span {
       font-size: $tweet-action-count-font-size;
