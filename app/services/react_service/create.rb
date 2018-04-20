@@ -8,8 +8,8 @@ module ReactService::Create
   # Perform the service. Create reaction then create feed for newfeeds
   def perform
     ActiveRecord::Base.transaction do
-      react = react_class.create(user: reactor, "#{reactable}": tweet)
-      react.create_feed
+      react = react_class.create!(user: reactor, "#{reactable}": tweet)
+      feed = react.create_feed!
       Feed::Tweet.increment_counter(:"#{counter_column}", tweet.id)
     end
   end

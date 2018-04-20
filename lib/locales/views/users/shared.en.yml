@@ -15,6 +15,7 @@ en:
         unfollow: Unfollow
         following: Following
         tweet: Tweet
-        tweets: Tweet
+        tweets: Tweets
         reply: Reply
         replies: Replies
+        mentions: Mentions

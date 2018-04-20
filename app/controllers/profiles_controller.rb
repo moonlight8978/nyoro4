@@ -19,6 +19,13 @@ class ProfilesController < ApplicationController
     @feeds = Feed.where(id: @user.likeds)
   end
 
+  def mentions
+    @mentioned_tweets = @user.mentioned_tweets
+    @feeds = Feed
+      .includes(tweet: [:user])
+      .where(feedable: @mentioned_tweets)
+  end
+
   def current_user_profile?
     @user == current_user
   end

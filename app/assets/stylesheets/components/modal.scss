@@ -19,18 +19,22 @@ $modal-border-radius: 8px;
 //   background-size: contain;
 // }
 //
-.modal-loading {
-  padding-top: $modal-loading-spacing;
-  padding-bottom: $modal-loading-spacing;
-}
-
-.modal-dialog {
-  max-width: $modal-width;
-  margin: $modal-margin-y auto;
-  border-radius: $modal-border-radius;
-}
 
 .modal {
+  overflow-y: scroll !important;
+  padding-right: 0px !important;
+
+  .modal-loading {
+    padding-top: $modal-loading-spacing;
+    padding-bottom: $modal-loading-spacing;
+  }
+
+  .modal-dialog {
+    max-width: $modal-width;
+    margin: $modal-margin-y auto;
+    border-radius: $modal-border-radius;
+  }
+
   .box {
     margin-bottom: 0;
     &:last-child {

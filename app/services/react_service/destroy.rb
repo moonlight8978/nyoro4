@@ -8,9 +8,9 @@ module ReactService::Destroy
   # Perform the service. Create reaction then create feed for newfeeds
   def perform
     ActiveRecord::Base.transaction do
-      react_class
-        .find_by(user: reactor, "#{reactable}": tweet)
-        .destroy
+      react = react_class.find_by(user: reactor, "#{reactable}": tweet)
+      # react.feed.destroy
+      react.destroy
       Feed::Tweet.decrement_counter(:"#{counter_column}", tweet.id)
     end
   end

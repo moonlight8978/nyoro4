@@ -64,16 +64,19 @@ class User < ApplicationRecord
 
   has_many :liked_replies,     class_name: "Tweet::Reply", source: :likable, through: :likes, source_type: "Tweet::Reply"
   has_many :retweeted_replies, class_name: "Tweet::Reply", source: :retweetable, through: :retweets, source_type: "Tweet::Reply"
+
+  has_many :mentionings, class_name: "Tweet::Mentioning"
+  has_many :mentioned_tweets, class_name: "Feed::Tweet", source: :mentionable, through: :mentionings,
+  source_type: "Feed::Tweet"
+  has_many :mentioned_replies, class_name: "Tweet::Reply", source: :mentionable, through: :mentionings,
+  source_type: "Tweet::Reply"
   # scopes
 
   # class methods
   # Suggest users to follow, max is 3
   def self.suggestions_for(user)
-    # offset(rand(User.count) - 3)
-    # User.where.not(id: user.id).order("RANDOM()").limit(3)
-    User.left_joins(:followers)
-      .where("user_id IS NULL or user_followings.status = ?", User::Following.statuses[:pending])
-      .where.not(id: user.id)
+    exclude_ids = user.followings.pluck(:id) << user.id
+    User.where.not(id: exclude_ids)
       .order("RANDOM()").limit(5)
   end
 

@@ -1,0 +1,8 @@
+ul.nav.nav-tabs.nav-box.nav-box-fix.mt-3
+  li.nav-item
+    = link_to t(:tweets, scope: 'views.users.shared'), profile_path,
+      class: class_names('nav-link', active: current_page?(profile_path))
+
+  li.nav-item
+    = link_to t(:mentions, scope: 'views.users.shared'), profile_mentions_path,
+      class: class_names('nav-link', active: current_page?(profile_mentions_path))

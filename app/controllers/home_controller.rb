@@ -5,7 +5,7 @@ class HomeController < ApplicationController
 
   def index
     @feeds = FeedDecorator.decorate_collection(
-      Feed.all.includes(tweet: :user, retweet: [:tweet, :user], like: [:tweet, :user])
+      Feed.for(current_user).includes(tweet: :user, retweet: [:tweet, :user], like: [:tweet, :user])
     )
   end
 

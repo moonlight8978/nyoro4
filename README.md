@@ -70,7 +70,9 @@ postgres=# select version();
 * ~~Mention~~
 * ~~Search~~
 * ~~Fix delete tweet/reply~~
-* Profile page
+* ~~Profile page~~
+* ~~Newfeed~~
+* ~~Fix retweet/favorite counter~~
+* ~~Fix multiple modals~~
 * Tweet composer (改)
-* Newfeed
 * Support Docker

@@ -52,6 +52,17 @@
    */
   $(document).on("show.bs.modal", ".js-modal", function(event) {
     const $modal = $(this)
+
+    const zIndex = 1040 + (10 * $('.modal:visible').length)
+    $modal
+      .css('z-index', zIndex)
+
+    setTimeout(function() {
+        $('.modal-backdrop').not('.modal-stack')
+          .css('z-index', zIndex - 1)
+          .addClass('modal-stack')
+    }, 0)
+
     $modal.attr('opening', true)
   })
 
@@ -60,6 +71,7 @@
    * then replace content by loading animation
    */
   $(document).on("hidden.bs.modal", ".js-modal", function(event) {
+    $('.modal:visible').length && $(document.body).addClass('modal-open')
     const $modal = $(this)
     const $modalContent = $modal.find(".modal-content")
     $modal.removeAttr('opening')

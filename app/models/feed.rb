@@ -6,6 +6,7 @@ class Feed < ApplicationRecord
   # Polymorphic association used to show tweets, retweets and likes
   #   in homepage together
   belongs_to :feedable, polymorphic: true
+  belongs_to :user
   # For eager loadings
   belongs_to :tweet,
     foreign_key: :feedable_id,
@@ -41,14 +42,24 @@ class Feed < ApplicationRecord
       .where(
         "(feedable_type = ? AND feedable_id IN (?)) OR (feedable_type = ? AND feedable_id IN (?))",
         TWEET_CLASS,
-        Feed::Tweet.select(:id).where(user: user), 
+        Feed::Tweet.select(:id).where(user: user),
         RETWEET_CLASS,
         Feed::Retweet.select(:id).where(user: user, retweetable_type: TWEET_CLASS)
       )
       .references(:feed_tweets, :feed_retweets)
   end
+
+  def self.for(user)
+    include_ids = user.followings.pluck(:id) << user.id
+    self.where(user_id: include_ids)
+  end
   # validates
   # callbacks
+  after_initialize :store_user_id
+
+  def store_user_id
+    self.user = self.feedable.user
+  end
   # instance methods
   # Call all tweet's method from feed
   # def method_missing(method, *args, &block)

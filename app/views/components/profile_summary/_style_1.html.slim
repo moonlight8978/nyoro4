@@ -13,7 +13,7 @@ div.box
               span.profile-stat-item-label
                 = t(:tweets, scope: 'views.users.shared')
               span.profile-stat-item-value
-                | 6
+                = Feed.tweets_of(user).count
             = link_to profile_following_path(user.username), class: 'profile-stat-item' do
               span.profile-stat-item-label
                 = t(:following, scope: 'views.users.shared')

@@ -100,26 +100,25 @@
   /**
    * React button. Use ".btn-undo" to mark reacted tweet
    */
-  $(document).on("click", ".js-btn-react", function(event) {
+  $(document).on("click", ".js-btn-react", async function(event) {
     event.preventDefault()
 
     const $this = $(this)
+    const $txt = $this.find('span')
     const path = $this.attr('href')
 
-    if ($this.is('.btn-undo')) {
-      axios
-        .delete(path)
-        .then((response) => {
-          $this.trigger("react:untouched")
-        })
-        .catch(error => console.log(error)) //debug
-    } else {
-      axios
-        .post(path)
-        .then((response) => {
-          $this.trigger("react:touched")
-        })
-        .catch(error => console.log(error)) //debug
+    try {
+      let response
+      if ($this.is('.btn-undo')) {
+        response = await axios.delete(path)
+        $this.trigger("react:untouched")
+      } else {
+        response = await axios.post(path)
+        $this.trigger("react:touched")
+      }
+      $txt.text(response.data.count)
+    } catch (error) {
+      console.log(error)
     }
   })
 
