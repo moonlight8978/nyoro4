@@ -38,13 +38,13 @@ div.profile-header-container
                     = t(:followers, scope: "views.users.shared")
                   span.profile-stat-value
                     = user.followers.count
-              li.nav-item
-                = link_to profile_likes_path(user.username),
-                  class: class_names("nav-link", active: profile_likes_path?(user)) do
-                  span.profile-stat-label
-                    = t(:likes, scope: "views.users.shared")
-                  span.profile-stat-value
-                    | 169
+              / li.nav-item
+              /   = link_to profile_likes_path(user.username),
+              /     class: class_names("nav-link", active: profile_likes_path?(user)) do
+              /     span.profile-stat-label
+              /       = t(:likes, scope: "views.users.shared")
+              /     span.profile-stat-value
+              /       | 169
 
             - unless current_user_profile?
               = user.follow_buttons

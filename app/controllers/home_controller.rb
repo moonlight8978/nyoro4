@@ -4,9 +4,11 @@ class HomeController < ApplicationController
   decorates_assigned :feeds
 
   def index
-    @feeds = FeedDecorator.decorate_collection(
-      Feed.for(current_user).includes(tweet: :user, retweet: [:tweet, :user], like: [:tweet, :user])
-    )
+    if user_signed_in?
+      @feeds = FeedDecorator.decorate_collection(
+        Feed.for(current_user).includes(tweet: :user, retweet: [:tweet, :user], like: [:tweet, :user])
+      )
+    end
   end
 
 private

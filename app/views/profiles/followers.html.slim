@@ -1,5 +1,3 @@
-- console
-
 = content_for :title
   title
     = t(:followers, scope: "views.title.profiles",
@@ -14,5 +12,5 @@
 div.mt-3
   div.row
     - user_followers.each do |follower|
-      div.col-6
-        =  user.profile_summary_box(1, include_extras: true)
+      div.col-6.mb-3
+        =  follower.profile_summary_box(1, include_extras: true)
